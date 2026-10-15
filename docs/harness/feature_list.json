@@ -5,6 +5,7 @@
     {"id": "runner-registry", "description": "Stable names and explicit unavailable adapters", "passes": true},
     {"id": "framework-adapters", "description": "Five real framework adapters conforming to TriageRunner", "passes": true},
     {"id": "langgraph-recovery-hitl", "description": "SQLite checkpoint recovery and HITL pause/resume", "passes": true},
-    {"id": "comparison-and-docs", "description": "Honest fake-mode comparison, bilingual README, and knowledge guide", "passes": true}
+    {"id": "run-checkpoint-identity", "description": "Fresh checkpoint identity per execution; explicit resume key supports cross-process recovery", "passes": true},
+    {"id": "comparison-and-docs", "description": "Comparison documentation and P00 60-case adapter coverage", "passes": true, "status": "PASS", "evidence": "artifacts/evidence/check-full.txt; all six adapters exercised 60 versioned P00 cases; unsupported P00 semantics are listed per case."}
   ]
 }

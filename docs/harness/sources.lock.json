@@ -5,6 +5,19 @@
     "source": "command: python --version",
     "third_party_dependencies": []
   },
+  "package_consumers": [
+    {
+      "package": "supportops-foundation",
+      "version": "1.0.1",
+      "source_commit": "607b7603bd40728ffa58745badac0ffd10c70090",
+      "wheel": "../p00/artifacts/packages/supportops_foundation-1.0.1-py3-none-any.whl",
+      "wheel_sha256": "DF4292756676D02490A908B609B8F9474F35F3C5F56131809F3E4A83659B4795",
+      "consumer_test": "uv run --isolated --offline --with ..\\p00\\artifacts\\packages\\supportops_foundation-1.0.1-py3-none-any.whl python scripts/export_p00_golden.py --wheel ..\\p00\\artifacts\\packages\\supportops_foundation-1.0.1-py3-none-any.whl --source-commit 607b7603bd40728ffa58745badac0ffd10c70090 --wheel-sha256 DF4292756676D02490A908B609B8F9474F35F3C5F56131809F3E4A83659B4795",
+      "consumer_test_exit_code": 0,
+      "consumer_output": "artifacts/fixtures/p00-golden-1.0.1.json",
+      "note": "Wheel-installed package generates the fixture in an isolated consumer environment. P01 framework runtime remains on its locked environment because P00 pins Pydantic 2.14.1 while CrewAI 1.15.28 requires Pydantic <2.13."
+    }
+  ],
   "build_backend": {
     "name": "uv_build",
     "version": "0.12.7",

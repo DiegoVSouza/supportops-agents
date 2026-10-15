@@ -1,0 +1,1 @@
+This records an initial offline install attempt, which could not resolve uncached `pydantic-core==2.50.1` and exited 1. The later isolated consumer command in `p00-wheel-consumer.txt` exited 0 and exported all 60 cases. The attempted shared runtime installation exposed a separate resolver conflict recorded in `p00-wheel-runtime-conflict.txt`.

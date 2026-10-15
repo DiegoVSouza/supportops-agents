@@ -48,23 +48,49 @@ class LangGraphRunnerTests(unittest.TestCase):
 
     def test_interrupt_can_resume_after_constructing_a_new_runner(self):
         llm = FakeLLMClient({"billing_agent": [{"context": "refund found", "refund_amount": 250}]})
-        result = self.runner().run(self.ticket, llm=llm)
+        runner = self.runner()
+        result = runner.run(self.ticket, llm=llm)
         self.assertEqual(result.stop_reason, "escalated")
         self.assertIn("pending", result.decision.reason)
 
-        resumed = self.runner().resume(self.ticket, llm=llm, approved=True)
+        resumed = runner.resume(self.ticket, llm=llm, approved=True)
         self.assertEqual(resumed.stop_reason, "approved")
         self.assertTrue(resumed.decision.approved)
 
+    def test_repeated_ticket_gets_fresh_checkpoint_without_resume_key(self):
+        runner = self.runner()
+        threads = []
+        invoke = runner._invoke
+
+        def capture_thread(state, llm, thread):
+            threads.append(thread)
+            return invoke(state, llm, thread)
+
+        runner._invoke = capture_thread
+        first_llm = FakeLLMClient({"billing_agent": [{"context": "refund found", "refund_amount": 250}]})
+        first = runner.run(self.ticket, llm=first_llm)
+        self.assertEqual(first.stop_reason, "escalated")
+        self.assertIn("pending", first.decision.reason)
+
+        second_llm = FakeLLMClient()
+        second = runner.run(self.ticket, llm=second_llm)
+        self.assertEqual(second.stop_reason, "approved")
+        self.assertTrue(second.decision.approved)
+        self.assertEqual({name for name, _ in second_llm.calls},
+                         {"classifier", "kb_researcher", "billing_agent", "responder"})
+        self.assertNotEqual(threads[0], threads[1], "fresh runs of one ticket must use separate checkpoint identities")
+
     def test_human_denial_escalates_without_responder(self):
         llm = FakeLLMClient({"billing_agent": [{"context": "refund found", "refund_amount": 250}]})
-        self.runner().run(self.ticket, llm=llm)
-        resumed = self.runner().resume(self.ticket, llm=llm, approved=False)
+        runner = self.runner()
+        runner.run(self.ticket, llm=llm)
+        resumed = runner.resume(self.ticket, llm=llm, approved=False)
         self.assertEqual(resumed.stop_reason, "escalated")
         self.assertIn("denied", resumed.decision.reason)
 
     def test_checkpoint_survives_process_exit_and_resumes_in_a_second_process(self):
         ticket_id = "lg-process-resume"
+        resume_key = "approval-1"
         source_root = Path(__file__).resolve().parents[1] / "src"
         env = os.environ.copy()
         env["PYTHONPATH"] = str(source_root)
@@ -76,7 +102,7 @@ class LangGraphRunnerTests(unittest.TestCase):
             "from supportops_agents.frameworks.langgraph_runner import LangGraphTriageRunner; "
             f"ticket=Ticket({ticket_id!r}, 'Refund', 'Review it'); "
             f"runner=LangGraphTriageRunner({str(self.database)!r}); "
-            f"result=runner.run(ticket, llm=FakeLLMClient({high_refund})); "
+            f"result=runner.run(ticket, llm=FakeLLMClient({high_refund}), resume_key={resume_key!r}); "
             "print(result.stop_reason, result.decision.reason)"
         )
         first = subprocess.run([sys.executable, "-c", first_code], env=env, text=True,
@@ -90,7 +116,7 @@ class LangGraphRunnerTests(unittest.TestCase):
             "from supportops_agents.frameworks.langgraph_runner import LangGraphTriageRunner; "
             f"ticket=Ticket({ticket_id!r}, 'Refund', 'Review it'); "
             f"runner=LangGraphTriageRunner({str(self.database)!r}); "
-            f"result=runner.resume(ticket, llm=FakeLLMClient({high_refund}), approved=True); "
+            f"result=runner.resume(ticket, llm=FakeLLMClient({high_refund}), approved=True, resume_key={resume_key!r}); "
             "print(result.stop_reason)"
         )
         second = subprocess.run([sys.executable, "-c", second_code], env=env, text=True,

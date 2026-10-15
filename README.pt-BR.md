@@ -1,6 +1,6 @@
 # P01 — Orquestração multiagente
 
-Este projeto implementa triagem de tickets de SupportOps com um supervisor-worker determinístico e o contrato comum `TriageRunner`. Os doubles locais de domínio permanecem até que P00 publique um pacote versionado e aprovado. A demonstração disponível usa `LLM_MODE=fake`, a biblioteca padrão do Python e não chama provedores de modelos.
+Este projeto implementa triagem de tickets de SupportOps com um supervisor-worker determinístico e o contrato comum `TriageRunner`. Os contratos de runtime `Ticket` e `TriageDecision` continuam como doubles locais do P01. O P01 instala o wheel aprovado P00 1.0.1 em ambiente isolado para exportar o golden set versionado; versão, commit de origem, SHA-256 e comando consumidor estão em `docs/harness/sources.lock.json`. O runtime usa `LLM_MODE=fake` e não chama provedores de modelos.
 
 ## Arquitetura
 
@@ -28,7 +28,7 @@ Cada validação grava comando, código de saída e saída em `artifacts/evidenc
 
 O resultado fake verifica apenas o fluxo de controle determinístico; não mede qualidade de modelo. Precisão, tokens, custo e latência de modelo ficam `PENDING`. Os seis runners estão implementados e passam os contratos sintéticos; a avaliação de qualidade com modelo real não foi executada.
 
-Os contratos `Ticket` e `TriageDecision` são doubles locais e não importam código de repositórios irmãos. A integração P00 depende de pacote instalado por versão, commit de origem e hash do artefato. Consulte [ADR-001](docs/decisions/ADR-001-framework-scope.md) para a decisão sobre os frameworks Microsoft.
+Os contratos `Ticket` e `TriageDecision` são doubles locais e não importam código de repositórios irmãos. O relatório exercita os 60 casos do wheel P00 instalado, mas os campos de decisão sem equivalente no contrato P01 são marcados caso a caso. O uso do wheel junto com CrewAI no mesmo ambiente está bloqueado pelas versões incompatíveis de Pydantic; o exportador roda isoladamente. Consulte [ADR-001](docs/decisions/ADR-001-framework-scope.md) para a decisão sobre os frameworks Microsoft.
 
 ## Resposta de entrevista
 

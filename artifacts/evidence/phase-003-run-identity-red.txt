@@ -1,0 +1,6 @@
+command=uv run --locked python -m unittest discover -s tests -p test_langgraph.py
+exit_code=1
+output:
+Before the fix, the repeated-ticket regression failed because only one checkpoint invocation was captured; the second same-ticket call returned the prior pending interrupt instead of invoking the fresh fake run. The cross-process resume regression failed with `TypeError: LangGraphTriageRunner.run() got an unexpected keyword argument 'resume_key'`. The command reported `Ran 8 tests` and `FAILED (failures=1, errors=1)`.
+
+This is baseline evidence captured before the implementation change. The fixed focused run and full gate are recorded in `check-fast.txt` and `check-full.txt`.

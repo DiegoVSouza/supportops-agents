@@ -5,8 +5,10 @@ from __future__ import annotations
 import operator
 import os
 import sqlite3
+from hashlib import sha256
 from pathlib import Path
 from typing import Annotated, Any, TypedDict
+from uuid import uuid4
 
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import END, START, StateGraph
@@ -40,9 +42,12 @@ class LangGraphTriageRunner:
         self.refund_limit = refund_limit
         self._threads: dict[str, str] = {}
 
-    def run(self, ticket: Ticket, *, llm: LLMClient, max_steps: int = 12) -> TriageResult:
+    def run(self, ticket: Ticket, *, llm: LLMClient, max_steps: int = 12,
+            resume_key: str | None = None) -> TriageResult:
         _validate_run(ticket, max_steps)
-        thread = ticket.id
+        if resume_key is not None and (not isinstance(resume_key, str) or not resume_key.strip()):
+            raise ValueError("resume_key must be a non-empty string")
+        thread = _resume_thread_id(ticket.id, resume_key) if resume_key is not None else f"run:{uuid4().hex}"
         self._threads[ticket.id] = thread
         state = _initial_state(ticket, max_steps)
         result = self._invoke(state, llm, thread)
@@ -50,11 +55,19 @@ class LangGraphTriageRunner:
             return _result(result, "escalated", "Human approval is pending; resume this runner with resume().")
         return _finish(result)
 
-    def resume(self, ticket: Ticket, *, llm: LLMClient, approved: bool) -> TriageResult:
-        """Resume a pending human interrupt for the ticket's latest run."""
-        thread = self._threads.get(ticket.id, ticket.id)
+    def resume(self, ticket: Ticket, *, llm: LLMClient, approved: bool,
+               resume_key: str | None = None) -> TriageResult:
+        """Resume a pending interrupt using its explicit key or this runner's latest run."""
+        if not isinstance(ticket, Ticket):
+            raise TypeError("ticket must be a Ticket")
         if not isinstance(approved, bool):
             raise TypeError("approved must be bool")
+        if resume_key is not None and (not isinstance(resume_key, str) or not resume_key.strip()):
+            raise ValueError("resume_key must be a non-empty string")
+        thread = (_resume_thread_id(ticket.id, resume_key) if resume_key is not None
+                  else self._threads.get(ticket.id))
+        if thread is None:
+            raise ValueError("no run is available to resume; supply its resume_key")
         state = self._invoke(Command(resume=approved), llm, thread)
         return _finish(state)
 
@@ -165,6 +178,11 @@ def _validate_run(ticket: Ticket, max_steps: int) -> None:
         raise TypeError("ticket must be a Ticket")
     if isinstance(max_steps, bool) or not isinstance(max_steps, int) or max_steps < 1:
         raise ValueError("max_steps must be a positive integer")
+
+
+def _resume_thread_id(ticket_id: str, resume_key: str) -> str:
+    identity = sha256(f"{ticket_id}\0{resume_key}".encode("utf-8")).hexdigest()
+    return f"resume:{identity}"
 
 
 def _initial_state(ticket: Ticket, max_steps: int) -> GraphState:

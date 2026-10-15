@@ -23,7 +23,7 @@ Loops surgem quando nenhum critério explícito encerra a execução ou quando r
 - **Semantic Kernel clássico:** compatibilidade com aplicações que usam Kernel e plugins; não confundir com o sucessor Microsoft Agent Framework.
 - **LlamaIndex Workflows:** aplicações cuja orquestração acompanha ingestão, retrieval e componentes de dados. As páginas oficiais recomendam Workflows para novos fluxos, em vez de QueryPipeline.
 
-Esses cenários são orientação de arquitetura, não resultados de benchmark deste projeto. Os cinco adapters de framework executam o golden set fake; a qualidade com modelo real não foi avaliada.
+Esses cenários são orientação de arquitetura, não resultados de benchmark deste projeto. Os cinco adapters de framework executam os 60 casos P00 em modo fake; os resultados indicam os campos e as distinções de ação sem equivalente no contrato P01. O fixture veio do wheel instalado P00 1.0.1, com commit e SHA-256 registrados. A qualidade com modelo real não foi avaliada.
 
 ## Fontes oficiais consultadas
 
