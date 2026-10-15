@@ -5,6 +5,12 @@
     "source": "command: python --version",
     "third_party_dependencies": []
   },
+  "build_backend": {
+    "name": "uv_build",
+    "version": "0.12.7",
+    "source": "https://docs.astral.sh/uv/configuration/build-backend/",
+    "package_lock": "pyproject.toml [build-system]"
+  },
   "framework_research": [
     {
       "name": "LangGraph Python",

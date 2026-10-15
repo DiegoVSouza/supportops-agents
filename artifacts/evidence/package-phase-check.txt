@@ -1,0 +1,3 @@
+command=uv run --group frameworks python scripts/check_fast.py
+exit_code=0
+output=artifacts/evidence/package-phase-check-output.txt

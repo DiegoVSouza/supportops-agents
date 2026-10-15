@@ -26,6 +26,6 @@ test_all_runners_propagate_worker_escalations (test_runner_contract.SharedRunner
 test_all_runners_stop_at_the_shared_step_boundary (test_runner_contract.SharedRunnerContractTests.test_all_runners_stop_at_the_shared_step_boundary) ... ok
 
 ----------------------------------------------------------------------
-Ran 19 tests in 12.275s
+Ran 19 tests in 12.118s
 
 OK

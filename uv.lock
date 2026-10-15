@@ -2981,7 +2981,7 @@ wheels = [
 [[package]]
 name = "supportops-agents"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 
 [package.dev-dependencies]
 frameworks = [
