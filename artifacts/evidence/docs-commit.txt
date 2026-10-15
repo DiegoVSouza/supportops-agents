@@ -1,0 +1,8 @@
+# Documentation commit evidence
+
+- Repository root: `C:/estudo/Golpe/lab/projects/p01` — `git rev-parse --show-toplevel`, exit 0, output `C:/estudo/Golpe/lab/projects/p01`.
+- Branch: `git branch --show-current`, exit 0, output `main`.
+- Staged whitespace check: `git -c core.whitespace=cr-at-eol diff --cached --check`, exit 0, no output.
+- Commit: `git commit -m "docs(orchestration): document runners and project results"`, exit 0, output `[main d832f70] docs(orchestration): document runners and project results`.
+- Commit hash: `d832f70fb97383ca9a984e6fd0b152e9c1409fd0`.
+- Post-commit status: `git status --short`, exit 0, no output.
