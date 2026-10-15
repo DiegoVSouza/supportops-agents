@@ -1,0 +1,18 @@
+command=python -m unittest discover -s tests -v
+exit_code=0
+test_approved_response_runs_all_workers_in_order (test_core.CoreRunnerTests.test_approved_response_runs_all_workers_in_order) ... ok
+test_billing_can_escalate (test_core.CoreRunnerTests.test_billing_can_escalate) ... ok
+test_classifier_can_escalate_without_contacting_more_workers (test_core.CoreRunnerTests.test_classifier_can_escalate_without_contacting_more_workers) ... ok
+test_never_approved_response_stops_at_exact_step_limit (test_core.CoreRunnerTests.test_never_approved_response_stops_at_exact_step_limit) ... ok
+test_registry_does_not_impersonate_missing_framework (test_core.CoreRunnerTests.test_registry_does_not_impersonate_missing_framework) ... ok
+test_rejects_malformed_worker_output (test_core.CoreRunnerTests.test_rejects_malformed_worker_output) ... ok
+test_rejects_zero_or_invalid_step_budget (test_core.CoreRunnerTests.test_rejects_zero_or_invalid_step_budget) ... ok
+test_step_boundary_allows_final_step_approval (test_core.CoreRunnerTests.test_step_boundary_allows_final_step_approval) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK
+
+command=python -m compileall -q src tests
+exit_code=0
