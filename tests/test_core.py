@@ -57,8 +57,11 @@ class CoreRunnerTests(unittest.TestCase):
 
     def test_registry_does_not_impersonate_missing_framework(self):
         self.assertEqual(get_runner("core").name, "core")
-        with self.assertRaises(RunnerUnavailable):
-            get_runner("langgraph")
+        self.assertEqual(get_runner("langgraph").name, "langgraph")
+        self.assertEqual(get_runner("crewai").name, "crewai")
+        self.assertEqual(get_runner("autogen").name, "autogen")
+        self.assertEqual(get_runner("semantic_kernel").name, "semantic_kernel")
+        self.assertEqual(get_runner("llamaindex").name, "llamaindex")
         with self.assertRaises(ValueError):
             get_runner("not-a-runner")
 

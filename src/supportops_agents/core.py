@@ -96,4 +96,4 @@ def _result(state: SharedState, stop_reason: str) -> TriageResult:
     action = "escalate" if stop_reason != "approved" else "respond"
     decision = TriageDecision(action=action, category=state.category, response=state.response,
                               approved=state.approved, reason=state.escalation_reason)
-    return TriageResult(decision=decision, trace=tuple(state.trace), usage=Usage(), stop_reason=stop_reason)
+    return TriageResult(decision=decision, trace=list(state.trace), usage=Usage(), stop_reason=stop_reason)

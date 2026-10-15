@@ -1,0 +1,14 @@
+command=uv sync --group frameworks --locked
+exit_code=0
+Resolved 220 packages in 0.99ms
+Checked 217 packages in 22ms
+
+
+command=uv run --group frameworks python -c [framework package versions]
+exit_code=0
+langgraph==1.1.10
+langgraph-checkpoint-sqlite==3.1.2
+crewai==1.15.28
+autogen-agentchat==0.7.5
+semantic-kernel==1.45.0
+llama-index-core==0.14.25

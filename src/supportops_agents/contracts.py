@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Literal, Mapping, Protocol, Sequence
+from typing import Any, Literal, Mapping, Protocol
 
 
 @dataclass(frozen=True)
@@ -43,7 +43,7 @@ class Usage:
 @dataclass(frozen=True)
 class TriageResult:
     decision: TriageDecision
-    trace: Sequence[StepRecord]
+    trace: list[StepRecord]
     usage: Usage = field(default_factory=Usage)
     stop_reason: Literal["approved", "escalated", "max_steps"] = "approved"
 

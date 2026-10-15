@@ -1,0 +1,3 @@
+command=git commit -m feat(core): add bounded supervisor worker triage
+exit_code=0
+commit=bd91bb51137c4e86add0710dc485436f10457536

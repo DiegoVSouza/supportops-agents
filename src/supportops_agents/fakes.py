@@ -1,6 +1,6 @@
 """Scriptable fake LLM boundary for deterministic local behavior tests."""
 
-from collections import defaultdict, deque
+from collections import deque
 from typing import Any, Mapping
 
 

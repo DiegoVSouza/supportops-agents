@@ -1,0 +1,7 @@
+command=python --version
+exit_code=0
+Python 3.13.12
+
+command=python -c [framework distribution inventory]
+exit_code=0
+[('langgraph', '1.1.10'), ('langgraph-checkpoint-sqlite', 'not-installed'), ('crewai', 'not-installed'), ('autogen-agentchat', 'not-installed'), ('semantic-kernel', 'not-installed'), ('llama-index-core', 'not-installed')]

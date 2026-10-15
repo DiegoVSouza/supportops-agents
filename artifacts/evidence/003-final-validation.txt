@@ -1,0 +1,5 @@
+command=python scripts/check_fast.py
+exit_code=0
+
+command=python scripts/check_full.py
+exit_code=2 (2 denotes explicit INCOMPLETE product gate)

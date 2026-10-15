@@ -1,0 +1,2 @@
+command=uv run --group frameworks python scripts/check_full.py
+exit_code=0

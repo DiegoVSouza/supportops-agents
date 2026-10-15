@@ -1,0 +1,2 @@
+command=python scripts/check_fast.py
+exit_code=0

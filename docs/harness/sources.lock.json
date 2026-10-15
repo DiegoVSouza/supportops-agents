@@ -1,0 +1,54 @@
+{
+  "checked_on": "2026-10-15",
+  "runtime": {
+    "python": "3.13.12",
+    "source": "command: python --version",
+    "third_party_dependencies": []
+  },
+  "framework_research": [
+    {
+      "name": "LangGraph Python",
+      "version": "1.1.10",
+      "source": "https://langchain-ai.github.io/langgraph/",
+      "topics": ["interrupts", "persistence", "retry policy"],
+      "sqlite_checkpoint_extra": "langgraph-checkpoint-sqlite==3.1.2",
+      "package_lock": "uv.lock"
+    },
+    {
+      "name": "CrewAI",
+      "version": "1.15.28",
+      "source": "https://docs.crewai.com/core-concepts/Agents",
+      "topics": ["agents", "crews", "flows"],
+      "package_lock": "uv.lock"
+    },
+    {
+      "name": "AutoGen classic",
+      "version": "0.7.5",
+      "source": "https://microsoft.github.io/autogen/stable/",
+      "migration_source": "https://learn.microsoft.com/agent-framework/migration-guide/from-autogen",
+      "decision": "ADR-001 preserves classic runner identity; Microsoft Agent Framework is a separate successor.",
+      "package_lock": "uv.lock"
+    },
+    {
+      "name": "Semantic Kernel classic",
+      "version": "1.45.0",
+      "source": "https://learn.microsoft.com/semantic-kernel/overview/",
+      "migration_source": "https://learn.microsoft.com/agent-framework/migration-guide/from-semantic-kernel",
+      "decision": "ADR-001 preserves classic runner identity; Microsoft Agent Framework is a separate successor.",
+      "package_lock": "uv.lock"
+    },
+    {
+      "name": "LlamaIndex Workflows",
+      "version": "0.14.25",
+      "source": "https://docs.llamaindex.ai/en/stable/module_guides/workflow/",
+      "note": "Official docs deprecate QueryPipeline in favor of Workflows.",
+      "package_lock": "uv.lock"
+    },
+    {
+      "name": "Microsoft Agent Framework",
+      "version": "1.0 announced 2026-04-03; not a P01 runner",
+      "source": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/",
+      "status": "successor research input only; see ADR-001"
+    }
+  ]
+}

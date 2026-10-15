@@ -1,0 +1,290 @@
+{
+  "mode": "fake",
+  "run_kind": "synthetic_contract_smoke",
+  "evaluation_metrics": "PENDING",
+  "golden_case_count": 3,
+  "runners": [
+    {
+      "runner": "core",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Low setup; manual loop",
+        "flow": "Explicit bounded supervisor loop",
+        "state": "In-memory typed state",
+        "maturity": "Project-owned core",
+        "observability": "Common per-step trace"
+      },
+      "cases": [
+        {
+          "case_id": "duplicate-charge",
+          "expected_action": "respond",
+          "observed_action": "respond",
+          "contract_match": true,
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "safety-escalation",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "refund-review",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 3
+        }
+      ],
+      "implementation_source_lines": 99,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 8.899999920686241e-05
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "langgraph",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Graph concepts required",
+        "flow": "Parallel fan-out, conditional edges, node retry",
+        "state": "SQLite checkpoint and resumable interrupt",
+        "maturity": "LangGraph 1.1.10 pinned",
+        "observability": "Graph checkpoints plus common trace"
+      },
+      "cases": [
+        {
+          "case_id": "duplicate-charge",
+          "expected_action": "respond",
+          "observed_action": "respond",
+          "contract_match": true,
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "safety-escalation",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "refund-review",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 3
+        }
+      ],
+      "implementation_source_lines": 196,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.0904936999995698
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "crewai",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Flow decorator API",
+        "flow": "Start/listener Flow methods",
+        "state": "Per-run Flow object",
+        "maturity": "CrewAI 1.15.28 pinned",
+        "observability": "Common trace; Flow events not exported"
+      },
+      "cases": [
+        {
+          "case_id": "duplicate-charge",
+          "expected_action": "respond",
+          "observed_action": "respond",
+          "contract_match": true,
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "safety-escalation",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "refund-review",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 3
+        }
+      ],
+      "implementation_source_lines": 106,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 1.6293224999990343
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "autogen",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Runtime registration and message types",
+        "flow": "Routed AutoGen Core messages",
+        "state": "Runtime-local; no durable checkpoint",
+        "maturity": "AutoGen 0.7.5 classic; successor noted in ADR-001",
+        "observability": "Common trace; framework event logs not exported"
+      },
+      "cases": [
+        {
+          "case_id": "duplicate-charge",
+          "expected_action": "respond",
+          "observed_action": "respond",
+          "contract_match": true,
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "safety-escalation",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "refund-review",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 3
+        }
+      ],
+      "implementation_source_lines": 94,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.005088200001409859
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "semantic_kernel",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Kernel and plugin registration",
+        "flow": "Sequential plugin invocation",
+        "state": "Per-run Kernel",
+        "maturity": "Semantic Kernel 1.45.0 classic; successor noted in ADR-001",
+        "observability": "Common trace; no telemetry exporter configured"
+      },
+      "cases": [
+        {
+          "case_id": "duplicate-charge",
+          "expected_action": "respond",
+          "observed_action": "respond",
+          "contract_match": true,
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "safety-escalation",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "refund-review",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 3
+        }
+      ],
+      "implementation_source_lines": 80,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.0038206999997782987
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "llamaindex",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Typed event workflow API",
+        "flow": "Workflow steps and responder loop",
+        "state": "Event-carried state",
+        "maturity": "LlamaIndex 0.14.25 Workflows; QueryPipeline deprecated",
+        "observability": "Workflow events plus common trace"
+      },
+      "cases": [
+        {
+          "case_id": "duplicate-charge",
+          "expected_action": "respond",
+          "observed_action": "respond",
+          "contract_match": true,
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "safety-escalation",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "refund-review",
+          "expected_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "stop_reason": "escalated",
+          "steps": 3
+        }
+      ],
+      "implementation_source_lines": 130,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.040203399999882095
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    }
+  ]
+}
