@@ -10,3 +10,7 @@
 ## Gate
 - Retain exact command, exit code, stdout/stderr, source commit, version, and wheel SHA-256 in `artifacts/evidence/package-wheel.md`.
 - No package publication, push, or external registry use.
+
+## Result
+- P01 wheel build and isolated installation smoke: passed; see `artifacts/evidence/package-wheel.md`.
+- P05 consumption of the installed wheel: pending consumer integration. P00's approved domain package is still required separately.
