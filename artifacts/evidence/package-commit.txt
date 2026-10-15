@@ -1,0 +1,8 @@
+# Wheel artifact commit evidence
+
+- Repository root: `C:/estudo/Golpe/lab/projects/p01` — `git rev-parse --show-toplevel`, exit 0, output `C:/estudo/Golpe/lab/projects/p01`.
+- Branch: `git branch --show-current`, exit 0, output `main`.
+- Staged whitespace check: `git -c core.whitespace=cr-at-eol diff --cached --check`, exit 0, no output.
+- Commit: `git commit -m "build(package): add verified local triage wheel"`, exit 0, output `[main 2cb7526] build(package): add verified local triage wheel`.
+- Commit hash: `2cb752600307daaff52930786862cedf0f711855`.
+- Post-commit status: `git status --short`, exit 0, no output.
