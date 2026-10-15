@@ -1,0 +1,8 @@
+git rev-parse --show-toplevel
+C:/estudo/Golpe/lab/projects/p01
+exit_code=0
+required_intake_files=5
+missing=
+exit_code=0
+status:
+ M docs/harness/decisions.md  M harness.yaml ?? .planning/
