@@ -1,3 +1,10 @@
 {
-  "features": []
+  "features": [
+    {"id": "core-supervisor", "description": "Bounded supervisor-worker runner with shared state", "passes": true},
+    {"id": "core-stop-conditions", "description": "Approval, escalation, max steps, and malformed worker outputs", "passes": true},
+    {"id": "runner-registry", "description": "Stable names and explicit unavailable adapters", "passes": true},
+    {"id": "framework-adapters", "description": "Five real framework adapters conforming to TriageRunner", "passes": true},
+    {"id": "langgraph-recovery-hitl", "description": "SQLite checkpoint recovery and HITL pause/resume", "passes": true},
+    {"id": "comparison-and-docs", "description": "Honest fake-mode comparison, bilingual README, and knowledge guide", "passes": true}
+  ]
 }
