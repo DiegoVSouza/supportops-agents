@@ -1,10 +1,10 @@
 # P01 — Orquestração multiagente
 
-Este projeto implementa triagem de tickets de SupportOps com um supervisor-worker determinístico e o contrato comum `TriageRunner`. Os contratos de runtime `Ticket` e `TriageDecision` continuam como doubles locais do P01. O P01 instala o wheel aprovado P00 1.0.1 em ambiente isolado para exportar o golden set versionado; versão, commit de origem, SHA-256 e comando consumidor estão em `docs/harness/sources.lock.json`. O runtime usa `LLM_MODE=fake` e não chama provedores de modelos.
+Este projeto trata tickets de SupportOps com um supervisor determinístico e o contrato comum `TriageRunner`. `Ticket` e `TriageDecision` continuam doubles locais do P01. O wheel P00 1.0.1 é instalado isoladamente para exportar o conjunto dourado; versão, commit de origem, SHA-256 e comando consumidor ficam em `docs/harness/sources.lock.json`. O runtime roda em `LLM_MODE=fake` e não chama provedores.
 
 ## Arquitetura
 
-O fluxo executável classifica o ticket, busca contexto de conhecimento, verifica cobrança e prepara uma resposta. O supervisor encerra com resposta aprovada, escalonamento ou limite de passos. Os seis runners têm integrações fake-mode executáveis; LangGraph também usa branches paralelos, retries, checkpoint SQLite e interrupção de aprovação humana. Consulte os detalhes em [README.md](README.md).
+O fluxo classifica o ticket, busca contexto, verifica cobrança e prepara a resposta. Ele termina com aprovação, escalonamento ou limite de passos. Os seis runners funcionam em fake mode; LangGraph também cobre paralelismo, retries, checkpoint SQLite e pausa para aprovação humana. Os diagramas e detalhes ficam no [README.md](README.md).
 
 ## Como executar
 
@@ -26,7 +26,7 @@ Cada validação grava comando, código de saída e saída em `artifacts/evidenc
 
 ## Resultados e limitações
 
-O resultado fake verifica apenas o fluxo de controle determinístico; não mede qualidade de modelo. Precisão, tokens, custo e latência de modelo ficam `PENDING`. Os seis runners estão implementados e passam os contratos sintéticos; a avaliação de qualidade com modelo real não foi executada.
+O resultado fake cobre fluxo de controle, não qualidade de modelo. Precisão, tokens, custo e latência continuam `PENDING`. Os seis runners passam os contratos sintéticos; ainda não existe avaliação com modelo real.
 
 Os contratos `Ticket` e `TriageDecision` são doubles locais e não importam código de repositórios irmãos. O relatório exercita os 60 casos do wheel P00 instalado, mas os campos de decisão sem equivalente no contrato P01 são marcados caso a caso. O uso do wheel junto com CrewAI no mesmo ambiente está bloqueado pelas versões incompatíveis de Pydantic; o exportador roda isoladamente. Consulte [ADR-001](docs/decisions/ADR-001-framework-scope.md) para a decisão sobre os frameworks Microsoft.
 
