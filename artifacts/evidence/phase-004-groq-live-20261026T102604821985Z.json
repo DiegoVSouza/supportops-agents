@@ -1,0 +1,28 @@
+{
+  "action": "escalate",
+  "agent_order": [
+    "classifier"
+  ],
+  "api_calls": 1,
+  "assertions": {
+    "action": false,
+    "approved": false,
+    "category": true,
+    "four_steps": false,
+    "step_order": false
+  },
+  "budget_cap_usd": 0.01,
+  "category": "shipping",
+  "credential_count": 5,
+  "estimated_cost_usd": 6.083e-05,
+  "exit_code": 1,
+  "finished_at_utc": "2026-10-26T10:26:04.821731+00:00",
+  "input_tokens": 223,
+  "model": "openai/gpt-oss-20b",
+  "model_available_key_count": 5,
+  "output_tokens": 147,
+  "provider": "groq",
+  "started_at_utc": "2026-10-26T10:26:01.394119+00:00",
+  "status": "FAIL",
+  "step_count": 1
+}

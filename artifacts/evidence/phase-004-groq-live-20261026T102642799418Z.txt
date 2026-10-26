@@ -1,0 +1,3 @@
+Command: LLM_MODE=live python scripts/run_live_groq_eval.py
+Exit code: 0
+Sanitized result: {"action": "respond", "agent_order": ["classifier", "kb_researcher", "billing_agent", "responder"], "api_calls": 4, "assertions": {"action": true, "approved": true, "category": true, "four_steps": true, "step_order": true}, "budget_cap_usd": 0.01, "category": "billing", "credential_count": 5, "estimated_cost_usd": 0.00020948, "exit_code": 0, "failure_category": null, "finished_at_utc": "2026-10-26T10:26:42.799122+00:00", "input_tokens": 1185, "model": "openai/gpt-oss-20b", "model_available_key_count": 5, "output_tokens": 402, "provider": "groq", "started_at_utc": "2026-10-26T10:26:37.557632+00:00", "status": "PASS", "step_count": 4}

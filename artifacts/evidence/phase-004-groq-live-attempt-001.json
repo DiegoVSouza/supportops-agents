@@ -1,0 +1,13 @@
+{
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "status": "INCOMPLETE",
+  "exit_code": 1,
+  "started_at_utc": "2026-10-26T10:24:28.757917+00:00",
+  "finished_at_utc": "2026-10-26T10:24:33.045917+00:00",
+  "credential_count": 5,
+  "error": {
+    "class": "RuntimeError",
+    "diagnostic_detail": "not captured by the initial runner version"
+  }
+}

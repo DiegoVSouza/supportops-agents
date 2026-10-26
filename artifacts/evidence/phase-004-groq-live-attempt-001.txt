@@ -1,0 +1,4 @@
+Command: LLM_MODE=live uv run --extra live python scripts/run_live_groq_eval.py
+Exit code: 1
+Status: INCOMPLETE
+Sanitized diagnosis: the initial runner version recorded only RuntimeError; no completion metrics were available. Later runs added safe status/category diagnostics.
