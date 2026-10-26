@@ -1,0 +1,38 @@
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m compileall -q src tests
+exit_code=0
+
+
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m unittest discover -s tests -v
+exit_code=0
+test_emits_all_runner_slots_but_only_measured_core_behavior (test_comparison.ComparisonTests.test_emits_all_runner_slots_but_only_measured_core_behavior) ... <frozen importlib._bootstrap>:1342: ImportWarning: Cannot set an attribute on 'crewai.rag' for child module 'embeddings'
+ok
+test_approved_response_runs_all_workers_in_order (test_core.CoreRunnerTests.test_approved_response_runs_all_workers_in_order) ... ok
+test_billing_can_escalate (test_core.CoreRunnerTests.test_billing_can_escalate) ... ok
+test_classifier_can_escalate_without_contacting_more_workers (test_core.CoreRunnerTests.test_classifier_can_escalate_without_contacting_more_workers) ... ok
+test_never_approved_response_stops_at_exact_step_limit (test_core.CoreRunnerTests.test_never_approved_response_stops_at_exact_step_limit) ... ok
+test_registry_does_not_impersonate_missing_framework (test_core.CoreRunnerTests.test_registry_does_not_impersonate_missing_framework) ... ok
+test_rejects_malformed_worker_output (test_core.CoreRunnerTests.test_rejects_malformed_worker_output) ... ok
+test_rejects_zero_or_invalid_step_budget (test_core.CoreRunnerTests.test_rejects_zero_or_invalid_step_budget) ... ok
+test_step_boundary_allows_final_step_approval (test_core.CoreRunnerTests.test_step_boundary_allows_final_step_approval) ... ok
+test_budget_boundaries_never_exceed_agent_call_limit (test_langgraph.LangGraphRunnerTests.test_budget_boundaries_never_exceed_agent_call_limit) ... ok
+test_checkpoint_survives_process_exit_and_resumes_in_a_second_process (test_langgraph.LangGraphRunnerTests.test_checkpoint_survives_process_exit_and_resumes_in_a_second_process) ... ok
+test_classifier_escalation_stops_graph (test_langgraph.LangGraphRunnerTests.test_classifier_escalation_stops_graph) ... ok
+test_human_denial_escalates_without_responder (test_langgraph.LangGraphRunnerTests.test_human_denial_escalates_without_responder) ... ok
+test_interrupt_can_resume_after_constructing_a_new_runner (test_langgraph.LangGraphRunnerTests.test_interrupt_can_resume_after_constructing_a_new_runner) ... ok
+test_repeated_ticket_gets_fresh_checkpoint_without_resume_key (test_langgraph.LangGraphRunnerTests.test_repeated_ticket_gets_fresh_checkpoint_without_resume_key) ... ok
+test_retries_a_transient_node_failure (test_langgraph.LangGraphRunnerTests.test_retries_a_transient_node_failure) ... ok
+test_runs_kb_and_billing_branches_then_returns_common_contract (test_langgraph.LangGraphRunnerTests.test_runs_kb_and_billing_branches_then_returns_common_contract) ... ok
+test_budget_blocks_before_network_and_errors_do_not_echo_secrets (test_live_groq_eval.LiveGroqEvalTests.test_budget_blocks_before_network_and_errors_do_not_echo_secrets) ... ok
+test_credential_selection_uses_only_four_numbered_variables (test_live_groq_eval.LiveGroqEvalTests.test_credential_selection_uses_only_four_numbered_variables) ... ok
+test_live_client_rejects_unknown_agent_without_network (test_live_groq_eval.LiveGroqEvalTests.test_live_client_rejects_unknown_agent_without_network) ... ok
+test_live_mode_is_explicit (test_live_groq_eval.LiveGroqEvalTests.test_live_mode_is_explicit) ... ok
+test_offline_default_stays_fake (test_live_groq_eval.LiveGroqEvalTests.test_offline_default_stays_fake) ... ok
+test_rotation_retries_only_transient_errors_with_next_key (test_live_groq_eval.LiveGroqEvalTests.test_rotation_retries_only_transient_errors_with_next_key) ... ok
+test_all_runners_approve_the_common_synthetic_case (test_runner_contract.SharedRunnerContractTests.test_all_runners_approve_the_common_synthetic_case) ... ok
+test_all_runners_propagate_worker_escalations (test_runner_contract.SharedRunnerContractTests.test_all_runners_propagate_worker_escalations) ... ok
+test_all_runners_stop_at_the_shared_step_boundary (test_runner_contract.SharedRunnerContractTests.test_all_runners_stop_at_the_shared_step_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 24.580s
+
+OK

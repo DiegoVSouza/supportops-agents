@@ -9,3 +9,7 @@
 - Multi-agent manager/children, session state, and tool contracts are enabled because they match the product. MCP, production sampling, and live evaluations are disabled because this project has no remote tools or production traces.
 - Risk is lite: fixtures contain synthetic ticket data; no outbound communication or irreversible action is performed.
 - Phase 004 decision (2026-10-26): enable an opt-in live evaluation of one synthetic ticket through the Core supervisor/worker only. Bound provider-estimated exposure to USD 0.01 within the existing USD 2 task ceiling; keep all framework comparisons in fake mode.
+
+## 2026-10-26 — Live Docker acceptance
+
+Use opt-in Groq live mode with numbered credentials and authenticated model preflight. Preserve deterministic fake defaults and fail closed on provider/contract failures. Only local synthetic acceptance and the designated free allowance are authorized; billed cost remains PENDING. Evidence: artifacts/evidence/live-docker/.

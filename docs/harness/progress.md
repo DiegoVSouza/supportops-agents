@@ -29,3 +29,7 @@
 - Use a normal Path import, initialize optional client state explicitly, extract retry and artifact helpers, and replace nested mock factories with ordinary Mock instances.
 - Full offline gate: PASS (26 tests and all six fake runner comparisons).
 - Offline helper and static checks passed; no live calls were needed. Evidence: artifacts/evidence/code-cleanup/.
+
+## 2026-10-26 — Live Docker acceptance
+
+One real Core workflow passed all domain assertions with four serial calls (1470 input / 588 output tokens). The deterministic full comparison passed for all six installed runners; live acceptance covers Core only. Evidence: artifacts/evidence/live-docker/.

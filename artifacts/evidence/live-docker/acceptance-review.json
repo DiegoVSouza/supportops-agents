@@ -1,0 +1,15 @@
+{
+  "command": "Review recorded full gate, real provider assertions and authenticated catalog evidence",
+  "exit_code": 0,
+  "assertions": {
+    "live_pass": true,
+    "domain_assertions": true,
+    "model": true,
+    "full_gate_exit_zero": true,
+    "catalog": true
+  },
+  "live_artifact": "artifacts/evidence/phase-004-groq-live-20261026T112939998186Z.json",
+  "gate_artifact": "artifacts/evidence/live-docker/offline-full-20261026T112714Z.txt",
+  "billed_cost_usd": "PENDING",
+  "scope": "One synthetic acceptance case; no general quality claim."
+}

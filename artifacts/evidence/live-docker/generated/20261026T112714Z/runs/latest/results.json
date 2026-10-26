@@ -1,0 +1,5153 @@
+{
+  "mode": "fake",
+  "run_kind": "p00_golden_contract_comparison",
+  "evaluation_metrics": "PENDING",
+  "golden_case_count": 60,
+  "required_p00_golden_case_count": 60,
+  "golden_case_coverage": "COMPLETE",
+  "p00_package_consumer": {
+    "package": "supportops-foundation",
+    "version": "1.0.1",
+    "source_commit": "607b7603bd40728ffa58745badac0ffd10c70090",
+    "wheel_sha256": "DF4292756676D02490A908B609B8F9474F35F3C5F56131809F3E4A83659B4795",
+    "seed": 7
+  },
+  "runners": [
+    {
+      "runner": "core",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Low setup; manual loop",
+        "flow": "Custom generic supervisor loop",
+        "state": "In-memory typed state",
+        "maturity": "Project-owned core",
+        "observability": "Common per-step trace"
+      },
+      "cases": [
+        {
+          "case_id": "injection",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "large_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "duplicate_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "account_takeover",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "payment_card",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "missing_invoice",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "overdue_dispute",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "threat",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "service_outage",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "delivered_missing",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-00",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-01",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-02",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-03",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-04",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-05",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-06",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-07",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-08",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-09",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-10",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-11",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-12",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-13",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-14",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-15",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-16",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-17",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-18",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-19",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-20",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-21",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-22",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-23",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-24",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-25",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-26",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-27",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-28",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-29",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-30",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-31",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-32",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-33",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-34",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-35",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-36",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-37",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-38",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-39",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-40",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-41",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-42",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-43",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-44",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-45",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-46",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-47",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-48",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-49",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        }
+      ],
+      "implementation_source_lines": 99,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.0013613999999506632
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "langgraph",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Graph concepts required",
+        "flow": "Native graph fan-out, conditional edges, node retry",
+        "state": "SQLite checkpoint and resumable interrupt",
+        "maturity": "LangGraph 1.1.10 pinned",
+        "observability": "Graph checkpoints plus common trace"
+      },
+      "cases": [
+        {
+          "case_id": "injection",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "large_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "duplicate_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "account_takeover",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "payment_card",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "missing_invoice",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "overdue_dispute",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "threat",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "service_outage",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "delivered_missing",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-00",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-01",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-02",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-03",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-04",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-05",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-06",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-07",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-08",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-09",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-10",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-11",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-12",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-13",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-14",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-15",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-16",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-17",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-18",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-19",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-20",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-21",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-22",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-23",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-24",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-25",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-26",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-27",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-28",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-29",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-30",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-31",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-32",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-33",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-34",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-35",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-36",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-37",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-38",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-39",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-40",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-41",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-42",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-43",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-44",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-45",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-46",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-47",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-48",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-49",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        }
+      ],
+      "implementation_source_lines": 214,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 2.7401137999995626
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "crewai",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Flow decorator API",
+        "flow": "Native Flow events; worker orchestration is custom Python",
+        "state": "Per-run Flow object",
+        "maturity": "CrewAI 1.15.28 pinned",
+        "observability": "Common trace; Flow events not exported"
+      },
+      "cases": [
+        {
+          "case_id": "injection",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "large_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "duplicate_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "account_takeover",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "payment_card",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "missing_invoice",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "overdue_dispute",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "threat",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "service_outage",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "delivered_missing",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-00",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-01",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-02",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-03",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-04",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-05",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-06",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-07",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-08",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-09",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-10",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-11",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-12",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-13",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-14",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-15",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-16",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-17",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-18",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-19",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-20",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-21",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-22",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-23",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-24",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-25",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-26",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-27",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-28",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-29",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-30",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-31",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-32",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-33",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-34",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-35",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-36",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-37",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-38",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-39",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-40",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-41",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-42",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-43",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-44",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-45",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-46",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-47",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-48",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-49",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        }
+      ],
+      "implementation_source_lines": 106,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 3.9884885000001304
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "autogen",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Runtime registration and message types",
+        "flow": "Native Core runtime/messages; supervisor sequencing is custom",
+        "state": "Runtime-local; no durable checkpoint",
+        "maturity": "AutoGen 0.7.5 classic; successor noted in ADR-001",
+        "observability": "Common trace; framework event logs not exported"
+      },
+      "cases": [
+        {
+          "case_id": "injection",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "large_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "duplicate_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "account_takeover",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "payment_card",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "missing_invoice",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "overdue_dispute",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "threat",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "service_outage",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "delivered_missing",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-00",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-01",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-02",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-03",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-04",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-05",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-06",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-07",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-08",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-09",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-10",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-11",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-12",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-13",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-14",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-15",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-16",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-17",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-18",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-19",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-20",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-21",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-22",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-23",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-24",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-25",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-26",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-27",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-28",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-29",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-30",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-31",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-32",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-33",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-34",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-35",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-36",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-37",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-38",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-39",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-40",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-41",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-42",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-43",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-44",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-45",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-46",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-47",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-48",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-49",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        }
+      ],
+      "implementation_source_lines": 94,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.16108669999994163
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "semantic_kernel",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Kernel and plugin registration",
+        "flow": "Native Kernel/plugin invocation around a generic sequential supervisor",
+        "state": "Per-run Kernel",
+        "maturity": "Semantic Kernel 1.45.0 classic; successor noted in ADR-001",
+        "observability": "Common trace; no telemetry exporter configured"
+      },
+      "cases": [
+        {
+          "case_id": "injection",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "large_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "duplicate_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "account_takeover",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "payment_card",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "missing_invoice",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "overdue_dispute",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "threat",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "service_outage",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "delivered_missing",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-00",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-01",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-02",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-03",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-04",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-05",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-06",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-07",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-08",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-09",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-10",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-11",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-12",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-13",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-14",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-15",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-16",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-17",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-18",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-19",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-20",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-21",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-22",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-23",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-24",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-25",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-26",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-27",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-28",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-29",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-30",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-31",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-32",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-33",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-34",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-35",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-36",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-37",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-38",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-39",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-40",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-41",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-42",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-43",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-44",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-45",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-46",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-47",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-48",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-49",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        }
+      ],
+      "implementation_source_lines": 80,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.15545620000011695
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    },
+    {
+      "runner": "llamaindex",
+      "status": "EXECUTED",
+      "profile": {
+        "ease": "Typed event workflow API",
+        "flow": "Native typed Workflow steps; sequencing and responder loop are custom",
+        "state": "Event-carried state",
+        "maturity": "LlamaIndex 0.14.25 Workflows; QueryPipeline deprecated",
+        "observability": "Workflow events plus common trace"
+      },
+      "cases": [
+        {
+          "case_id": "injection",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "large_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "duplicate_refund",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "account_takeover",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "payment_card",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "missing_invoice",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "overdue_dispute",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "threat",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "service_outage",
+          "expected_action": "escalate",
+          "expected_p00_action": "escalate",
+          "observed_action": "escalate",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale"
+          ],
+          "stop_reason": "escalated",
+          "steps": 1
+        },
+        {
+          "case_id": "delivered_missing",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-00",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-01",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-02",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-03",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-04",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-05",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-06",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-07",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-08",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-09",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-10",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-11",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-12",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-13",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-14",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-15",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-16",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-17",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-18",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-19",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-20",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-21",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-22",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-23",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-24",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-25",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-26",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-27",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-28",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-29",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-30",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-31",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-32",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-33",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-34",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-35",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-36",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-37",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-38",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-39",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-40",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-41",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-42",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-43",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-44",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-45",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-46",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-47",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-48",
+          "expected_action": "respond",
+          "expected_p00_action": "answer",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'answer' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        },
+        {
+          "case_id": "standard-49",
+          "expected_action": "respond",
+          "expected_p00_action": "request_info",
+          "observed_action": "respond",
+          "contract_match": true,
+          "unsupported_semantics": [
+            "priority",
+            "rationale",
+            "P00 action distinction 'request_info' maps to P01 'respond'"
+          ],
+          "stop_reason": "approved",
+          "steps": 4
+        }
+      ],
+      "implementation_source_lines": 130,
+      "metrics": {
+        "accuracy": "PENDING",
+        "steps": "PENDING",
+        "tokens": "PENDING",
+        "cost_usd": "PENDING",
+        "latency": "PENDING",
+        "fake_control_wall_time_seconds": 0.49275419999958103
+      },
+      "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
+    }
+  ]
+}

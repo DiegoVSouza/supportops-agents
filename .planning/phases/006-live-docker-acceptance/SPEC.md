@@ -1,6 +1,6 @@
 # Live Groq and Docker acceptance
 
-Status: planned.
+Status: verified for the bounded acceptance case.
 
 Run one Core workflow with the real Groq client and rerun the complete deterministic framework comparison.
 
