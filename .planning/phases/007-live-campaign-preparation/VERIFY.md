@@ -2,13 +2,15 @@
 
 Use repository artifacts and commands, not chat claims. Save each command, exit code, and sanitized output to `artifacts/evidence/live-campaign-preparation/`.
 
-- [ ] Dataset has exactly 60 unique semantic cases, 18 development and 42 sealed holdout; family coverage and English/Portuguese denominators are correct.
-- [ ] Related source/scenario groups do not cross splits; cases include expected decisions/tools, forbidden behavior, rubric, criticality and finite caps.
-- [ ] Graders reject deliberate wrong routing, tool use, unsupported facts/evidence, contradictions and invalid termination outcomes.
-- [ ] Core is the only claimed live runner; each other advertised framework runner is listed with an explicit offline-only rationale unless separately budgeted and verified.
-- [ ] Config includes three trials, per-task/per-call limits, cumulative request/input/output/spend caps, confirmation reserve, timeouts, retry policy, chunk/pacing/wall-clock ceilings, and budget source.
-- [ ] Dry-run does not construct the SDK, read credentials, access network, or mutate Docker, and clearly reports the 24-call pilot / 720-call full Core ceilings and all PENDING fields.
-- [ ] Generation fails before dispatch when expanded approval/quota/caps or authenticated model preflight are missing; no fallback or semantic retry occurs.
-- [ ] Fake-mode fast/full checks pass without unexpected skips and outputs are saved.
-- [ ] No provider calls or quality metrics are claimed by this preparation phase; fixture scores are not represented as live results.
-- [ ] Staged changes are within allowed paths and contain no secrets or unrelated user data.
+- [x] Dataset has 60 unique cases, 18 development / 42 holdout, 36 English / 24 Portuguese, and at least three cases per family. Dataset SHA-256 is recorded.
+- [x] Source groups are distinct and validation rejects cross-split leakage. Independent review provenance remains `PENDING`.
+- [x] Code-first tests reject wrong decision, route, agent order, over-limit traces and unsupported-claim/safety flags. Human grounding/rubric review remains `PENDING`.
+- [x] Core is the only claimed live runner; all five framework runners have explicit offline-only reasons.
+- [x] Config has finite per-case caps and explicitly labels unresolved cumulative spend/request/token, retry/pacing/time, confirmation funding and approval as `PENDING`; paid spend stays USD 0.
+- [x] Python `-S` dry-run reports 24 pilot / 720 primary / 240 confirmation / 984 additive calls and token maxima, with all blockers. No provider, credential, or Docker access occurs.
+- [x] Generation exits incomplete during preparation and cannot construct a provider client or silently fall back.
+- [x] Fake fast/full checks pass: 33 tests, six-runner offline comparison and demo; command and exit evidence are saved.
+- [x] No provider calls or live quality metrics are claimed. Existing golden comparisons remain fixture-only.
+- [ ] Durable cumulative ledger/resume and serialized campaign lease remain gates for the bounded-runner phase.
+- [ ] Independent dataset/rubric review and clean-context phase verification remain outstanding.
+- [ ] Final staged-path/secrets review is pending commit preparation.

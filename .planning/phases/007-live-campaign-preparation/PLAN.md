@@ -20,7 +20,7 @@
 
 ## Tasks
 
-1. **Freeze the Core dataset and rubrics** — inspect versioned orchestration contracts and prior failure taxonomy; author 60 unique synthetic cases in 18/42 development/holdout splits with the required family and 36/24 language coverage. Keep related scenarios in one split and record public/synthetic hashes only.
+1. **Freeze the Core dataset and rubrics for review** — inspect versioned orchestration contracts and prior failure taxonomy; author 60 unique synthetic cases in 18/42 development/holdout splits with required families and 36/24 language coverage. Keep related scenarios in one split, record public/synthetic hashes, and leave sign-off `PENDING` until an independent reviewer approves expected outcomes and rubric.
 2. **Implement a guarded dry-run and reservation config** — expose validated help/stages, summarize case/trial/call limits and unresolved budget fields without constructing the SDK or reading credentials. The generation path must stop before dispatch while any required approval or limit is `PENDING`; other framework runners remain explicitly offline-only in this phase.
 3. **Prove preparation and grader behavior** — test duplicate/split isolation, family/language coverage, deliberate bad routing/tool/evidence/termination outputs, dry-run isolation, and fail-closed generation. Run fake-mode project gates, save evidence, and review the staged diff.
 

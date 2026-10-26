@@ -33,3 +33,10 @@
 ## 2026-10-26 — Live Docker acceptance
 
 One real Core workflow passed all domain assertions with four serial calls (1470 input / 588 output tokens). The deterministic full comparison passed for all six installed runners; live acceptance covers Core only. Evidence: artifacts/evidence/live-docker/.
+
+## 2026-10-26 — Phase 007 campaign preparation
+
+- Added 60 synthetic Core orchestration cases with a fixed 18/42 development/holdout split, 36/24 English/Portuguese coverage, and seven required families. Dataset SHA-256: `6884c47eb34ae46b1c1a8aa94735bec871315a1ad60aaffb39dace4cf7b1259f`.
+- Added code-first decision/route/order/termination grader tests and an offline dry-run. It reports pilot 24 calls, primary campaign 720, confirmation reserve 240, and 984 calls if all stages are additive; no provider, credential, or Docker access occurs.
+- Campaign preparation tests: 7 passed. Fast/full gates passed with 33 tests; six framework comparisons and demo remain fake/offline. Evidence: `artifacts/evidence/live-campaign-preparation/phase-007-preparation.md`.
+- Dataset/rubric review, expanded quota/spend/token/timing caps, durable lease/ledger and live runtime acceptance remain `PENDING`/`INCOMPLETE`. No Groq calls were made.

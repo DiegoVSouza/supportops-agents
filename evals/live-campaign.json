@@ -1,0 +1,69 @@
+{
+  "campaign_spec": "llm-live-readiness-v1",
+  "project": "p01",
+  "dataset_version": "p01-live-v1",
+  "dataset_manifest": "evals/datasets/live-v1/manifest.json",
+  "cases_path": "evals/datasets/live-v1/cases.jsonl",
+  "rubric_path": "evals/rubrics/live-v1/rubric.md",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "runner": "core",
+  "offline_only_runners": {
+    "langgraph": "No separately budgeted broad live campaign in this phase.",
+    "crewai": "No separately budgeted broad live campaign in this phase.",
+    "autogen": "No separately budgeted broad live campaign in this phase.",
+    "semantic_kernel": "No separately budgeted broad live campaign in this phase.",
+    "llamaindex": "No separately budgeted broad live campaign in this phase."
+  },
+  "trials": 3,
+  "pilot_trials": 1,
+  "pilot_case_ids": [
+    "p01-live-001",
+    "p01-live-010",
+    "p01-live-019",
+    "p01-live-028",
+    "p01-live-037",
+    "p01-live-045"
+  ],
+  "max_calls_per_case_trial": 4,
+  "per_case_caps": {
+    "max_provider_calls": 4,
+    "max_input_tokens": 8192,
+    "max_output_tokens": 1024,
+    "max_completion_tokens_per_call": 256,
+    "max_steps": 4
+  },
+  "cumulative_caps": {
+    "max_requests": "PENDING",
+    "max_input_tokens": "PENDING",
+    "max_output_tokens": "PENDING",
+    "max_estimated_spend_usd": "PENDING",
+    "authorized_paid_spend_usd": "0.00",
+    "authorized_free_quota_calls": "PENDING"
+  },
+  "execution": {
+    "task_timeout_seconds": "PENDING",
+    "max_wall_clock_seconds": "PENDING",
+    "chunk_size": 10,
+    "requests_per_minute": "PENDING",
+    "transport_retries_per_call": "PENDING",
+    "semantic_retries": 0,
+    "resume_ledger": "PENDING"
+  },
+  "confirmation_reserve": {
+    "fresh_cases": 20,
+    "trials_per_case": 3,
+    "max_calls_per_case_trial": 4,
+    "reserved_calls": "PENDING",
+    "reserved_spend_usd": "PENDING"
+  },
+  "authorization": {
+    "expanded_campaign_approval": "PENDING",
+    "free_tier_quota_evidence": "PENDING",
+    "model_catalog_preflight": "REQUIRED_BEFORE_GENERATION",
+    "dataset_review": "PENDING",
+    "rubric_review": "PENDING",
+    "approval_reference": "PENDING"
+  },
+  "generation_enabled": false
+}

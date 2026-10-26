@@ -13,3 +13,7 @@
 ## 2026-10-26 — Live Docker acceptance
 
 Use opt-in Groq live mode with numbered credentials and authenticated model preflight. Preserve deterministic fake defaults and fail closed on provider/contract failures. Only local synthetic acceptance and the designated free allowance are authorized; billed cost remains PENDING. Evidence: artifacts/evidence/live-docker/.
+
+## 2026-10-26 — Broad live campaign preparation
+
+Phase 007 prepares a 60-case Core-only dataset (18 development / 42 holdout; 36 English / 24 Portuguese) and offline dry-run. The prior USD 0.01 single-ticket exception does not authorize 720 primary calls, a 240-call fresh confirmation reserve, or framework runner campaigns. Paid spend remains USD 0; quota and cumulative token/request/spend/timing limits remain `PENDING`. Dataset/rubric sign-off remains `PENDING`; generation is disabled. No provider request was made.
