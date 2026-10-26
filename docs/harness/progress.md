@@ -23,3 +23,9 @@
 - Added optional Groq 1.7.0 support for the Core runner only. Four numbered credentials are preflighted; the client caps each of four serial calls at 256 tokens and total estimated exposure at USD 0.01. Fake mode remains the default and imports no SDK unless live is used.
 - The real model first returned a JSON-mode validation error; local JSON parsing fixed the provider error. Initial real cases over-escalated routine questions; adding a general escalation threshold fixed the issue. Offline tests also found and fixed exception text leaking before the sanitization boundary.
 - Final four-key live run passed: 4 steps in order, 1470 input / 655 output tokens, estimated cost USD 0.00030675. Full fake comparison gate passed across six runners.
+
+## 2026-10-26 — Live evaluation readability cleanup
+
+- Use a normal Path import, initialize optional client state explicitly, extract retry and artifact helpers, and replace nested mock factories with ordinary Mock instances.
+- Full offline gate: PASS (26 tests and all six fake runner comparisons).
+- Offline helper and static checks passed; no live calls were needed. Evidence: artifacts/evidence/code-cleanup/.
