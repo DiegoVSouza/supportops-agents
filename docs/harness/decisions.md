@@ -17,3 +17,7 @@ Use opt-in Groq live mode with numbered credentials and authenticated model pref
 ## 2026-10-26 — Broad live campaign preparation
 
 Phase 007 prepares a 60-case Core-only dataset (18 development / 42 holdout; 36 English / 24 Portuguese) and offline dry-run. The prior USD 0.01 single-ticket exception does not authorize 720 primary calls, a 240-call fresh confirmation reserve, or framework runner campaigns. Paid spend remains USD 0; quota and cumulative token/request/spend/timing limits remain `PENDING`. Dataset/rubric sign-off remains `PENDING`; generation is disabled. No provider request was made.
+
+## 2026-10-26 — Bounded campaign ledger
+
+Phase 008 adds local SQLite reservations, a process lease, and read-only resume inspection for future P01 campaign execution. This infrastructure does not authorize or enable generation. Paid spend remains USD 0; free-tier quota, cumulative request/token/spend/timing limits, dataset/rubric approval, and campaign approval remain `PENDING`. No provider request was made.

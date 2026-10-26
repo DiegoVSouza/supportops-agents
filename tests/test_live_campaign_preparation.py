@@ -4,10 +4,13 @@ import copy
 import json
 import subprocess
 import sys
+import tempfile
 import unittest
 from contextlib import redirect_stdout
+from decimal import Decimal
 from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.run_live_campaign import (
     CampaignError,
@@ -139,6 +142,54 @@ class LiveCampaignPreparationTests(unittest.TestCase):
         report = json.loads(output.getvalue())
         self.assertEqual(report["status"], "INCOMPLETE")
         self.assertFalse(report["provider_accessed"])
+
+    def test_resume_inspection_is_read_only_and_rejects_unknown_campaign(self) -> None:
+        from scripts.campaign_ledger import CampaignLedger
+        from scripts import run_live_campaign
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            ledger_path = root / "artifacts/evals/live/ledger.sqlite"
+            ledger = CampaignLedger(ledger_path, campaign_id="campaign-a")
+            empty_output = StringIO()
+            with patch.object(run_live_campaign, "ROOT", root), redirect_stdout(
+                empty_output
+            ):
+                self.assertEqual(
+                    main_for_campaign(["--resume", "unknown", "--dry-run"]), 2
+                )
+            self.assertIn("campaign has no recorded attempts", empty_output.getvalue())
+            ledger.reserve(
+                case_id="case-1",
+                trial=1,
+                input_tokens=20,
+                output_tokens=10,
+                estimated_cost_usd=Decimal("0.02"),
+                caps={
+                    "requests": 1,
+                    "input_tokens": 100,
+                    "output_tokens": 100,
+                    "estimated_cost_usd": Decimal("0.10"),
+                },
+            )
+            output = StringIO()
+            with patch.object(run_live_campaign, "ROOT", root), redirect_stdout(output):
+                self.assertEqual(
+                    main_for_campaign(
+                        ["--resume", "campaign-a", "--dry-run"]
+                    ),
+                    0,
+                )
+            report = json.loads(output.getvalue())
+            self.assertEqual(report["attempts"][0]["event"], "reserved")
+            self.assertEqual(report["cumulative_usage"]["requests"], "1")
+            self.assertFalse(report["provider_accessed"])
+
+
+def main_for_campaign(argv: list[str]) -> int:
+    from scripts.run_live_campaign import main
+
+    return main(argv)
 
 
 if __name__ == "__main__":

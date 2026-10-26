@@ -40,3 +40,8 @@ One real Core workflow passed all domain assertions with four serial calls (1470
 - Added code-first decision/route/order/termination grader tests and an offline dry-run. It reports pilot 24 calls, primary campaign 720, confirmation reserve 240, and 984 calls if all stages are additive; no provider, credential, or Docker access occurs.
 - Campaign preparation tests: 7 passed. Fast/full gates passed with 33 tests; six framework comparisons and demo remain fake/offline. Evidence: `artifacts/evidence/live-campaign-preparation/phase-007-preparation.md`.
 - Dataset/rubric review, expanded quota/spend/token/timing caps, durable lease/ledger and live runtime acceptance remain `PENDING`/`INCOMPLETE`. No Groq calls were made.
+## 2026-10-26 — Phase 008 bounded campaign ledger
+
+- Added an append-only SQLite reservation ledger, cumulative cap enforcement, cross-process OS lease, and read-only resume inspection for P01. Unknown usage retains the full original reservation; uncertain/completed trials cannot be rerun.
+- Focused ledger tests: 6 passed. Fast/full fake gates passed with 40 tests and all six offline runner identities. `-S` dry-run exited 0; generation exited 2 while prerequisites remain pending. No Groq request or Docker mutation occurred.
+- Groq dispatch, approved campaign limits/reviews, crash-after-dispatch recovery, lease integration, and cross-project accounting remain incomplete. Phase status: `INCOMPLETE`; evidence: `artifacts/evidence/live-campaign-ledger/`.

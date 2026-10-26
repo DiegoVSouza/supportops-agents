@@ -1,0 +1,11 @@
+test_caps_are_cumulative_across_campaign_ids (test_campaign_ledger.CampaignLedgerTests.test_caps_are_cumulative_across_campaign_ids) ... ok
+test_completed_attempt_without_usage_keeps_full_reservation (test_campaign_ledger.CampaignLedgerTests.test_completed_attempt_without_usage_keeps_full_reservation) ... ok
+test_completion_reconciles_usage_but_history_is_immutable (test_campaign_ledger.CampaignLedgerTests.test_completion_reconciles_usage_but_history_is_immutable) ... ok
+test_lease_excludes_an_independent_process_and_releases (test_campaign_ledger.CampaignLedgerTests.test_lease_excludes_an_independent_process_and_releases) ... ok
+test_parallel_reservations_cannot_race_past_cap (test_campaign_ledger.CampaignLedgerTests.test_parallel_reservations_cannot_race_past_cap) ... ok
+test_unknown_usage_reservation_is_kept_and_trial_cannot_repeat (test_campaign_ledger.CampaignLedgerTests.test_unknown_usage_reservation_is_kept_and_trial_cannot_repeat) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.469s
+
+OK
