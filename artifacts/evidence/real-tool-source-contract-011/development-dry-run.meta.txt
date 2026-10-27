@@ -1,0 +1,3 @@
+COMMAND: uv run --locked --offline python scripts/run_live_campaign.py --stage development --dry-run
+EXIT_CODE: 0
+PROVIDER_ACCESS: none; credential read: false; Docker mutation: false

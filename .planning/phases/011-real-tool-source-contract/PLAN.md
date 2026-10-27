@@ -21,9 +21,9 @@
 
 ## Validation
 
-- `uv run --locked python scripts/run_live_campaign.py --stage development --dry-run`
+- `uv run --locked --offline python scripts/run_live_campaign.py --stage development --dry-run`
 - Confirm dry-run reports `generation_authorized=false`, `provider_accessed=false`, and `credentials_read=false`.
-- `git diff --check`; compare SHA-256 of the three forbidden pre-existing outputs before and after.
+- `git -c core.whitespace=cr-at-eol diff --check`; compare SHA-256 of the three forbidden pre-existing outputs before and after. This project worktree has CRLF files while the index has LF, so the check explicitly treats only CR at line end as a line-ending marker.
 - Do not run `check_fast.py` or `check_full.py` in this documentation-only phase because they overwrite those tracked, user-modified outputs. No product code changes, so no product test claim is made.
 
 ## Budget and stop conditions

@@ -2,11 +2,11 @@
 
 ## Status
 
-INCOMPLETE for executable real tools, data-source provenance/authorization, live quality, and effect idempotency. This phase may PASS only for the bounded proposal and offline precondition check; it does not claim tool integration.
+**PASS for the bounded proposal and offline precondition check; INCOMPLETE for executable real tools, data-source provenance/authorization, live quality, and effect idempotency.** The locked development dry-run exited 0 with 54 logical trials / 216 maximum provider calls, generation disabled, no provider access, no credential reads, USD 0 paid authorization, and review status PENDING. The pre-existing standard gate outputs' SHA-256 values were unchanged.
 
 ## Evidence
 
-Store the offline dry-run command, exit, and output under `artifacts/evidence/real-tool-source-contract-011/`. The source inventory and existing contracts are summarized in the phase plan-check and the proposed tool specs.
+Offline dry-run command, exit and output, the concise dry-run summary, source inventory and before/after hashes are in `artifacts/evidence/real-tool-source-contract-011/`. Existing contracts are summarized in the phase plan-check and proposed tool specs.
 
 ## Review states
 

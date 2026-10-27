@@ -1,0 +1,13 @@
+COMMAND: rg --files src agent shared | filter (tool|know|bill|source|retriev)
+shared\tools\README.md
+shared\tools\p01-search-knowledge.proposed.md
+shared\tools\p01-plan-dispatch.proposed.md
+shared\tools\p01-lookup-billing.proposed.md
+agent\tools\README.md
+
+COMMAND: rg -n workers / tool_calls / Core classes / tool policy
+agent/tools/README.md:1:# Product tools
+src/supportops_agents/accounted_live.py:273:class AccountedCoreClient:
+src/supportops_agents/accounted_live.py:357:            if result.get("tool_calls"):
+src/supportops_agents/core.py:39:class CoreTriageRunner:
+src/supportops_agents/core.py:52:        workers = ("classifier", "kb_researcher", "billing_agent", "responder")
