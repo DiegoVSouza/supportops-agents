@@ -38,12 +38,15 @@ class SharedState:
 
 class CoreTriageRunner:
     name = "core"
+    max_provider_calls = 4
 
-    def run(self, ticket: Ticket, *, llm: LLMClient, max_steps: int = 12) -> TriageResult:
+    def run(self, ticket: Ticket, *, llm: LLMClient, max_steps: int = 4) -> TriageResult:
         if not isinstance(ticket, Ticket):
             raise TypeError("ticket must be a Ticket")
         if isinstance(max_steps, bool) or not isinstance(max_steps, int) or max_steps < 1:
             raise ValueError("max_steps must be a positive integer")
+        if max_steps > self.max_provider_calls:
+            raise ValueError("max_steps cannot exceed four for the Core runner")
 
         state = SharedState(ticket=ticket)
         workers = ("classifier", "kb_researcher", "billing_agent", "responder")

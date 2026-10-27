@@ -3,7 +3,7 @@ import unittest
 from supportops_agents.contracts import Ticket
 from supportops_agents.core import CoreTriageRunner, InvalidAgentResponse
 from supportops_agents.fakes import FakeLLMClient
-from supportops_agents.registry import RunnerUnavailable, get_runner
+from supportops_agents.registry import get_runner
 
 
 TICKET = Ticket("t-001", "Duplicate charge", "I was charged twice.")
@@ -33,11 +33,20 @@ class CoreRunnerTests(unittest.TestCase):
 
     def test_never_approved_response_stops_at_exact_step_limit(self):
         llm = FakeLLMClient({"responder": [{"response": "Need more review.", "approved": False}] * 10})
-        result = CoreTriageRunner().run(TICKET, llm=llm, max_steps=6)
+        result = CoreTriageRunner().run(TICKET, llm=llm, max_steps=4)
         self.assertEqual(result.stop_reason, "max_steps")
-        self.assertEqual(len(result.trace), 6)
-        self.assertEqual(len(llm.calls), 6)
+        self.assertEqual(len(result.trace), 4)
+        self.assertEqual(len(llm.calls), 4)
         self.assertEqual(result.decision.action, "escalate")
+
+    def test_rejects_step_budget_above_product_call_limit_before_client_invocation(self):
+        for value in (5, 6, 12, 100):
+            llm = FakeLLMClient()
+            with self.subTest(max_steps=value), self.assertRaisesRegex(
+                ValueError, "cannot exceed four"
+            ):
+                CoreTriageRunner().run(TICKET, llm=llm, max_steps=value)
+            self.assertEqual(llm.calls, [])
 
     def test_step_boundary_allows_final_step_approval(self):
         llm = FakeLLMClient()

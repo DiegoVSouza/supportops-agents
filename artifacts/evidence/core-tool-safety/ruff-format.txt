@@ -1,0 +1,10 @@
+Would reformat: src\supportops_agents\comparison.py
+Would reformat: src\supportops_agents\core.py
+Would reformat: tests\test_accounted_core.py
+Would reformat: tests\test_comparison.py
+Would reformat: tests\test_core.py
+Would reformat: tests\test_runner_contract.py
+6 files would be reformatted
+COMMAND=python -m ruff format --check src/supportops_agents/core.py src/supportops_agents/comparison.py tests/test_core.py tests/test_accounted_core.py tests/test_comparison.py tests/test_runner_contract.py
+RUFF_VERSION=0.15.21 (global; not in project locked group)
+EXIT_CODE=1

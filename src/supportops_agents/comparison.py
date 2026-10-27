@@ -65,7 +65,10 @@ def run_comparison(output_dir: Path) -> dict:
         cases = []
         for case in golden_cases:
             ticket = case["ticket"]
-            actual = runner.run(ticket, llm=FakeLLMClient(case["responses"]), max_steps=12)
+            max_steps = 4 if name == "core" else 12
+            actual = runner.run(
+                ticket, llm=FakeLLMClient(case["responses"]), max_steps=max_steps
+            )
             expected_action = case["expected"]
             category_match = (case["expected_category"] is None
                               or actual.decision.category == case["expected_category"])

@@ -53,3 +53,11 @@ One real Core workflow passed all domain assertions with four serial calls (1470
 - Focused checks passed 20 tests; the final locked full gate passed 60 tests and all six runner comparisons over the versioned 60-case installed-wheel fixture. Live quality metrics remain PENDING. Docker identity observations were unchanged and the root account still records the original sixteen P00 attempts, with no P01 registration or provider ledger.
 - Owner execution remains disabled, approved campaigns/allocations empty and paid authorization zero. Complete durable campaign dispatch, candidate freeze, actual evidence/tool integration, preflight, reviews, holdout/generalization and promotion remain INCOMPLETE/PENDING. Batches for later dispatch must contain at most ten provider attempts; the dry-run plans two full four-call workflows per batch (maximum eight calls), without reducing total coverage.
 - Evidence and commands: `artifacts/evidence/accounted-core-boundary/`. Safe next CLI is offline: `uv run --locked python scripts/run_live_campaign.py --stage pilot --dry-run`.
+
+
+## 2026-10-27 — Phase 010 Core step/tool safety
+
+- Phase 010 raised a regression showing `CoreTriageRunner` would honor a caller's six-step budget and repeatedly invoke the responder, even though the live accounted contract allows only four model calls. The Core runner now defaults to four and rejects any larger request before invoking a client.
+- The actual accounted Core path now has a specific regression for a model-requested effectful tool call: the response is recorded as one terminal attempted call, no local tool is executed, the workflow closes, and a repeated worker invocation is rejected.
+- Focused Core tests pass (9) and accounted Core tests pass (21). Full fast/full gates are recorded under `artifacts/evidence/core-tool-safety/`; live generation remains disabled. Existing user-modified standard gate outputs were preserved byte-for-byte.
+- No KB/billing source or connector exists. A read-only tool contract proposal is documented; no evaluation facts or fixture contexts were promoted as retrieval. No external/effectful tool or campaign allocation was created. Provider billing tier and campaign/review approvals remain PENDING.

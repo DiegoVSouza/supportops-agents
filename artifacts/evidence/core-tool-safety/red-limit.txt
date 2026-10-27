@@ -1,0 +1,48 @@
+test_approved_response_runs_all_workers_in_order (test_core.CoreRunnerTests.test_approved_response_runs_all_workers_in_order) ... ok
+test_billing_can_escalate (test_core.CoreRunnerTests.test_billing_can_escalate) ... ok
+test_classifier_can_escalate_without_contacting_more_workers (test_core.CoreRunnerTests.test_classifier_can_escalate_without_contacting_more_workers) ... ok
+test_never_approved_response_stops_at_exact_step_limit (test_core.CoreRunnerTests.test_never_approved_response_stops_at_exact_step_limit) ... ok
+test_registry_does_not_impersonate_missing_framework (test_core.CoreRunnerTests.test_registry_does_not_impersonate_missing_framework) ... <frozen importlib._bootstrap>:1342: ImportWarning: Cannot set an attribute on 'crewai.rag' for child module 'embeddings'
+ok
+test_rejects_malformed_worker_output (test_core.CoreRunnerTests.test_rejects_malformed_worker_output) ... ok
+test_rejects_step_budget_above_product_call_limit_before_client_invocation (test_core.CoreRunnerTests.test_rejects_step_budget_above_product_call_limit_before_client_invocation) ... 
+  test_rejects_step_budget_above_product_call_limit_before_client_invocation (test_core.CoreRunnerTests.test_rejects_step_budget_above_product_call_limit_before_client_invocation) (max_steps=5) ... FAIL
+test_rejects_step_budget_above_product_call_limit_before_client_invocation (test_core.CoreRunnerTests.test_rejects_step_budget_above_product_call_limit_before_client_invocation) ... FAIL
+test_rejects_zero_or_invalid_step_budget (test_core.CoreRunnerTests.test_rejects_zero_or_invalid_step_budget) ... ok
+test_step_boundary_allows_final_step_approval (test_core.CoreRunnerTests.test_step_boundary_allows_final_step_approval) ... ok
+
+======================================================================
+FAIL: test_rejects_step_budget_above_product_call_limit_before_client_invocation (test_core.CoreRunnerTests.test_rejects_step_budget_above_product_call_limit_before_client_invocation) (max_steps=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core.py", line 45, in test_rejects_step_budget_above_product_call_limit_before_client_invocation
+    with self.subTest(max_steps=value), self.assertRaisesRegex(
+                                        ~~~~~~~~~~~~~~~~~~~~~~^
+        ValueError, "cannot exceed four"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_rejects_step_budget_above_product_call_limit_before_client_invocation (test_core.CoreRunnerTests.test_rejects_step_budget_above_product_call_limit_before_client_invocation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core.py", line 49, in test_rejects_step_budget_above_product_call_limit_before_client_invocation
+    self.assertEqual(llm.calls, [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [('classifier', {'ticket': {'id': 't-001',[1262 chars]''})] != []
+
+First list contains 4 additional elements.
+First extra element 0:
+('classifier', {'ticket': {'id': 't-001', 'subject': 'Duplicate charge', 'description': 'I was charged twice.', 'customer_id': 'synthetic-customer'}, 'category': 'unknown', 'classification': '', 'kb_context': '', 'billing_context': '', 'response': ''})
+
+Diff is 1634 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 9 tests in 16.244s
+
+FAILED (failures=2)
+
+COMMAND=uv run --locked --group frameworks python -m unittest discover -s tests -p test_core.py -v
+EXIT_CODE=1

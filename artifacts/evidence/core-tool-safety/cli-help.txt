@@ -1,0 +1,16 @@
+usage: run_live_campaign.py [-h] [--config CONFIG]
+                            (--stage {pilot,development,holdout} |
+                            --resume CAMPAIGN_ID) [--dry-run]
+
+Validate and dry-run the P01 Core campaign without provider access.
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG
+  --stage {pilot,development,holdout}
+  --resume CAMPAIGN_ID
+  --dry-run             calculate reservations without provider access
+
+COMMAND=uv run --locked --group frameworks python scripts/run_live_campaign.py --help
+EXIT_CODE=0
+LLM_MODE=fake

@@ -141,6 +141,33 @@ class AccountedCoreTests(unittest.TestCase):
             self.client.complete("classifier", SharedState(self.ticket).as_payload())
         self.assertEqual(len(self.guard.requests), 1)
 
+    def test_model_tool_call_is_terminal_and_never_dispatched_or_replayed(self):
+        self.guard.override = {
+            "status": "ok",
+            "model": MODEL,
+            "attempt_id": "b" * 32,
+            "usage": {"input_tokens": 20, "output_tokens": 10},
+            "latency_ms": 1,
+            "finish_reason": "tool_calls",
+            "tool_calls": [
+                {
+                    "id": "fixture-tool-call",
+                    "type": "function",
+                    "function": {"name": "issue_refund", "arguments": "{}"},
+                }
+            ],
+            "content": json.dumps(
+                {"category": "billing", "summary": "Review it.", "escalate": ""}
+            ),
+        }
+        with self.assertRaisesRegex(BoundaryError, "tool_selection"):
+            self.client.complete("classifier", SharedState(self.ticket).as_payload())
+        self.assertEqual(len(self.guard.requests), 1)
+        self.assertEqual(self.client.receipts[0]["call_index"], 1)
+        with self.assertRaisesRegex(BoundaryError, "workflow_stopped"):
+            self.client.complete("classifier", SharedState(self.ticket).as_payload())
+        self.assertEqual(len(self.guard.requests), 1)
+
     def test_timeout_and_interrupt_keep_workflow_uncertain_without_replay(self):
         for failure in (TimeoutError("fixture-private-content"), KeyboardInterrupt()):
             guard = FixtureGuard()

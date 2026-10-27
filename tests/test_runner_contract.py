@@ -11,15 +11,16 @@ class SharedRunnerContractTests(unittest.TestCase):
     def test_all_runners_approve_the_common_synthetic_case(self):
         for name in RUNNER_NAMES:
             with self.subTest(runner=name):
+                max_steps = 4 if name == "core" else 12
                 if name == "langgraph":
                     with tempfile.TemporaryDirectory() as directory:
                         runner = get_runner(name)
                         runner.checkpoint_path = Path(directory) / "state.sqlite"
                         result = runner.run(Ticket(f"contract-{name}", "Test", "Synthetic."),
-                                            llm=FakeLLMClient(), max_steps=12)
+                                            llm=FakeLLMClient(), max_steps=max_steps)
                 else:
                     result = get_runner(name).run(Ticket(f"contract-{name}", "Test", "Synthetic."),
-                                                  llm=FakeLLMClient(), max_steps=12)
+                                                  llm=FakeLLMClient(), max_steps=max_steps)
                 self.assertEqual(result.stop_reason, "approved")
                 self.assertTrue(result.decision.approved)
                 self.assertEqual(result.decision.action, "respond")

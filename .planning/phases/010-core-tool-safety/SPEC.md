@@ -1,6 +1,6 @@
 # Phase 010 — Core tool safety and execution limits
 
-Status: PLANNED. No provider, credential, network, Docker, or external-effect use is in scope.
+Status: IMPLEMENTED; OFFLINE CONTROL GATES PASS; REAL TOOL SOURCES INCOMPLETE. No provider, credential, network, Docker, or external-effect use is in scope.
 
 ## Problem
 

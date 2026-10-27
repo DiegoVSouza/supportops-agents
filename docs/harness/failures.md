@@ -17,3 +17,10 @@ Installed CrewAI/CoreTelemetry code enables telemetry unless its disable flags a
 ## 2026-10-27 — Fixture SQLite handles
 
 New committed-source/ledger fixture tests initially used SQLite context managers without closing connections, preventing Windows temporary-directory cleanup. Explicit closing and commits correct the fixture resource lifecycle; the failed run remains in `red-fixture-handles.txt`. Production guard reads already used read-only connections with explicit closure. Final full checks passed 60 tests.
+
+
+## 2026-10-27 — Core step budget exceeded live call contract
+
+The P01 `CoreTriageRunner` defaulted to twelve steps and accepted caller budgets above four. If the responder never approved, fake/local execution could call it repeatedly; live mode eventually stopped at the accounted client's fourth-call boundary, so the product API and live guard disagreed. A red regression proved `max_steps=5,6,12,100` invoked the client before returning. The Core runner now defaults to four and rejects values over four before the first call. The separate model tool-call regression confirms effectful tool requests stop after one accounted call and cannot be replayed. No tool executor or external effect exists on this path.
+
+The first fast-gate run then exposed two fake comparison/contract callers still requesting twelve steps from Core. The owning comparison now uses Core's four-step contract while each framework adapter keeps its prior limit. This correction leaves the golden dataset and graders unchanged; the final locked gate passes all six runner slots and keeps quality metrics PENDING.

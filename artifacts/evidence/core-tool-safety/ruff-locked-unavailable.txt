@@ -1,0 +1,1 @@
+COMMAND=uv run --locked --group frameworks python -m ruff check src/supportops_agents/core.py`nEXIT_CODE=1`nOUTPUT=No module named ruff`n

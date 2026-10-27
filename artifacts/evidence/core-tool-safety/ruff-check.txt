@@ -1,0 +1,4 @@
+All checks passed!
+COMMAND=python -m ruff check src/supportops_agents/core.py src/supportops_agents/comparison.py tests/test_core.py tests/test_accounted_core.py tests/test_comparison.py tests/test_runner_contract.py
+RUFF_VERSION=0.15.21 (global; not in project locked group)
+EXIT_CODE=0
