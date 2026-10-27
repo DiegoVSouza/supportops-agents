@@ -26,7 +26,9 @@ Cada validação grava comando, código de saída e saída em `artifacts/evidenc
 
 ## Resultados e limitações
 
-O resultado fake cobre fluxo de controle, não qualidade de modelo. Precisão, tokens, custo e latência continuam `PENDING`. Os seis runners passam os contratos sintéticos; ainda não existe avaliação com modelo real.
+O resultado fake cobre fluxo de controle, não qualidade de modelo. Os seis runners passam os contratos sintéticos. Há smokes históricos de um ticket Core com Groq; eles não completam a campanha de 60 casos com três trials. Métricas da campanha ampla continuam `PENDING`.
+
+A fronteira contabilizada do Core foi implementada e testada offline. Ela usa índices estáveis por chamada, limite de quatro workers e transporte compartilhado sem SDK ou chaves no processo pai. O manifesto de execução permanece desabilitado até o dispatcher durável, a alocação e o congelamento do candidato estarem concluídos. O comando live antigo agora retorna `INCOMPLETE` antes de credenciais/SDK. Os frameworks ficam restritos a fake/replay, com telemetria desabilitada antes da importação. Não há executor de ferramentas externas ou efeitos financeiros no Core atual.
 
 Os contratos `Ticket` e `TriageDecision` são doubles locais e não importam código de repositórios irmãos. O relatório exercita os 60 casos do wheel P00 instalado, mas os campos de decisão sem equivalente no contrato P01 são marcados caso a caso. O uso do wheel junto com CrewAI no mesmo ambiente está bloqueado pelas versões incompatíveis de Pydantic; o exportador roda isoladamente. Consulte [ADR-001](docs/decisions/ADR-001-framework-scope.md) para a decisão sobre os frameworks Microsoft.
 

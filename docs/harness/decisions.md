@@ -21,3 +21,9 @@ Phase 007 prepares a 60-case Core-only dataset (18 development / 42 holdout; 36 
 ## 2026-10-26 — Bounded campaign ledger
 
 Phase 008 adds local SQLite reservations, a process lease, and read-only resume inspection for future P01 campaign execution. This infrastructure does not authorize or enable generation. Paid spend remains USD 0; free-tier quota, cumulative request/token/spend/timing limits, dataset/rubric approval, and campaign approval remain `PENDING`. No provider request was made.
+
+## 2026-10-27 — Accounted Core boundary
+
+The user authorizes controlled synthetic free-only evaluation under the root policy; paid allowance remains USD 0 and deferred human review is not approval. Phase 009 implements the Core boundary offline, while the owner manifest remains disabled and campaign allocation/freeze/dispatch are incomplete. P01's unchanged finite envelope is 984 calls: 744 primary and protected confirmation 240; no corrections, judges or canary are funded automatically.
+
+ADR-002 requires the actual Core worker loop to use the accounted adapter and disables legacy direct SDK/key/catalog paths before credential access. Worker input contains only actual state and global contracts; rubric/expected data never enter prompts. Root subprocess protocol v1 owns credentials/receipts; P01 imports no sibling product source. Framework registry access is fake/replay only and disables installed telemetry before imports. Full campaign execution and real external tools remain separate work; no provider or Docker mutation occurred in phase 009.

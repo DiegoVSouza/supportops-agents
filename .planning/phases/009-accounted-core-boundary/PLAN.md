@@ -19,7 +19,7 @@ allowed_write_paths:
 - `docs/harness/decisions.md`
 - `docs/harness/failures.md`
 - `docs/harness/progress.md`
-- `docs/adr/ADR-002-accounted-live-boundary.md`
+- `docs/decisions/ADR-002-accounted-live-boundary.md`
 - `docs/knowledge/accounted-core-boundary.md`
 - `README.md`
 - `README.pt-BR.md`

@@ -1,0 +1,6 @@
+usage: run_live_groq_eval.py [-h]
+
+Legacy smoke entrypoint: inspect the current allocation boundary offline.
+
+options:
+  -h, --help  show this help message and exit

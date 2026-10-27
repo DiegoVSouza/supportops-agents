@@ -1,0 +1,79 @@
+{
+  "mode": "offline_dry_run",
+  "provider_accessed": false,
+  "credentials_read": false,
+  "candidate": "PENDING_FINAL_COMMIT_FREEZE_AND_DISPATCH_PHASE",
+  "campaign": "NONE_ALLOCATED",
+  "runner": "actual Core supervisor loop",
+  "stages": {
+    "pilot": {
+      "unique_cases": 6,
+      "trials_per_case": 1,
+      "workflow_trials": 6,
+      "maximum_provider_calls": 24,
+      "planned_batches": 3,
+      "workflow_trials_per_batch": 2,
+      "maximum_provider_calls_per_batch": 8
+    },
+    "development": {
+      "unique_cases": 18,
+      "trials_per_case": 3,
+      "workflow_trials": 54,
+      "maximum_provider_calls": 216,
+      "planned_batches": 27,
+      "workflow_trials_per_batch": 2,
+      "maximum_provider_calls_per_batch": 8
+    },
+    "holdout": {
+      "unique_cases": 42,
+      "trials_per_case": 3,
+      "workflow_trials": 126,
+      "maximum_provider_calls": 504,
+      "planned_batches": 63,
+      "workflow_trials_per_batch": 2,
+      "maximum_provider_calls_per_batch": 8
+    },
+    "protected_confirmation": {
+      "unique_cases": 20,
+      "trials_per_case": 3,
+      "workflow_trials": 60,
+      "maximum_provider_calls": 240,
+      "planned_batches": 30,
+      "workflow_trials_per_batch": 2,
+      "maximum_provider_calls_per_batch": 8
+    }
+  },
+  "primary_capacity": {
+    "calls": 744,
+    "input_tokens": 1523712,
+    "output_tokens": 190464,
+    "economic_estimate_usd": "0.1714176"
+  },
+  "protected_confirmation": {
+    "calls": 240,
+    "input_tokens": 491520,
+    "output_tokens": 61440,
+    "economic_estimate_usd": "0.055296"
+  },
+  "p01_provider_calls": 0,
+  "account_guard_recorded_attempts": 16,
+  "p01_provider_ledger_exists": false,
+  "p01_registered": false,
+  "unknown_prior_account_usage": "P00 unknown reservation remains intact; see owning P00 accounting.json; do not add logical/provider ledgers",
+  "extra_corrections_judges_canary": "NOT_ALLOCATED",
+  "paid_authorization_usd": "0.00",
+  "actual_billed_usd": null,
+  "current_daily_provider_quota": "UNKNOWN",
+  "dataset_rubric_human_independent_review": "PENDING",
+  "external_tools_and_effect_executor": "NOT_IMPLEMENTED; do not infer retrieval or financial effects from worker contexts",
+  "docker_identities_unchanged": true,
+  "stop_conditions": [
+    "execution disabled",
+    "no frozen candidate/campaign allocation",
+    "missing durable full campaign dispatcher",
+    "provider/resource/provenance error or uncertain work"
+  ],
+  "safe_next_command": "uv run --locked python scripts/run_live_campaign.py --stage pilot --dry-run",
+  "live_resume_command": null,
+  "status": "INCOMPLETE"
+}

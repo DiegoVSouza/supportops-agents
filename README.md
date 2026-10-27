@@ -107,7 +107,7 @@ The generated `COMPARISON.md` exercises all 60 versioned P00 cases in fake mode 
 
 - P01 runtime uses local `Ticket` and `TriageDecision` doubles documented in `src/supportops_agents/contracts.py`; only comparison fixture export uses the installed P00 wheel. A shared runtime install is blocked by P00's Pydantic 2.14.1 pin and CrewAI's `<2.13` constraint.
 - Comparison metrics for genuine model runs remain `PENDING`; all adapters have fake-mode contract coverage only.
-- No live/replay provider mode, production traces, HTTP API, auth, queue, or formal agent evaluation is included.
+- A guarded Core provider boundary is implemented and tested offline. Its execution manifest is disabled pending durable campaign dispatch, allocation and candidate freeze. The legacy direct-SDK smoke now fails before credentials/SDK access. No replay provider mode, production traces, HTTP API, auth, queue or completed formal live evaluation is included.
 - Python runtime observed: 3.13.12. Core has no third-party dependencies. Framework package versions are pinned in `uv.lock` and recorded in `docs/harness/sources.lock.json`.
 
 ## Testing

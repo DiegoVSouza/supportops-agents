@@ -1,0 +1,1 @@
+{"authorized_paid_spend_usd": "0.00", "credentials_read": false, "generation_calls": 0, "provider_accessed": false, "quality_and_promotion": "PENDING", "reason": "legacy_smoke_not_allocated; accounted campaign dispatch is required", "runner": "core", "safe_next_step": "uv run --locked python scripts/run_live_campaign.py --stage pilot --dry-run", "status": "INCOMPLETE"}

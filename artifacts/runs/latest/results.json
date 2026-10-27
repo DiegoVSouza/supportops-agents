@@ -865,7 +865,7 @@
         "tokens": "PENDING",
         "cost_usd": "PENDING",
         "latency": "PENDING",
-        "fake_control_wall_time_seconds": 0.0007112999992386904
+        "fake_control_wall_time_seconds": 0.0013101999998070823
       },
       "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
     },
@@ -1721,7 +1721,7 @@
         "tokens": "PENDING",
         "cost_usd": "PENDING",
         "latency": "PENDING",
-        "fake_control_wall_time_seconds": 2.3883712999995623
+        "fake_control_wall_time_seconds": 2.12796359999993
       },
       "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
     },
@@ -2577,7 +2577,7 @@
         "tokens": "PENDING",
         "cost_usd": "PENDING",
         "latency": "PENDING",
-        "fake_control_wall_time_seconds": 2.4743326999996498
+        "fake_control_wall_time_seconds": 2.309868800000004
       },
       "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
     },
@@ -3433,7 +3433,7 @@
         "tokens": "PENDING",
         "cost_usd": "PENDING",
         "latency": "PENDING",
-        "fake_control_wall_time_seconds": 0.09819330000027549
+        "fake_control_wall_time_seconds": 0.10194790000014109
       },
       "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
     },
@@ -4289,7 +4289,7 @@
         "tokens": "PENDING",
         "cost_usd": "PENDING",
         "latency": "PENDING",
-        "fake_control_wall_time_seconds": 0.0773140000001149
+        "fake_control_wall_time_seconds": 0.15349160000005213
       },
       "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
     },
@@ -5145,7 +5145,7 @@
         "tokens": "PENDING",
         "cost_usd": "PENDING",
         "latency": "PENDING",
-        "fake_control_wall_time_seconds": 0.26337099999909697
+        "fake_control_wall_time_seconds": 0.25976970000010624
       },
       "note": "Case outcomes check deterministic control behavior; they are not model-quality evaluation."
     }

@@ -1,0 +1,31 @@
+{
+  "run_kind": "p00_golden_contract_comparison",
+  "runners": [
+    [
+      "core",
+      "EXECUTED"
+    ],
+    [
+      "langgraph",
+      "EXECUTED"
+    ],
+    [
+      "crewai",
+      "EXECUTED"
+    ],
+    [
+      "autogen",
+      "EXECUTED"
+    ],
+    [
+      "semantic_kernel",
+      "EXECUTED"
+    ],
+    [
+      "llamaindex",
+      "EXECUTED"
+    ]
+  ]
+}
+{"status": "PASS", "external_socket_attempts": 0, "provider_accessed": false, "credentials_read": false, "frameworks": 6, "telemetry_disabled": true, "live_quality": "PENDING"}
+FINAL_EXIT_CODE=0

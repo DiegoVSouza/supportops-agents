@@ -1,0 +1,110 @@
+test_legacy_client_cannot_dispatch_or_rotate_any_key (test_live_groq_eval.LiveGroqEvalTests.test_legacy_client_cannot_dispatch_or_rotate_any_key) ... FAIL
+test_legacy_errors_never_echo_keys_or_ticket_text (test_live_groq_eval.LiveGroqEvalTests.test_legacy_errors_never_echo_keys_or_ticket_text) ... FAIL
+test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) ...
+  test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) (operation=<function keys at 0x00000188BD2F4040>) ... FAIL
+  test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) (operation=<function root_env at 0x00000188BD2C7F60>) ... FAIL
+  test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) (operation=<function LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk.<locals>.<lambda> at 0x00000188BD2F4220>) ... FAIL
+test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) ... FAIL
+test_live_client_rejects_unknown_agent_without_network (test_live_groq_eval.LiveGroqEvalTests.test_live_client_rejects_unknown_agent_without_network) ... ok
+test_live_mode_is_explicit (test_live_groq_eval.LiveGroqEvalTests.test_live_mode_is_explicit) ... ok
+test_offline_default_stays_fake (test_live_groq_eval.LiveGroqEvalTests.test_offline_default_stays_fake) ... ok
+
+======================================================================
+FAIL: test_legacy_client_cannot_dispatch_or_rotate_any_key (test_live_groq_eval.LiveGroqEvalTests.test_legacy_client_cannot_dispatch_or_rotate_any_key)
+----------------------------------------------------------------------
+RuntimeError: Groq request failed (AssertionError, status=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_live_groq_eval.py", line 48, in test_legacy_client_cannot_dispatch_or_rotate_any_key
+    with self.assertRaisesRegex(RuntimeError, "accounted_guard_required"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "accounted_guard_required" does not match "Groq request failed (AssertionError, status=None)"
+
+======================================================================
+FAIL: test_legacy_errors_never_echo_keys_or_ticket_text (test_live_groq_eval.LiveGroqEvalTests.test_legacy_errors_never_echo_keys_or_ticket_text)
+----------------------------------------------------------------------
+RuntimeError: live evaluation budget preflight blocked the request
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_live_groq_eval.py", line 56, in test_legacy_errors_never_echo_keys_or_ticket_text
+    with self.assertRaisesRegex(RuntimeError, "accounted_guard_required") as error:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "accounted_guard_required" does not match "live evaluation budget preflight blocked the request"
+
+======================================================================
+FAIL: test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) (operation=<function keys at 0x00000188BD2F4040>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_live_groq_eval.py", line 19, in test_legacy_helpers_deny_before_credentials_or_sdk
+    operation()
+    ~~~~~~~~~^^
+  File "C:\estudo\Golpe\lab\projects\p01\src\supportops_agents\live_groq.py", line 48, in keys
+    root_env()
+    ~~~~~~~~^^
+  File "C:\estudo\Golpe\lab\projects\p01\src\supportops_agents\live_groq.py", line 35, in root_env
+    for raw in path.read_text(encoding="utf-8").splitlines():
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+AssertionError: credential read forbidden
+
+======================================================================
+FAIL: test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) (operation=<function root_env at 0x00000188BD2C7F60>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_live_groq_eval.py", line 19, in test_legacy_helpers_deny_before_credentials_or_sdk
+    operation()
+    ~~~~~~~~~^^
+  File "C:\estudo\Golpe\lab\projects\p01\src\supportops_agents\live_groq.py", line 35, in root_env
+    for raw in path.read_text(encoding="utf-8").splitlines():
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+AssertionError: credential read forbidden
+
+======================================================================
+FAIL: test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) (operation=<function LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk.<locals>.<lambda> at 0x00000188BD2F4220>)
+----------------------------------------------------------------------
+RuntimeError: Groq model preflight failed (AssertionError)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_live_groq_eval.py", line 18, in test_legacy_helpers_deny_before_credentials_or_sdk
+    with self.subTest(operation=operation), self.assertRaisesRegex(RuntimeError, "accounted_guard_required"):
+                                            ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "accounted_guard_required" does not match "Groq model preflight failed (AssertionError)"
+
+======================================================================
+FAIL: test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_live_groq_eval.py", line 20, in test_legacy_helpers_deny_before_credentials_or_sdk
+    sdk.assert_not_called()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 940, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected '_new_groq' to not have been called. Called 1 times.
+Calls: [call(api_key='fixture-key', max_retries=0, timeout=20)].
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.032s
+
+FAILED (failures=6)
+FINAL_EXIT_CODE=1

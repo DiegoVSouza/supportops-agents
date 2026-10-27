@@ -1,0 +1,139 @@
+test_actual_core_loop_has_four_indexed_receipts_and_no_extra_effects (test_accounted_core.AccountedCoreTests.test_actual_core_loop_has_four_indexed_receipts_and_no_extra_effects) ... ok
+test_diagnostics_drop_raw_values_and_reject_bool_status (test_accounted_core.AccountedCoreTests.test_diagnostics_drop_raw_values_and_reject_bool_status) ... ok
+test_disabled_and_unallocated_owner_denies_before_process_or_credentials (test_accounted_core.AccountedCoreTests.test_disabled_and_unallocated_owner_denies_before_process_or_credentials) ... ok
+test_early_escalation_stops_actual_core_and_cannot_continue (test_accounted_core.AccountedCoreTests.test_early_escalation_stops_actual_core_and_cannot_continue) ... ok
+test_framework_scope_and_telemetry_are_set_before_import (test_accounted_core.AccountedCoreTests.test_framework_scope_and_telemetry_are_set_before_import) ... ok
+test_frozen_binding_accepts_only_committed_public_source_before_any_process (test_accounted_core.AccountedCoreTests.test_frozen_binding_accepts_only_committed_public_source_before_any_process) ... C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\collections\__init__.py:490: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001E5034D25C0>
+  method.__qualname__ = f'{typename}.{method.__name__}'
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_invalid_worker_contract_is_terminal_not_a_semantic_retry (test_accounted_core.AccountedCoreTests.test_invalid_worker_contract_is_terminal_not_a_semantic_retry) ... ok
+test_legacy_cli_is_stdlib_only_and_denies_without_reading_credentials (test_accounted_core.AccountedCoreTests.test_legacy_cli_is_stdlib_only_and_denies_without_reading_credentials) ... ok
+test_out_of_order_worker_stops_before_transport (test_accounted_core.AccountedCoreTests.test_out_of_order_worker_stops_before_transport) ... ok
+test_oversized_or_grading_state_is_rejected_before_transport (test_accounted_core.AccountedCoreTests.test_oversized_or_grading_state_is_rejected_before_transport) ... ok
+test_prior_provider_receipt_blocks_uncertain_workflow_restart (test_accounted_core.AccountedCoreTests.test_prior_provider_receipt_blocks_uncertain_workflow_restart) ... ERROR
+test_quota_denial_keeps_only_allowlisted_diagnostics_and_never_retries (test_accounted_core.AccountedCoreTests.test_quota_denial_keeps_only_allowlisted_diagnostics_and_never_retries) ... ok
+test_root_transport_encoder_parity_is_offline_and_utf8 (test_accounted_core.AccountedCoreTests.test_root_transport_encoder_parity_is_offline_and_utf8) ... ok
+test_subprocess_frames_are_utf8_and_never_inherit_provider_keys (test_accounted_core.AccountedCoreTests.test_subprocess_frames_are_utf8_and_never_inherit_provider_keys) ... ok
+test_subprocess_invalid_reply_stops_without_echoing_or_replaying (test_accounted_core.AccountedCoreTests.test_subprocess_invalid_reply_stops_without_echoing_or_replaying) ... ok
+test_subprocess_timeout_is_uncertain_and_cannot_restart (test_accounted_core.AccountedCoreTests.test_subprocess_timeout_is_uncertain_and_cannot_restart) ... ok
+test_timeout_and_interrupt_keep_workflow_uncertain_without_replay (test_accounted_core.AccountedCoreTests.test_timeout_and_interrupt_keep_workflow_uncertain_without_replay) ... ok
+test_unknown_reservations_across_ids_exhaust_primary_without_confirmation (test_accounted_core.AccountedCoreTests.test_unknown_reservations_across_ids_exhaust_primary_without_confirmation) ... C:\estudo\Golpe\lab\projects\p01\src\supportops_agents\accounted_live.py:471: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001E5034D27A0>
+  latest[(row["campaign_id"], row["case_id"], row["trial"])] = row
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\estudo\Golpe\lab\projects\p01\src\supportops_agents\accounted_live.py:471: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001E5034D2A70>
+  latest[(row["campaign_id"], row["case_id"], row["trial"])] = row
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+C:\estudo\Golpe\lab\projects\p01\src\supportops_agents\accounted_live.py:471: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x000001E5034D2980>
+  latest[(row["campaign_id"], row["case_id"], row["trial"])] = row
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ERROR
+test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git (test_accounted_core.AccountedCoreTests.test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git) ... ERROR
+
+======================================================================
+ERROR: test_prior_provider_receipt_blocks_uncertain_workflow_restart (test_accounted_core.AccountedCoreTests.test_prior_provider_receipt_blocks_uncertain_workflow_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\Users\\dvsdi\\AppData\\Local\\Temp\\tmp_xpsiktu\\lab\\projects\\p01\\artifacts\\evals\\live\\ledger.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_accounted_core.py", line 530, in test_prior_provider_receipt_blocks_uncertain_workflow_restart
+    with tempfile.TemporaryDirectory() as directory:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\Users\\dvsdi\\AppData\\Local\\Temp\\tmp_xpsiktu\\lab\\projects\\p01\\artifacts\\evals\\live\\ledger.sqlite'
+
+======================================================================
+ERROR: test_unknown_reservations_across_ids_exhaust_primary_without_confirmation (test_accounted_core.AccountedCoreTests.test_unknown_reservations_across_ids_exhaust_primary_without_confirmation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\Users\\dvsdi\\AppData\\Local\\Temp\\tmpam1paygr\\lab\\projects\\p01\\artifacts\\evals\\live\\ledger.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_accounted_core.py", line 510, in test_unknown_reservations_across_ids_exhaust_primary_without_confirmation
+    with tempfile.TemporaryDirectory() as directory:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\Users\\dvsdi\\AppData\\Local\\Temp\\tmpam1paygr\\lab\\projects\\p01\\artifacts\\evals\\live\\ledger.sqlite'
+
+======================================================================
+ERROR: test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git (test_accounted_core.AccountedCoreTests.test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\Users\\dvsdi\\AppData\\Local\\Temp\\tmp48fenjju\\lab\\projects\\p01\\artifacts\\evals\\live\\ledger.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_accounted_core.py", line 497, in test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git
+    with tempfile.TemporaryDirectory() as directory:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\Users\\dvsdi\\AppData\\Local\\Temp\\tmp48fenjju\\lab\\projects\\p01\\artifacts\\evals\\live\\ledger.sqlite'
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.991s
+
+FAILED (errors=3)
+FINAL_EXIT_CODE=1
