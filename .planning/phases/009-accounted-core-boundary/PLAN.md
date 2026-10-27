@@ -3,13 +3,14 @@
 ## Tasks
 
 1. Specify the guarded Core adapter and transport/payload contracts in offline tests. Freeze source inventory, public protocol v1, finite call/input/output limits, historical reports and the explicit absence of financial/external-effect handlers; record the legacy SDK bypass in failures/ADR.
-2. Implement the project-owned subprocess boundary, pure versioned worker prompt/payload, guarded Core client and typed diagnostics. Require an execution manifest before subprocess construction, leave execution disabled, and fail the legacy direct-key/preflight/CLI path before credentials or SDK access.
+2. Implement the project-owned subprocess boundary, pure versioned worker prompt/payload, guarded Core client and typed diagnostics. Require an execution manifest before subprocess construction, leave execution disabled, and fail the legacy direct-key/preflight/CLI path before credentials or SDK access. Enforce the advertised offline-only framework scope at the registry and disable telemetry before those imports using flags confirmed in installed sources.
 3. Execute actual Core-loop fixtures and root-encoder parity probes, then locked fast/full checks and six offline framework comparisons. Save sanitized command/exits/output, review staged diff/secrets, update project state/knowledge and commit the implementation separately from planning.
 
 allowed_write_paths:
 - `.planning/phases/009-accounted-core-boundary/**`
 - `src/supportops_agents/accounted_live.py`
 - `src/supportops_agents/live_groq.py`
+- `src/supportops_agents/registry.py` (offline-only scope and local-process telemetry configuration before framework imports)
 - `agent/prompts/live-core.md`
 - `evals/live-execution.json`
 - `scripts/run_live_groq_eval.py`

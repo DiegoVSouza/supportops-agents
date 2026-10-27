@@ -22,3 +22,7 @@ Baseline inspected: clean P01 HEAD `60be3e028cd39eb4314e4dcc4e46be018ec57a35`. P
 Offline tests execute the actual Core loop through a fixture implementation of the guard contract, proving four serial indexed calls, early escalation, no fifth/duplicate worker, full payload bounds, no expected-field leakage, typed allowlisted diagnostics and stop on timeout/quota/guard/invalid output. The real root encoder is checked through an offline subprocess contract probe, without constructing ProviderSession or loading keys. Legacy CLI denies unallocated calls before `.env`/SDK access. Fake/framework and existing ledger regressions remain passing in locked environments. No fixture is counted as live quality evidence.
 
 Dataset/rubric/human/independent review, actual account preflight, broad campaign execution, full durable campaign integration, real external tools/effects, heldout/generalization and promotion remain PENDING/INCOMPLETE.
+
+## Offline framework export correction
+
+Installed CrewAI/CoreTelemetry sources expose telemetry exporters and recognize `OTEL_SDK_DISABLED`, `CREWAI_DISABLE_TELEMETRY` and `CREWAI_DISABLE_TRACKING`. The registry must enforce fake/replay-only framework access and set those flags before importing a framework. This changes only local process configuration and live authorization, not runner control-flow semantics. A socket-denial comparison probe must exercise the real six-runner fake comparison without external connections; any unresolved attempt remains INCOMPLETE. No claim is made about unrecorded historical telemetry activity.
