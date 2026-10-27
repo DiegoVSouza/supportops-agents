@@ -3,14 +3,17 @@
 ## Tasks
 
 1. Add regressions for the four-call ceiling in the actual Core loop and terminal rejection of model tool calls through the accounted client; preserve current evaluator contracts and historical artifacts.
-2. Enforce `max_steps <= 4` before any client call and ensure no tool call or duplicate is executable in the live boundary. Keep all frameworks/fake behavior otherwise unchanged.
+2. Enforce `max_steps <= 4` before any client call and update only the fake comparison harness/shared runner tests to pass the Core's four-call limit while leaving the five framework adapters unchanged. Ensure no tool call or duplicate is executable in the live boundary.
 3. Run locked focused/fast/full checks, save command/exit/output, record the real-tool source limitation and concrete proposal, inspect/stage only owned paths, update status/knowledge, and commit atomically.
 
 allowed_write_paths:
 - `.planning/phases/010-core-tool-safety/**`
 - `src/supportops_agents/core.py`
+- `src/supportops_agents/comparison.py` (pass the Core-specific four-call limit only)
 - `tests/test_core.py`
 - `tests/test_accounted_core.py`
+- `tests/test_comparison.py`
+- `tests/test_runner_contract.py` (Core-specific limit only; preserve framework contracts)
 - `docs/harness/progress.md`
 - `docs/harness/failures.md`
 - `docs/harness/security.md`
