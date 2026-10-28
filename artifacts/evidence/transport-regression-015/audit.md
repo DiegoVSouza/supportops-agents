@@ -1,0 +1,11 @@
+# P01 current boundary audit
+
+Inspected current implementation 7ef72ab, phases 011–014, `accounted_live.py`, `synthetic_dispatch.py`, execution manifest and source tool proposals. File search for billing/knowledge/identity/connector returns proposed contracts and checkpoint identity documentation, not an eligible source or authenticated principal contract.
+
+Root transport dependency is actual JSON-lines subprocess protocol. The P01 parent bounds each ready/response read at 35 seconds and closes on timeout/invalid framing. Shutdown waits one second, kills if needed, then waits two seconds. Thus the parent does not rely on the catalog socket timeout as a wall-clock guarantee. Five-key metadata may exceed the parent startup bound; that fails closed, never authorizes rotation or another completion. Envelope identity/call index is fixed to one workflow with four maximum calls; the client closes after a non-ok response and retains durable uncertain attempts.
+
+Owner execution remains disabled, approved_campaigns and allocations empty, candidate freeze pending. Local synthetic dispatch uses caller-supplied fixture tenant, two allowlisted reads maximum, FULL committed reservation before adapter invocation and no replay of unknown work. Phase 013 proves process-death recovery; phase 014 binds this explicitly to fake Core. These controls do not authenticate the fixture tenant or establish real effect idempotency.
+
+Remaining real integration requires a P01-owned eligible KB corpus/version and billing source, source-owner ACL/privacy contract, trusted caller/tenant identity and a non-customer verification environment. Effectful integration requires an authorized executor/receipt contract; none is implemented or authorized. Source proposals define concrete schemas and refusal/unavailable behavior. Do not promote fixture records, eval expectations or sibling products into product sources.
+
+Live workflow campaign execution additionally needs an owning allocated/frozen campaign implementation, model-quality evidence and actual human/dataset/rubric/independent review. Those approvals remain pending. This audit closes only current local regression; it does not claim campaign or live integration completion. No provider credentials were read and no provider requests were made by the verification runner.

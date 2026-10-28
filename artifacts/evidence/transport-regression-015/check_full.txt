@@ -1,0 +1,132 @@
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe scripts/check_fast.py
+exit_code=0
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m compileall -q src tests
+exit_code=0
+
+
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m unittest discover -s tests -v
+exit_code=0
+test_actual_core_loop_has_four_indexed_receipts_and_no_extra_effects (test_accounted_core.AccountedCoreTests.test_actual_core_loop_has_four_indexed_receipts_and_no_extra_effects) ... ok
+test_diagnostics_drop_raw_values_and_reject_bool_status (test_accounted_core.AccountedCoreTests.test_diagnostics_drop_raw_values_and_reject_bool_status) ... ok
+test_dirty_root_policy_cannot_be_rehashed_to_bypass_committed_sources (test_accounted_core.AccountedCoreTests.test_dirty_root_policy_cannot_be_rehashed_to_bypass_committed_sources) ... ok
+test_disabled_and_unallocated_owner_denies_before_process_or_credentials (test_accounted_core.AccountedCoreTests.test_disabled_and_unallocated_owner_denies_before_process_or_credentials) ... ok
+test_early_escalation_stops_actual_core_and_cannot_continue (test_accounted_core.AccountedCoreTests.test_early_escalation_stops_actual_core_and_cannot_continue) ... ok
+test_framework_scope_and_telemetry_are_set_before_import (test_accounted_core.AccountedCoreTests.test_framework_scope_and_telemetry_are_set_before_import) ... ok
+test_frozen_binding_accepts_only_committed_public_source_before_any_process (test_accounted_core.AccountedCoreTests.test_frozen_binding_accepts_only_committed_public_source_before_any_process) ... ok
+test_invalid_worker_contract_is_terminal_not_a_semantic_retry (test_accounted_core.AccountedCoreTests.test_invalid_worker_contract_is_terminal_not_a_semantic_retry) ... ok
+test_legacy_cli_is_stdlib_only_and_denies_without_reading_credentials (test_accounted_core.AccountedCoreTests.test_legacy_cli_is_stdlib_only_and_denies_without_reading_credentials) ... ok
+test_model_tool_call_is_terminal_and_never_dispatched_or_replayed (test_accounted_core.AccountedCoreTests.test_model_tool_call_is_terminal_and_never_dispatched_or_replayed) ... ok
+test_out_of_order_worker_stops_before_transport (test_accounted_core.AccountedCoreTests.test_out_of_order_worker_stops_before_transport) ... ok
+test_oversized_or_grading_state_is_rejected_before_transport (test_accounted_core.AccountedCoreTests.test_oversized_or_grading_state_is_rejected_before_transport) ... ok
+test_prior_provider_receipt_blocks_uncertain_workflow_restart (test_accounted_core.AccountedCoreTests.test_prior_provider_receipt_blocks_uncertain_workflow_restart) ... ok
+test_quota_denial_keeps_only_allowlisted_diagnostics_and_never_retries (test_accounted_core.AccountedCoreTests.test_quota_denial_keeps_only_allowlisted_diagnostics_and_never_retries) ... ok
+test_root_transport_encoder_parity_is_offline_and_utf8 (test_accounted_core.AccountedCoreTests.test_root_transport_encoder_parity_is_offline_and_utf8) ... ok
+test_subprocess_frames_are_utf8_and_never_inherit_provider_keys (test_accounted_core.AccountedCoreTests.test_subprocess_frames_are_utf8_and_never_inherit_provider_keys) ... ok
+test_subprocess_invalid_reply_stops_without_echoing_or_replaying (test_accounted_core.AccountedCoreTests.test_subprocess_invalid_reply_stops_without_echoing_or_replaying) ... ok
+test_subprocess_timeout_is_uncertain_and_cannot_restart (test_accounted_core.AccountedCoreTests.test_subprocess_timeout_is_uncertain_and_cannot_restart) ... ok
+test_timeout_and_interrupt_keep_workflow_uncertain_without_replay (test_accounted_core.AccountedCoreTests.test_timeout_and_interrupt_keep_workflow_uncertain_without_replay) ... ok
+test_unknown_reservations_across_ids_exhaust_primary_without_confirmation (test_accounted_core.AccountedCoreTests.test_unknown_reservations_across_ids_exhaust_primary_without_confirmation) ... ok
+test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git (test_accounted_core.AccountedCoreTests.test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git) ... ok
+test_caps_are_cumulative_across_campaign_ids (test_campaign_ledger.CampaignLedgerTests.test_caps_are_cumulative_across_campaign_ids) ... ok
+test_completed_attempt_without_usage_keeps_full_reservation (test_campaign_ledger.CampaignLedgerTests.test_completed_attempt_without_usage_keeps_full_reservation) ... ok
+test_completion_reconciles_usage_but_history_is_immutable (test_campaign_ledger.CampaignLedgerTests.test_completion_reconciles_usage_but_history_is_immutable) ... ok
+test_lease_excludes_an_independent_process_and_releases (test_campaign_ledger.CampaignLedgerTests.test_lease_excludes_an_independent_process_and_releases) ... ok
+test_parallel_reservations_cannot_race_past_cap (test_campaign_ledger.CampaignLedgerTests.test_parallel_reservations_cannot_race_past_cap) ... ok
+test_unknown_usage_reservation_is_kept_and_trial_cannot_repeat (test_campaign_ledger.CampaignLedgerTests.test_unknown_usage_reservation_is_kept_and_trial_cannot_repeat) ... ok
+test_emits_all_runner_slots_but_only_measured_core_behavior (test_comparison.ComparisonTests.test_emits_all_runner_slots_but_only_measured_core_behavior) ... <frozen importlib._bootstrap>:1342: ImportWarning: Cannot set an attribute on 'crewai.rag' for child module 'embeddings'
+ok
+test_approved_response_runs_all_workers_in_order (test_core.CoreRunnerTests.test_approved_response_runs_all_workers_in_order) ... ok
+test_billing_can_escalate (test_core.CoreRunnerTests.test_billing_can_escalate) ... ok
+test_classifier_can_escalate_without_contacting_more_workers (test_core.CoreRunnerTests.test_classifier_can_escalate_without_contacting_more_workers) ... ok
+test_never_approved_response_stops_at_exact_step_limit (test_core.CoreRunnerTests.test_never_approved_response_stops_at_exact_step_limit) ... ok
+test_registry_does_not_impersonate_missing_framework (test_core.CoreRunnerTests.test_registry_does_not_impersonate_missing_framework) ... ok
+test_rejects_malformed_worker_output (test_core.CoreRunnerTests.test_rejects_malformed_worker_output) ... ok
+test_rejects_step_budget_above_product_call_limit_before_client_invocation (test_core.CoreRunnerTests.test_rejects_step_budget_above_product_call_limit_before_client_invocation) ... ok
+test_rejects_zero_or_invalid_step_budget (test_core.CoreRunnerTests.test_rejects_zero_or_invalid_step_budget) ... ok
+test_step_boundary_allows_final_step_approval (test_core.CoreRunnerTests.test_step_boundary_allows_final_step_approval) ... ok
+test_dispatch_uses_caller_identity_and_four_call_limit (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_dispatch_uses_caller_identity_and_four_call_limit) ... ok
+test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) ... ok
+test_non_fake_client_is_rejected_before_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_non_fake_client_is_rejected_before_dispatch) ... ok
+test_unknown_dispatch_stops_before_later_workers (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_unknown_dispatch_stops_before_later_workers) ... ok
+test_budget_boundaries_never_exceed_agent_call_limit (test_langgraph.LangGraphRunnerTests.test_budget_boundaries_never_exceed_agent_call_limit) ... ok
+test_checkpoint_survives_process_exit_and_resumes_in_a_second_process (test_langgraph.LangGraphRunnerTests.test_checkpoint_survives_process_exit_and_resumes_in_a_second_process) ... ok
+test_classifier_escalation_stops_graph (test_langgraph.LangGraphRunnerTests.test_classifier_escalation_stops_graph) ... ok
+test_human_denial_escalates_without_responder (test_langgraph.LangGraphRunnerTests.test_human_denial_escalates_without_responder) ... ok
+test_interrupt_can_resume_after_constructing_a_new_runner (test_langgraph.LangGraphRunnerTests.test_interrupt_can_resume_after_constructing_a_new_runner) ... ok
+test_repeated_ticket_gets_fresh_checkpoint_without_resume_key (test_langgraph.LangGraphRunnerTests.test_repeated_ticket_gets_fresh_checkpoint_without_resume_key) ... ok
+test_retries_a_transient_node_failure (test_langgraph.LangGraphRunnerTests.test_retries_a_transient_node_failure) ... ok
+test_runs_kb_and_billing_branches_then_returns_common_contract (test_langgraph.LangGraphRunnerTests.test_runs_kb_and_billing_branches_then_returns_common_contract) ... ok
+test_dataset_has_required_counts_and_family_coverage (test_live_campaign_preparation.LiveCampaignPreparationTests.test_dataset_has_required_counts_and_family_coverage) ... ok
+test_development_and_holdout_dry_runs_have_expected_denominators (test_live_campaign_preparation.LiveCampaignPreparationTests.test_development_and_holdout_dry_runs_have_expected_denominators) ... ok
+test_dry_run_runs_without_site_packages_or_provider_imports (test_live_campaign_preparation.LiveCampaignPreparationTests.test_dry_run_runs_without_site_packages_or_provider_imports) ... ok
+test_generation_stops_in_preparation_phase (test_live_campaign_preparation.LiveCampaignPreparationTests.test_generation_stops_in_preparation_phase) ... ok
+test_grader_allows_terminal_result_within_loop_bound (test_live_campaign_preparation.LiveCampaignPreparationTests.test_grader_allows_terminal_result_within_loop_bound) ... ok
+test_grader_rejects_wrong_route_decision_and_over_limit_trace (test_live_campaign_preparation.LiveCampaignPreparationTests.test_grader_rejects_wrong_route_decision_and_over_limit_trace) ... ok
+test_rejects_duplicate_case_input_and_split_leakage (test_live_campaign_preparation.LiveCampaignPreparationTests.test_rejects_duplicate_case_input_and_split_leakage) ... ok
+test_resume_inspection_is_read_only_and_rejects_unknown_campaign (test_live_campaign_preparation.LiveCampaignPreparationTests.test_resume_inspection_is_read_only_and_rejects_unknown_campaign) ... ok
+test_legacy_client_cannot_dispatch_or_rotate_any_key (test_live_groq_eval.LiveGroqEvalTests.test_legacy_client_cannot_dispatch_or_rotate_any_key) ... ok
+test_legacy_errors_never_echo_keys_or_ticket_text (test_live_groq_eval.LiveGroqEvalTests.test_legacy_errors_never_echo_keys_or_ticket_text) ... ok
+test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) ... ok
+test_live_client_rejects_unknown_agent_without_network (test_live_groq_eval.LiveGroqEvalTests.test_live_client_rejects_unknown_agent_without_network) ... ok
+test_live_mode_is_explicit (test_live_groq_eval.LiveGroqEvalTests.test_live_mode_is_explicit) ... ok
+test_offline_default_stays_fake (test_live_groq_eval.LiveGroqEvalTests.test_offline_default_stays_fake) ... ok
+test_all_runners_approve_the_common_synthetic_case (test_runner_contract.SharedRunnerContractTests.test_all_runners_approve_the_common_synthetic_case) ... ok
+test_all_runners_propagate_worker_escalations (test_runner_contract.SharedRunnerContractTests.test_all_runners_propagate_worker_escalations) ... ok
+test_all_runners_stop_at_the_shared_step_boundary (test_runner_contract.SharedRunnerContractTests.test_all_runners_stop_at_the_shared_step_boundary) ... ok
+test_completed_receipt_prevents_duplicate_dispatch (test_synthetic_dispatch.SyntheticDispatchTests.test_completed_receipt_prevents_duplicate_dispatch) ... ok
+test_concurrent_duplicate_is_not_dispatched_twice (test_synthetic_dispatch.SyntheticDispatchTests.test_concurrent_duplicate_is_not_dispatched_twice) ... ok
+test_interruption_blocks_restart_without_replay (test_synthetic_dispatch.SyntheticDispatchTests.test_interruption_blocks_restart_without_replay) ... ok
+test_invalid_plans_never_call_adapter (test_synthetic_dispatch.SyntheticDispatchTests.test_invalid_plans_never_call_adapter) ... ok
+test_process_death_after_reservation_cannot_replay (test_synthetic_dispatch.SyntheticDispatchTests.test_process_death_after_reservation_cannot_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 71 tests in 24.517s
+
+OK
+
+
+
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m supportops_agents.comparison --output artifacts/runs/latest
+exit_code=0
+{
+  "run_kind": "p00_golden_contract_comparison",
+  "runners": [
+    [
+      "core",
+      "EXECUTED"
+    ],
+    [
+      "langgraph",
+      "EXECUTED"
+    ],
+    [
+      "crewai",
+      "EXECUTED"
+    ],
+    [
+      "autogen",
+      "EXECUTED"
+    ],
+    [
+      "semantic_kernel",
+      "EXECUTED"
+    ],
+    [
+      "llamaindex",
+      "EXECUTED"
+    ]
+  ]
+}
+
+
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m supportops_agents.demo
+exit_code=0
+Ticket: demo-001 - Duplicate charge
+Action: respond (approved)
+Response: We found the duplicate charge and will review it.
+Steps: 4; tokens/cost: PENDING (fake mode)
+
+
+command=check comparison JSON, sources lock, and required documentation
+exit_code=0
+6 runner identities found; metrics remain PENDING

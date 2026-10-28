@@ -1,0 +1,18 @@
+[
+  {
+    "command": [
+      "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe",
+      "scripts/check_fast.py"
+    ],
+    "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe",
+      "scripts/check_full.py"
+    ],
+    "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+    "exit_code": 0
+  }
+]
