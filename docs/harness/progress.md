@@ -69,3 +69,7 @@ One real Core workflow passed all domain assertions with four serial calls (1470
 - Locked offline development dry-run passed with 54 logical trials and maximum 216 provider calls; it reports `generation_authorized=false`, `provider_accessed=false`, `credentials_read=false`, paid authorization USD 0, and review status PENDING. Billing/quota evidence, dataset/rubric review, expanded campaign approval, primary/confirmation reservation and execution limits remain blockers. No request or credential was used.
 - The three pre-existing modified gate outputs (`artifacts/evidence/check-fast.txt`, `artifacts/evidence/check-full.txt`, `artifacts/runs/latest/results.json`) were not run through standard scripts or staged; SHA-256 before/after values match in `artifacts/evidence/real-tool-source-contract-011/preservation.json`.
 - Real retrieval, planner/tool execution and effect idempotency remain INCOMPLETE until the source owner supplies an eligible local source/version, tenant/record ACL contract, and non-customer verification environment. Live dispatch, model quality, human/independent review and promotion remain PENDING/INCOMPLETE.
+
+## 2026-10-28 - Phase 012 synthetic dispatch
+
+- Fixture-only bounded reads use durable reservations and receipts; unknown work is not replayed. Focused tests and the locked fake full gate passed. Real integrations and independent review remain pending. Evidence: artifacts/evidence/synthetic-dispatch-012/.

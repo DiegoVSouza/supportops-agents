@@ -1,0 +1,125 @@
+cwd: C:\estudo\Golpe\lab\projects\p01
+command: uv run --locked python -m unittest discover -s tests -p test_synthetic_dispatch.py -v
+exit_code: 1
+output:
+test_completed_receipt_prevents_duplicate_dispatch (test_synthetic_dispatch.SyntheticDispatchTests.test_completed_receipt_prevents_duplicate_dispatch) ... ERROR
+test_concurrent_duplicate_is_not_dispatched_twice (test_synthetic_dispatch.SyntheticDispatchTests.test_concurrent_duplicate_is_not_dispatched_twice) ... ERROR
+test_interruption_blocks_restart_without_replay (test_synthetic_dispatch.SyntheticDispatchTests.test_interruption_blocks_restart_without_replay) ... ERROR
+test_invalid_plans_never_call_adapter (test_synthetic_dispatch.SyntheticDispatchTests.test_invalid_plans_never_call_adapter) ... ERROR
+
+======================================================================
+ERROR: test_completed_receipt_prevents_duplicate_dispatch (test_synthetic_dispatch.SyntheticDispatchTests.test_completed_receipt_prevents_duplicate_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmpz4tixxsw\\dispatch.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmpz4tixxsw\\dispatch.sqlite'
+
+======================================================================
+ERROR: test_concurrent_duplicate_is_not_dispatched_twice (test_synthetic_dispatch.SyntheticDispatchTests.test_concurrent_duplicate_is_not_dispatched_twice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmp425osksf\\dispatch.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmp425osksf\\dispatch.sqlite'
+
+======================================================================
+ERROR: test_interruption_blocks_restart_without_replay (test_synthetic_dispatch.SyntheticDispatchTests.test_interruption_blocks_restart_without_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmp3t10taro\\dispatch.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmp3t10taro\\dispatch.sqlite'
+
+======================================================================
+ERROR: test_invalid_plans_never_call_adapter (test_synthetic_dispatch.SyntheticDispatchTests.test_invalid_plans_never_call_adapter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmpyj10_c9z\\dispatch.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dvsdi\AppData\Local\Programs\Python\Python313\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] O arquivo j� est� sendo usado por outro processo: 'C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\synthetic-dispatch-012\\tmp\\tmpyj10_c9z\\dispatch.sqlite'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.070s
+
+FAILED (errors=4)
