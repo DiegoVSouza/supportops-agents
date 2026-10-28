@@ -1,6 +1,8 @@
 import tempfile
 import threading
 import unittest
+import subprocess
+import sys
 from pathlib import Path
 
 from supportops_agents.synthetic_dispatch import DispatchBlocked, SyntheticDispatcher
@@ -59,6 +61,25 @@ class SyntheticDispatchTests(unittest.TestCase):
             release.set()
             thread.join(5)
         self.assertEqual(len(self.calls), 1)
+
+    def test_process_death_after_reservation_cannot_replay(self):
+        marker = Path(self.tmp.name) / 'invoked.txt'
+        code = """
+import os, sys
+from pathlib import Path
+from supportops_agents.synthetic_dispatch import SyntheticDispatcher
+def adapter(context):
+    Path(sys.argv[2]).write_text('invoked')
+    os._exit(77)
+SyntheticDispatcher(Path(sys.argv[1]), {'search_knowledge': adapter}).run(
+    'crash-run', ['search_knowledge'], {'tenant': 'fixture-a'})
+"""
+        child = subprocess.run([sys.executable, '-c', code, str(self.path), str(marker)], timeout=15)
+        self.assertEqual(child.returncode, 77)
+        self.assertEqual(marker.read_text(), 'invoked')
+        with self.assertRaisesRegex(DispatchBlocked, 'mismatch_or_unknown_work'):
+            self.dispatcher.run('crash-run', ['search_knowledge'], {'tenant': 'fixture-a'})
+        self.assertEqual(self.calls, [])
 
 
 if __name__ == "__main__":
