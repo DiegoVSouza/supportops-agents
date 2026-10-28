@@ -10,7 +10,7 @@ root = Path(__file__).resolve().parents[3]
 evidence = Path(__file__).resolve().parent
 paths = [root / p for p in (
     'artifacts/evidence/check-fast.txt', 'artifacts/evidence/check-full.txt',
-    'artifacts/runs/latest/results.json', 'artifacts/runs/latest/summary.md',
+    'artifacts/runs/latest/results.json', 'artifacts/runs/latest/COMPARISON.md',
 )]
 original = {p: p.read_bytes() if p.exists() else None for p in paths}
 results = []

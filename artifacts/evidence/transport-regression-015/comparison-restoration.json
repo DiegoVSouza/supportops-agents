@@ -1,0 +1,13 @@
+{
+  "command": [
+    "git",
+    "show",
+    "7ef72ab:artifacts/runs/latest/COMPARISON.md"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "reason": "initial Git status clean; only runner-generated Core LOC changed",
+  "original_sha256": "cb00086a312f0c853af0a5f5809142a974104dc8e9cecdd9fd10803f420e4d10",
+  "generated_sha256": "4dbd9229f0e8ef31cdd93a134e7b10a45069bb064bc0a628ddccecd91c5746d8",
+  "restored_sha256": "cb00086a312f0c853af0a5f5809142a974104dc8e9cecdd9fd10803f420e4d10"
+}
