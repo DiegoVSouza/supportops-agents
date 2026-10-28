@@ -73,3 +73,7 @@ One real Core workflow passed all domain assertions with four serial calls (1470
 ## 2026-10-28 - Phase 012 synthetic dispatch
 
 - Fixture-only bounded reads use durable reservations and receipts; unknown work is not replayed. Focused tests and the locked fake full gate passed. Real integrations and independent review remain pending. Evidence: artifacts/evidence/synthetic-dispatch-012/.
+
+## 2026-10-28 - Phase 014 Core fixture dispatch
+
+- The Core runner can explicitly dispatch bounded synthetic reads with a fake client and caller-provided fixture context. Four focused tests and the full fake gate (71 tests) passed; real sources, identity and live evaluation remain pending. Evidence: artifacts/evidence/core-fixture-dispatch-014/.

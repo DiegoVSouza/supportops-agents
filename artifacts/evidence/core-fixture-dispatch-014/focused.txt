@@ -1,0 +1,13 @@
+cwd: C:\estudo\Golpe\lab\projects\p01
+command: uv run --locked python -m unittest discover -s tests -p test_core_fixture_dispatch.py -v
+exit_code: 0
+output:
+test_dispatch_uses_caller_identity_and_four_call_limit (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_dispatch_uses_caller_identity_and_four_call_limit) ... ok
+test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) ... ok
+test_non_fake_client_is_rejected_before_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_non_fake_client_is_rejected_before_dispatch) ... ok
+test_unknown_dispatch_stops_before_later_workers (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_unknown_dispatch_stops_before_later_workers) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.047s
+
+OK

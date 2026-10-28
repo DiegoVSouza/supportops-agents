@@ -40,13 +40,20 @@ class CoreTriageRunner:
     name = "core"
     max_provider_calls = 4
 
-    def run(self, ticket: Ticket, *, llm: LLMClient, max_steps: int = 4) -> TriageResult:
+    def run(self, ticket: Ticket, *, llm: LLMClient, max_steps: int = 4,
+            fixture_dispatcher=None, fixture_run_id=None, fixture_tenant=None) -> TriageResult:
         if not isinstance(ticket, Ticket):
             raise TypeError("ticket must be a Ticket")
         if isinstance(max_steps, bool) or not isinstance(max_steps, int) or max_steps < 1:
             raise ValueError("max_steps must be a positive integer")
         if max_steps > self.max_provider_calls:
             raise ValueError("max_steps cannot exceed four for the Core runner")
+        if any(value is not None for value in (fixture_dispatcher, fixture_run_id, fixture_tenant)):
+            from .fakes import FakeLLMClient
+            from .synthetic_dispatch import SyntheticDispatcher
+            if (type(llm) is not FakeLLMClient or type(fixture_dispatcher) is not SyntheticDispatcher
+                    or not isinstance(fixture_run_id, str) or not isinstance(fixture_tenant, str)):
+                raise ValueError("fixture dispatch requires a fake client and explicit fixture context")
 
         state = SharedState(ticket=ticket)
         workers = ("classifier", "kb_researcher", "billing_agent", "responder")
@@ -65,6 +72,15 @@ class CoreTriageRunner:
                     state.escalation_reason = str(reason)
                     state.trace.append(StepRecord(step, agent, "escalate", state.escalation_reason))
                     return _result(state, "escalated")
+                if "read_plan" in output:
+                    plan = output["read_plan"]
+                    if fixture_dispatcher is None or not isinstance(plan, dict) or set(plan) != {"tools"}:
+                        raise InvalidAgentResponse("invalid fixture read plan")
+                    tools = plan["tools"]
+                    results = fixture_dispatcher.run(fixture_run_id, tools, {"tenant": fixture_tenant})
+                    evidence = dict(zip(tools, results, strict=True))
+                    state.kb_context = evidence.get("search_knowledge", "")
+                    state.billing_context = evidence.get("lookup_billing", "")
                 state.trace.append(StepRecord(step, agent, "classify", state.classification))
             elif agent == "kb_researcher":
                 state.kb_context = _required_text(output, "context", agent)

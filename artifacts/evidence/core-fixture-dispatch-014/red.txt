@@ -1,0 +1,99 @@
+cwd: C:\estudo\Golpe\lab\projects\p01
+command: uv run --locked python -m unittest discover -s tests -p test_core_fixture_dispatch.py -v
+exit_code: 1
+output:
+test_dispatch_uses_caller_identity_and_four_call_limit (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_dispatch_uses_caller_identity_and_four_call_limit) ... ERROR
+test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) ...
+  test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) (plan=[]) ... ERROR
+  test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) (plan=['issue_refund']) ... ERROR
+  test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) (plan=['search_knowledge', 'search_knowledge']) ... ERROR
+test_non_fake_client_is_rejected_before_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_non_fake_client_is_rejected_before_dispatch) ... ERROR
+test_unknown_dispatch_stops_before_later_workers (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_unknown_dispatch_stops_before_later_workers) ... ERROR
+
+======================================================================
+ERROR: test_dispatch_uses_caller_identity_and_four_call_limit (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_dispatch_uses_caller_identity_and_four_call_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 31, in test_dispatch_uses_caller_identity_and_four_call_limit
+    result = self.run_core(client)
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 26, in run_core
+    return CoreTriageRunner().run(self.ticket, llm=client, fixture_dispatcher=self.dispatcher,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  fixture_run_id=run_id, fixture_tenant='fixture-a')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoreTriageRunner.run() got an unexpected keyword argument 'fixture_dispatcher'
+
+======================================================================
+ERROR: test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) (plan=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 42, in test_invalid_and_effectful_plans_never_dispatch
+    self.run_core(self.client(plan), run_id='run-invalid')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 26, in run_core
+    return CoreTriageRunner().run(self.ticket, llm=client, fixture_dispatcher=self.dispatcher,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  fixture_run_id=run_id, fixture_tenant='fixture-a')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoreTriageRunner.run() got an unexpected keyword argument 'fixture_dispatcher'
+
+======================================================================
+ERROR: test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) (plan=['issue_refund'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 42, in test_invalid_and_effectful_plans_never_dispatch
+    self.run_core(self.client(plan), run_id='run-invalid')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 26, in run_core
+    return CoreTriageRunner().run(self.ticket, llm=client, fixture_dispatcher=self.dispatcher,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  fixture_run_id=run_id, fixture_tenant='fixture-a')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoreTriageRunner.run() got an unexpected keyword argument 'fixture_dispatcher'
+
+======================================================================
+ERROR: test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) (plan=['search_knowledge', 'search_knowledge'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 42, in test_invalid_and_effectful_plans_never_dispatch
+    self.run_core(self.client(plan), run_id='run-invalid')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 26, in run_core
+    return CoreTriageRunner().run(self.ticket, llm=client, fixture_dispatcher=self.dispatcher,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  fixture_run_id=run_id, fixture_tenant='fixture-a')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoreTriageRunner.run() got an unexpected keyword argument 'fixture_dispatcher'
+
+======================================================================
+ERROR: test_non_fake_client_is_rejected_before_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_non_fake_client_is_rejected_before_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 61, in test_non_fake_client_is_rejected_before_dispatch
+    self.run_core(ExternalClient())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 26, in run_core
+    return CoreTriageRunner().run(self.ticket, llm=client, fixture_dispatcher=self.dispatcher,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  fixture_run_id=run_id, fixture_tenant='fixture-a')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoreTriageRunner.run() got an unexpected keyword argument 'fixture_dispatcher'
+
+======================================================================
+ERROR: test_unknown_dispatch_stops_before_later_workers (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_unknown_dispatch_stops_before_later_workers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 51, in test_unknown_dispatch_stops_before_later_workers
+    self.run_core(client)
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_core_fixture_dispatch.py", line 26, in run_core
+    return CoreTriageRunner().run(self.ticket, llm=client, fixture_dispatcher=self.dispatcher,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  fixture_run_id=run_id, fixture_tenant='fixture-a')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoreTriageRunner.run() got an unexpected keyword argument 'fixture_dispatcher'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.046s
+
+FAILED (errors=6)
