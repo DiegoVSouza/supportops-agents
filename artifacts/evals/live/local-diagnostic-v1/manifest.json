@@ -1,0 +1,7 @@
+{
+  "campaign": "local-diagnostic-v1",
+  "case": "fixture-diagnostic-01",
+  "authorization_id": "p01-reviewed-diagnostic-v1",
+  "candidate": "846bb994c88c24a196e526ba486ace394579d287",
+  "source_fingerprint": "b003f04d40afddcc3676adcd0148c36cfc111d5761a1d0556cbe8cf48f0ea25e"
+}
