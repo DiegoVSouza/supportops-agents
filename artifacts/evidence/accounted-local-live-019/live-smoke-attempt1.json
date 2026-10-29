@@ -1,0 +1,11 @@
+{
+  "command": "LLM_MODE=live python -m scripts.local_operation --request-id fixture-local-01",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 2,
+  "result": {
+    "status": "INCOMPLETE",
+    "reason": "operation_blocked_or_uncertain"
+  },
+  "stdout_redacted": true,
+  "stderr_redacted": true
+}

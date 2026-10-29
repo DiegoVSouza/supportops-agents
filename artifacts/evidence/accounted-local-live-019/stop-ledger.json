@@ -1,0 +1,66 @@
+{
+  "logical_events": [
+    {
+      "campaign_id": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "event": "reserved",
+      "reserved_calls": 4,
+      "reserved_input_tokens": 8192,
+      "reserved_output_tokens": 1024,
+      "outcome": null,
+      "error_class": null
+    }
+  ],
+  "provider_events": [
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 1,
+      "event": "reserved",
+      "status": null,
+      "reserved_input": 1470,
+      "reserved_output": 256,
+      "actual_input": null,
+      "actual_output": null
+    },
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 1,
+      "event": "completed",
+      "status": "ok",
+      "reserved_input": 1470,
+      "reserved_output": 256,
+      "actual_input": 235,
+      "actual_output": 46
+    },
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 2,
+      "event": "reserved",
+      "status": null,
+      "reserved_input": 1448,
+      "reserved_output": 256,
+      "actual_input": null,
+      "actual_output": null
+    },
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 2,
+      "event": "completed",
+      "status": "ok",
+      "reserved_input": 1448,
+      "reserved_output": 256,
+      "actual_input": 228,
+      "actual_output": 183
+    }
+  ],
+  "provider_accessed": true
+}

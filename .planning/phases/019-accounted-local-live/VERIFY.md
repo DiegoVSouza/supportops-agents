@@ -1,3 +1,5 @@
 # Verification
 
 PASS initial locked fake unit gate: 85 tests, no provider access. Local operation uses fixed synthetic case IDs, explicit live mode, shared lease and four-call reservation before the accounted client. Candidate binding, isolated full gate and one bounded live synthetic workflow remain PENDING. Human and independent evaluation remain PENDING. Evidence: `artifacts/evidence/accounted-local-live-019/`.
+
+Current result INCOMPLETE: isolated full fake gate PASS on candidate `d17923e0c8fe5992ebac8e25b994e746e9f25ba2`; manifest SHA-256 `306635c6669bb0806cbfaa4ba6e1e809b7ac30ef54ff70da55ba0faf594ccef1`. One synthetic live workflow exited 2 after two provider attempts, both provider receipts `ok` with 235/46 and 228/183 input/output tokens. The logical four-call reservation remains open, and the categorical failure was not preserved beyond `operation_blocked_or_uncertain`. Do not replay the case or use another ID to evade the uncertain workflow; reconcile the interruption before further P01 generation. No human quality approval is implied. See `live-smoke-attempt1.json` and `stop-ledger.json` in the evidence directory.
