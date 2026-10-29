@@ -1,0 +1,8 @@
+# Plan
+
+1. Implement an explicit diagnostic-only controller/bridge with immutable source binding, root authority/history validation and exact single-use ledger scope. Keep the original controller unchanged and blocked.
+2. Test no replay, authority/history denial, reservation before startup and crash/failure retention; run locked fake gates in fresh lab-layout snapshot, preserving existing modified outputs.
+3. Commit source, freeze new diagnostic manifest and run at most one authorized workflow after catalog/preflight; reconcile receipts/reserve/outcome without replay and preserve original hashes.
+
+allowed_write_paths: .planning/phases/021-reviewed-diagnostic-operation/**; scripts/diagnostic_operation.py; tests/test_diagnostic_operation.py; evals/live-execution.json (add separate diagnostic campaign only); artifacts/evals/live/local-diagnostic-v1/manifest.json; artifacts/evals/live/ledger.sqlite* (append new diagnostic reservation/outcome only); artifacts/evals/live/provider-usage.sqlite* (shared guard normal writes); artifacts/evidence/reviewed-diagnostic-021/**; shared runtime registry/locks (normal operation only).
+forbidden_changes: original local-operation controller/case/manifest/result/reserve, existing modified output files, other allocations/holdout/confirmation, paid use, fallback/retry, customer data, real tools, Docker and review fabrication. Budget at most one workflow/four calls, 8192/1024 input/output, existing eight-call operating ceiling, USD 0 paid. max_tries 3 local failures; no live replay. Stop on original-shape mismatch, unknown work, any provider/quota/schema/semantic error. Plan-check implementer self-assessment.
