@@ -425,7 +425,7 @@ class SubprocessGuard:
         try:
             allocation = owner["allocations"][self.binding.campaign_id]
             if (
-                allocation["stage"] not in {"pilot", "development", "holdout"}
+                allocation["stage"] not in {"pilot", "development", "holdout", "operation"}
                 or self.binding.case_id not in allocation["case_ids"]
                 or self.binding.trial > allocation["trials_per_case"]
             ):
@@ -461,6 +461,10 @@ class SubprocessGuard:
                     "uv.lock",
                 )
             ]
+            if allocation["stage"] == "operation":
+                if self.binding.campaign_id != "local-operation-v1":
+                    raise ValueError
+                own.append(self.project / "scripts/local_operation.py")
             shared = [
                 root / name
                 for name in (

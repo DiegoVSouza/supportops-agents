@@ -71,3 +71,14 @@ class LocalOperationTests(unittest.TestCase):
         with self.assertRaises(Exception):
             self.run_case()
         self.assertEqual(CampaignLedger(self.path, campaign_id=CAMPAIGN).totals()["output_tokens"], 1024)
+
+    def test_live_operation_requires_explicit_mode_and_fixed_synthetic_case(self):
+        from unittest.mock import patch
+        from scripts.local_operation import run_live_operation
+
+        with patch.dict("os.environ", {"LLM_MODE": "fake"}):
+            with self.assertRaisesRegex(CampaignBlocked, "explicit_synthetic"):
+                run_live_operation("fixture-local-01")
+        with patch.dict("os.environ", {"LLM_MODE": "live"}):
+            with self.assertRaisesRegex(CampaignBlocked, "explicit_synthetic"):
+                run_live_operation("customer-data")
