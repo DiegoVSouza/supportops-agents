@@ -1,0 +1,8 @@
+{
+  "status": "REPRODUCED_OFFLINE",
+  "reason": "invalid_attempt_envelope",
+  "provider_session_constructed": false,
+  "credentials_read": false,
+  "provider_dispatched": false,
+  "defect": "Core subprocess operation field forwarded to direct session"
+}

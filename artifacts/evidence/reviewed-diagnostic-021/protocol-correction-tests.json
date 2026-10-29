@@ -1,0 +1,7 @@
+{
+  "command": "uv run --locked python -m unittest discover -s tests -p test_diagnostic_operation.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "....\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.207s\r\n\r\nOK\r\n",
+  "scope": "offline direct-session protocol correction; no dispatch"
+}

@@ -18,6 +18,7 @@ class Session:
         pass
 
     def complete(self, envelope):
+        assert "operation" not in envelope, "direct shared session rejects protocol operation field"
         return self.guard.request(envelope)
 
 
@@ -26,12 +27,12 @@ class DiagnosticTests(unittest.TestCase):
         def denied():
             raise RuntimeError("authenticated_model_catalog_incomplete")
         with self.assertRaises(BoundaryError) as context:
-            Bridge(denied,"fixture").request({})
+            Bridge(denied,"fixture").request({"operation":"complete"})
         self.assertEqual(context.exception.diagnostic["reason"],"model_access")
         def private():
             raise RuntimeError("PRIVATE UNKNOWN")
         with self.assertRaises(BoundaryError) as context:
-            Bridge(private,"fixture").request({})
+            Bridge(private,"fixture").request({"operation":"complete"})
         self.assertNotIn("PRIVATE",str(context.exception.diagnostic))
 
     def setUp(self):

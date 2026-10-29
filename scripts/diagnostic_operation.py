@@ -70,6 +70,11 @@ class Bridge:
 
     def request(self, envelope):
         try:
+            if envelope.get("operation") != "complete":
+                raise BoundaryError("protocol_failure")
+            # Core speaks the subprocess protocol; direct ProviderSession methods
+            # receive the envelope after the protocol operation is consumed.
+            envelope = {key: value for key, value in envelope.items() if key != "operation"}
             if self.session is None:
                 self.session = self.factory()
             self.session.preview(envelope)
