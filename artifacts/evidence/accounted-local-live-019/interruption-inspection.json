@@ -1,0 +1,63 @@
+{
+  "status": "INCOMPLETE",
+  "campaign_lease": "acquired_no_live_holder",
+  "manifest_sha256": "306635c6669bb0806cbfaa4ba6e1e809b7ac30ef54ff70da55ba0faf594ccef1",
+  "logical": [
+    {
+      "campaign_id": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "event": "reserved",
+      "reserved_calls": 4,
+      "reserved_input_tokens": 8192,
+      "reserved_output_tokens": 1024,
+      "outcome": null,
+      "error_class": null
+    }
+  ],
+  "provider": [
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 1,
+      "event": "reserved",
+      "status": null,
+      "actual_input": null,
+      "actual_output": null
+    },
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 1,
+      "event": "completed",
+      "status": "ok",
+      "actual_input": 235,
+      "actual_output": 46
+    },
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 2,
+      "event": "reserved",
+      "status": null,
+      "actual_input": null,
+      "actual_output": null
+    },
+    {
+      "campaign": "local-operation-v1",
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "call_index": 2,
+      "event": "completed",
+      "status": "ok",
+      "actual_input": 228,
+      "actual_output": 183
+    }
+  ],
+  "failure_reason": "NOT_PRESERVED",
+  "provider_accessed": false,
+  "credentials_read": false
+}
