@@ -50,8 +50,11 @@ class CoreTriageRunner:
             raise ValueError("max_steps cannot exceed four for the Core runner")
         if any(value is not None for value in (fixture_dispatcher, fixture_run_id, fixture_tenant)):
             from .fakes import FakeLLMClient
+            from .accounted_live import AccountedCoreClient
             from .synthetic_dispatch import SyntheticDispatcher
-            if (type(llm) is not FakeLLMClient or type(fixture_dispatcher) is not SyntheticDispatcher
+            fixture_client = (type(llm) is FakeLLMClient or
+                (type(llm) is AccountedCoreClient and llm.transport.provenance == "fixture"))
+            if (not fixture_client or type(fixture_dispatcher) is not SyntheticDispatcher
                     or not isinstance(fixture_run_id, str) or not isinstance(fixture_tenant, str)):
                 raise ValueError("fixture dispatch requires a fake client and explicit fixture context")
 
@@ -77,7 +80,13 @@ class CoreTriageRunner:
                     if fixture_dispatcher is None or not isinstance(plan, dict) or set(plan) != {"tools"}:
                         raise InvalidAgentResponse("invalid fixture read plan")
                     tools = plan["tools"]
-                    results = fixture_dispatcher.run(fixture_run_id, tools, {"tenant": fixture_tenant})
+                    try:
+                        results = fixture_dispatcher.run(fixture_run_id, tools, {"tenant": fixture_tenant})
+                    except BaseException:
+                        close = getattr(llm, "close", None)
+                        if callable(close):
+                            close()
+                        raise
                     evidence = dict(zip(tools, results, strict=True))
                     state.kb_context = evidence.get("search_knowledge", "")
                     state.billing_context = evidence.get("lookup_billing", "")

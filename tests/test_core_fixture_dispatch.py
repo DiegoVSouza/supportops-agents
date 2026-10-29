@@ -64,3 +64,67 @@ class CoreFixtureDispatchTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+class AccountedFixtureDispatchTests(unittest.TestCase):
+    def test_accounted_fixture_dispatch_uses_explicit_tenant_once(self):
+        from test_accounted_core import FixtureGuard
+        from supportops_agents.accounted_live import AccountedCoreClient, WorkflowBinding
+
+        guard = FixtureGuard()
+        guard.outputs["classifier"]["read_plan"] = {"tools": ["search_knowledge"]}
+        with tempfile.TemporaryDirectory() as directory:
+            calls = []
+            dispatcher = SyntheticDispatcher(Path(directory) / "runs.sqlite", {
+                "search_knowledge": lambda context: calls.append(context) or "fixture evidence"
+            })
+            client = AccountedCoreClient(guard, WorkflowBinding("fixture", "case", 1))
+            result = CoreTriageRunner().run(Ticket("fixture-ticket", "question", "synthetic"),
+                llm=client, fixture_dispatcher=dispatcher, fixture_run_id="run-1", fixture_tenant="fixture-a")
+            self.assertEqual(result.stop_reason, "approved")
+            self.assertEqual(calls, [{"tenant": "fixture-a"}])
+            self.assertEqual(len(client.receipts), 4)
+            self.assertEqual(dispatcher.run("run-1", ["search_knowledge"], {"tenant": "fixture-a"}), ["fixture evidence"])
+            self.assertEqual(len(calls), 1)
+
+    def test_live_provenance_is_rejected_before_any_request(self):
+        from test_accounted_core import FixtureGuard
+        from supportops_agents.accounted_live import AccountedCoreClient, WorkflowBinding
+
+        guard = FixtureGuard()
+        guard.provenance = "live"
+        with tempfile.TemporaryDirectory() as directory:
+            dispatcher = SyntheticDispatcher(Path(directory) / "runs.sqlite", {"search_knowledge": lambda _: "fixture"})
+            client = AccountedCoreClient(guard, WorkflowBinding("fixture", "case", 1))
+            with self.assertRaisesRegex(ValueError, "fixture dispatch"):
+                CoreTriageRunner().run(Ticket("fixture-ticket", "question", "synthetic"), llm=client,
+                    fixture_dispatcher=dispatcher, fixture_run_id="run-1", fixture_tenant="fixture-a")
+        self.assertEqual(guard.requests, [])
+
+    def test_failed_fixture_read_stops_before_next_worker_and_cannot_replay(self):
+        from test_accounted_core import FixtureGuard
+        from supportops_agents.accounted_live import AccountedCoreClient, WorkflowBinding
+
+        guard = FixtureGuard()
+        guard.outputs["classifier"]["read_plan"] = {"tools": ["search_knowledge"]}
+        with tempfile.TemporaryDirectory() as directory:
+            def fail(_context):
+                raise RuntimeError("fixture failure")
+            dispatcher = SyntheticDispatcher(Path(directory) / "runs.sqlite", {"search_knowledge": fail})
+            client = AccountedCoreClient(guard, WorkflowBinding("fixture", "case", 1))
+            with self.assertRaisesRegex(DispatchBlocked, "unknown_work"):
+                CoreTriageRunner().run(Ticket("fixture-ticket", "question", "synthetic"), llm=client,
+                    fixture_dispatcher=dispatcher, fixture_run_id="run-1", fixture_tenant="fixture-a")
+            with self.assertRaisesRegex(DispatchBlocked, "mismatch_or_unknown_work"):
+                dispatcher.run("run-1", ["search_knowledge"], {"tenant": "fixture-a"})
+        self.assertEqual(len(guard.requests), 1)
+        self.assertTrue(client.stopped)
+
+    def test_classifier_read_plan_is_rejected_for_live_or_malformed_fixture(self):
+        from supportops_agents.accounted_live import BoundaryError, validate_output
+
+        output = {"category": "billing", "summary": "synthetic", "escalate": "",
+                  "read_plan": {"tools": ["search_knowledge"]}}
+        with self.assertRaises(BoundaryError):
+            validate_output("classifier", output)
+        output["read_plan"] = {"tools": [], "extra": True}
+        with self.assertRaises(BoundaryError):
+            validate_output("classifier", output, fixture_plan=True)

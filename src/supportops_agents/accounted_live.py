@@ -250,11 +250,17 @@ def input_bound(payload: dict[str, Any]) -> int:
     return bound
 
 
-def validate_output(agent: str, output: Any) -> dict[str, Any]:
-    if not isinstance(output, dict) or set(output) != set(CONTRACTS[agent]):
+def validate_output(agent: str, output: Any, *, fixture_plan: bool = False) -> dict[str, Any]:
+    fields = set(CONTRACTS[agent])
+    if fixture_plan and agent == "classifier" and isinstance(output, dict) and "read_plan" in output:
+        fields.add("read_plan")
+    if not isinstance(output, dict) or set(output) != fields:
         raise BoundaryError("worker_contract")
     for field, value in output.items():
-        if field == "approved":
+        if field == "read_plan":
+            if not isinstance(value, dict) or set(value) != {"tools"}:
+                raise BoundaryError("worker_contract")
+        elif field == "approved":
             if type(value) is not bool:
                 raise BoundaryError("worker_contract")
         elif not isinstance(value, str) or (field != "escalate" and not value.strip()):
@@ -362,7 +368,7 @@ class AccountedCoreClient:
             if not isinstance(content, str) or len(content.encode("utf-8")) > 8192:
                 raise BoundaryError("output_schema", result)
             try:
-                output = validate_output(agent, json.loads(content))
+                output = validate_output(agent, json.loads(content), fixture_plan=self.transport.provenance == "fixture")
             except (ValueError, TypeError):
                 raise BoundaryError("output_schema", result) from None
             if output.get("escalate") or agent == "responder":

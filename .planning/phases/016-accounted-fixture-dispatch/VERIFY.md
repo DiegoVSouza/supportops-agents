@@ -1,3 +1,3 @@
 # Verification
 
-PENDING red-first and locked fake regression. Actual accounted live execution and external source/identity remain INCOMPLETE; human review remains PENDING.
+PASS fixture-only accounted Core dispatch: eight focused tests and all 75 locked fake unit tests exited 0. Tests cover explicit tenant, one durable read, duplicate receipt reuse, malformed plan, refusal of live provenance and failure/uncertain read stopping the client. Red-first failure and correction evidence are in `artifacts/evidence/accounted-fixture-dispatch-016/`. The full six-runner gate was not rerun because it writes over preexisting user-modified output files; its historical result is not current-candidate acceptance. Actual accounted live execution and external source/identity remain INCOMPLETE; human review remains PENDING.

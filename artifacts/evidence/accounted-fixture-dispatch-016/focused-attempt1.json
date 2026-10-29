@@ -1,0 +1,6 @@
+{
+  "command": "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe -m unittest discover -s tests -p test_core_fixture_dispatch.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 1,
+  "output": "E....\n======================================================================\nERROR: test_accounted_fixture_dispatch_uses_explicit_tenant_once (test_core_fixture_dispatch.AccountedFixtureDispatchTests.test_accounted_fixture_dispatch_uses_explicit_tenant_once)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\estudo\\Golpe\\lab\\projects\\p01\\tests\\test_core_fixture_dispatch.py\", line 80, in test_accounted_fixture_dispatch_uses_explicit_tenant_once\n    result = CoreTriageRunner().run(Ticket(\"fixture-ticket\", \"question\", \"synthetic\"),\n        llm=client, fixture_dispatcher=dispatcher, fixture_run_id=\"run-1\", fixture_tenant=\"fixture-a\")\n  File \"C:\\estudo\\Golpe\\lab\\projects\\p01\\src\\supportops_agents\\core.py\", line 56, in run\n    raise ValueError(\"fixture dispatch requires a fake client and explicit fixture context\")\nValueError: fixture dispatch requires a fake client and explicit fixture context\n\n----------------------------------------------------------------------\nRan 5 tests in 0.170s\n\nFAILED (errors=1)\n"
+}
