@@ -7,6 +7,8 @@ import argparse
 import json
 import os
 import sys
+import sqlite3
+from contextlib import closing
 from decimal import Decimal
 from pathlib import Path
 
@@ -88,6 +90,31 @@ def run_live_operation(request_id: str):
             return {"status": "ok", "stop_reason": result.stop_reason, "calls": len(client.receipts)}
         finally:
             client.close()
+
+
+def reconcile_interrupted_fixture(*, ledger_path, provider_path, lease):
+    """Finalize only the observed interrupted workflow, retaining its entire reservation."""
+    with lease:
+        ledger = CampaignLedger(ledger_path, campaign_id=CAMPAIGN, read_only=True)
+        events = ledger.reserved_trials()
+        if len(events) != 1 or events[0]["case_id"] != "fixture-local-01" or events[0]["trial"] != 1 or events[0]["event"] != "reserved":
+            raise CampaignBlocked("unexpected_logical_history")
+        with closing(sqlite3.connect(Path(ledger_path).resolve().as_uri() + "?mode=ro", uri=True)) as db:
+            reservation = db.execute("SELECT reserved_calls,reserved_input_tokens,reserved_output_tokens,reserved_cost_usd FROM events WHERE campaign_id=? AND case_id=? AND trial=1 AND event='reserved'", (CAMPAIGN, "fixture-local-01")).fetchone()
+        if reservation != (4, 8192, 1024, "0.0009216"):
+            raise CampaignBlocked("unexpected_logical_reservation")
+        with closing(sqlite3.connect(Path(provider_path).resolve().as_uri() + "?mode=ro", uri=True)) as db:
+            if db.execute("SELECT COUNT(*) FROM usage_events WHERE campaign != ? OR case_id != ? OR trial != 1", (CAMPAIGN, "fixture-local-01")).fetchone()[0]:
+                raise CampaignBlocked("unexpected_provider_history")
+            rows = db.execute("SELECT call_index,event,status,actual_input,actual_output FROM usage_events WHERE campaign=? AND case_id=? AND trial=1 ORDER BY ordinal", (CAMPAIGN, "fixture-local-01")).fetchall()
+        if rows != [(1, "reserved", None, None, None), (1, "completed", "ok", 235, 46),
+                    (2, "reserved", None, None, None), (2, "completed", "ok", 228, 183)]:
+            raise CampaignBlocked("unexpected_provider_history")
+        writable = CampaignLedger(ledger_path, campaign_id=CAMPAIGN)
+        writable.complete(case_id="fixture-local-01", trial=1, input_tokens=None, output_tokens=None,
+                          actual_cost_usd=None, outcome="incomplete", error_class="unknown")
+        return {"status": "INCOMPLETE", "reason": "failure_category_not_preserved",
+                "reservation_retained": True, "provider_calls": 2}
 
 
 def main():

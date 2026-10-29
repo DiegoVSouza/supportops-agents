@@ -1,7 +1,10 @@
 import tempfile
 import unittest
+import sqlite3
+from decimal import Decimal
 from contextlib import nullcontext
 from contextlib import contextmanager
+from contextlib import closing
 from pathlib import Path
 from unittest.mock import Mock
 
@@ -97,3 +100,41 @@ class LocalOperationTests(unittest.TestCase):
             self.assertEqual(main(), 2)
         self.assertIn("output_truncated", output.getvalue())
         self.assertNotIn("private", output.getvalue())
+
+    def test_reconcile_retains_full_reservation_and_never_allows_replay(self):
+        from scripts.local_operation import CAPS, WORKFLOW_COST, reconcile_interrupted_fixture
+
+        ledger = CampaignLedger(self.path, campaign_id=CAMPAIGN)
+        ledger.reserve(case_id="fixture-local-01", trial=1, calls=4, input_tokens=8192,
+                       output_tokens=1024, estimated_cost_usd=WORKFLOW_COST, caps=CAPS)
+        provider = Path(self.tmp.name) / "provider.sqlite"
+        with closing(sqlite3.connect(provider)) as db:
+            db.execute("CREATE TABLE usage_events (ordinal INTEGER, campaign TEXT, case_id TEXT, trial INTEGER, call_index INTEGER, event TEXT, status TEXT, actual_input INTEGER, actual_output INTEGER)")
+            for ordinal, row in enumerate(((1, "reserved", None, None, None), (1, "completed", "ok", 235, 46), (2, "reserved", None, None, None), (2, "completed", "ok", 228, 183)), 1):
+                db.execute("INSERT INTO usage_events VALUES (?, ?, ?, 1, ?, ?, ?, ?, ?)", (ordinal, CAMPAIGN, "fixture-local-01", *row))
+            db.commit()
+        report = reconcile_interrupted_fixture(ledger_path=self.path, provider_path=provider, lease=nullcontext())
+        self.assertEqual(report["status"], "INCOMPLETE")
+        self.assertEqual(ledger.totals()["requests"], 4)
+        self.assertEqual(ledger.totals()["input_tokens"], 8192)
+        self.assertEqual(ledger.totals()["estimated_cost_usd"], Decimal("0.0009216"))
+        with self.assertRaisesRegex(CampaignBlocked, "prior_work"):
+            self.run_case("fixture-local-02")
+        with self.assertRaisesRegex(CampaignBlocked, "unexpected_logical_history"):
+            reconcile_interrupted_fixture(ledger_path=self.path, provider_path=provider, lease=nullcontext())
+
+    def test_reconcile_refuses_incomplete_provider_receipts(self):
+        from scripts.local_operation import CAPS, WORKFLOW_COST, reconcile_interrupted_fixture
+
+        ledger = CampaignLedger(self.path, campaign_id=CAMPAIGN)
+        ledger.reserve(case_id="fixture-local-01", trial=1, calls=4, input_tokens=8192,
+                       output_tokens=1024, estimated_cost_usd=WORKFLOW_COST, caps=CAPS)
+        provider = Path(self.tmp.name) / "provider.sqlite"
+        with closing(sqlite3.connect(provider)) as db:
+            db.execute("CREATE TABLE usage_events (ordinal INTEGER, campaign TEXT, case_id TEXT, trial INTEGER, call_index INTEGER, event TEXT, status TEXT, actual_input INTEGER, actual_output INTEGER)")
+            db.execute("INSERT INTO usage_events VALUES (1, ?, ?, 1, 1, 'reserved', NULL, NULL, NULL)", (CAMPAIGN, "fixture-local-01"))
+            db.commit()
+        with self.assertRaisesRegex(CampaignBlocked, "unexpected_provider_history"):
+            reconcile_interrupted_fixture(ledger_path=self.path, provider_path=provider, lease=nullcontext())
+        self.assertEqual(ledger.reserved_trials()[0]["event"], "reserved")
+        self.assertEqual(ledger.totals()["input_tokens"], 8192)
