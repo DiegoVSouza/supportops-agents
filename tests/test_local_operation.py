@@ -82,3 +82,18 @@ class LocalOperationTests(unittest.TestCase):
         with patch.dict("os.environ", {"LLM_MODE": "live"}):
             with self.assertRaisesRegex(CampaignBlocked, "explicit_synthetic"):
                 run_live_operation("customer-data")
+
+    def test_cli_exposes_only_allowlisted_boundary_diagnostic(self):
+        import io
+        from contextlib import redirect_stdout
+        from unittest.mock import patch
+        from scripts.local_operation import main
+        from supportops_agents.accounted_live import BoundaryError
+
+        output = io.StringIO()
+        with (patch("sys.argv", ["local_operation", "--request-id", "fixture-local-01"]),
+              patch("scripts.local_operation.run_live_operation", side_effect=BoundaryError("output_truncated", {"content": "private"})),
+              redirect_stdout(output)):
+            self.assertEqual(main(), 2)
+        self.assertIn("output_truncated", output.getvalue())
+        self.assertNotIn("private", output.getvalue())

@@ -11,7 +11,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from scripts.campaign_ledger import CampaignBlocked, CampaignLedger
-from supportops_agents.accounted_live import AccountedCoreClient, SubprocessGuard, WorkflowBinding
+from supportops_agents.accounted_live import AccountedCoreClient, BoundaryError, SubprocessGuard, WorkflowBinding
 from supportops_agents.contracts import Ticket
 from supportops_agents.core import CoreTriageRunner
 
@@ -97,6 +97,9 @@ def main():
     try:
         print(json.dumps(run_live_operation(args.request_id)))
         return 0
+    except BoundaryError as error:
+        print(json.dumps({"status": "INCOMPLETE", "diagnostic": error.diagnostic}))
+        return 2
     except Exception:
         print(json.dumps({"status": "INCOMPLETE", "reason": "operation_blocked_or_uncertain"}))
         return 2
