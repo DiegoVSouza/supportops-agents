@@ -1,0 +1,6 @@
+{
+  "command": "LLM_MODE=live uv run --locked python scripts/diagnostic_operation.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 1,
+  "output": "Traceback (most recent call last):\r\n  File \"C:\\estudo\\Golpe\\lab\\projects\\p01\\scripts\\diagnostic_operation.py\", line 10, in <module>\r\n    from scripts.campaign_ledger import CampaignBlocked, CampaignLedger\r\nModuleNotFoundError: No module named 'scripts.campaign_ledger'\r\n"
+}

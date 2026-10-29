@@ -69,10 +69,23 @@ class Bridge:
         self.factory, self.session, self.provenance = factory, None, provenance
 
     def request(self, envelope):
-        if self.session is None:
-            self.session = self.factory()
-        self.session.preview(envelope)
-        return self.session.complete(envelope)
+        try:
+            if self.session is None:
+                self.session = self.factory()
+            self.session.preview(envelope)
+            return self.session.complete(envelope)
+        except BoundaryError:
+            raise
+        except Exception as error:
+            # Preserve only allowlisted categories already understood by the
+            # owning client; never copy arbitrary exception messages.
+            categories = {"explicit_live_mode_required": "guard_denied",
+                          "authenticated_model_catalog_incomplete": "model_access",
+                          "provider_token_capacity": "quota", "provider_request_capacity": "quota",
+                          "reviewed_diagnostic_authority_or_history_invalid": "guard_denied",
+                          "uncertain_attempt_requires_reconciliation": "guard_denied"}
+            reason = categories.get(str(error), "protocol_failure")
+            raise BoundaryError(reason) from None
 
     def close(self):
         pass

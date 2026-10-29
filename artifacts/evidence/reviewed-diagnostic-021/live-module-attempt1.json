@@ -1,0 +1,7 @@
+{
+  "command": "LLM_MODE=live uv run --locked python -m scripts.diagnostic_operation",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 2,
+  "output": "{\"status\": \"INCOMPLETE\", \"calls\": 0, \"receipts\": [], \"diagnostic\": {\"reason\": \"provider_timeout_uncertain\", \"http_status\": null, \"provider_error_code\": null, \"attempt_id\": null}, \"original_reservation_retained\": true, \"diagnostic_reservation_retained\": true}\r\n",
+  "prior_invocation": "module import failure before controller; read-only event counts remained 2 logical/4 provider"
+}

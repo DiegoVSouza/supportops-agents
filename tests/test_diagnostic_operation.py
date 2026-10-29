@@ -5,7 +5,8 @@ from pathlib import Path
 from unittest.mock import Mock
 
 from scripts.campaign_ledger import CampaignBlocked, CampaignLedger
-from scripts.diagnostic_operation import CAMPAIGN, CAPS, run
+from scripts.diagnostic_operation import CAMPAIGN, CAPS, Bridge, run
+from supportops_agents.accounted_live import BoundaryError
 from test_accounted_core import FixtureGuard
 
 
@@ -21,6 +22,18 @@ class Session:
 
 
 class DiagnosticTests(unittest.TestCase):
+    def test_startup_diagnostic_is_categorical_and_content_free(self):
+        def denied():
+            raise RuntimeError("authenticated_model_catalog_incomplete")
+        with self.assertRaises(BoundaryError) as context:
+            Bridge(denied,"fixture").request({})
+        self.assertEqual(context.exception.diagnostic["reason"],"model_access")
+        def private():
+            raise RuntimeError("PRIVATE UNKNOWN")
+        with self.assertRaises(BoundaryError) as context:
+            Bridge(private,"fixture").request({})
+        self.assertNotIn("PRIVATE",str(context.exception.diagnostic))
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
