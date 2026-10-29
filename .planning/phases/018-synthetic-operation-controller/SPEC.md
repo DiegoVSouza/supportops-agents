@@ -1,0 +1,3 @@
+# Synthetic operation controller
+
+Provide a bounded local workflow controller around the existing Core and accounted boundary. Before any client is created it must hold the shared campaign lease and persist a four-call worst-case reservation for an explicit stable synthetic request ID. A prior pending or failed workflow stops later work. A completed request may never be replayed. Save only categorical outcomes and usage; unknown results retain their reservation. The live factory stays unavailable until a separate owning migration, committed operation manifest and reviewed provenance are implemented.
