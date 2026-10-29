@@ -27,6 +27,25 @@ class CampaignLedgerTests(unittest.TestCase):
     def tearDown(self) -> None:
         self.temp.cleanup()
 
+    def test_four_call_reservation_is_durable_and_caps_other_campaigns(self) -> None:
+        caps = {**self.caps, "requests": 4}
+        self.ledger.reserve(case_id="workflow", trial=1, calls=4, input_tokens=20,
+                            output_tokens=10, estimated_cost_usd=Decimal("0.02"), caps=caps)
+        reopened = CampaignLedger(self.path, campaign_id="campaign-b")
+        self.assertEqual(reopened.totals()["requests"], 4)
+        with closing(sqlite3.connect(self.path)) as db:
+            self.assertEqual(db.execute("SELECT reserved_calls FROM events").fetchone()[0], 4)
+        with self.assertRaisesRegex(CampaignBlocked, "cap"):
+            reopened.reserve(case_id="other", trial=1, input_tokens=1, output_tokens=1,
+                             estimated_cost_usd=Decimal("0"), caps=caps)
+
+    def test_invalid_workflow_call_count_is_rejected(self) -> None:
+        for calls in (0, 5, True, "4"):
+            with self.subTest(calls=calls), self.assertRaises(CampaignBlocked):
+                self.ledger.reserve(case_id="case", trial=1, calls=calls, input_tokens=1,
+                                    output_tokens=1, estimated_cost_usd=Decimal("0"), caps=self.caps)
+        self.assertEqual(self.ledger.totals()["requests"], 0)
+
     def reserve(self, case_id: str = "case-1", trial: int = 1) -> None:
         self.ledger.reserve(
             case_id=case_id,
