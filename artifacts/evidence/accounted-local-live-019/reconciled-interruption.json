@@ -1,0 +1,11 @@
+{
+  "status": "INCOMPLETE",
+  "reason": "failure_category_not_preserved",
+  "reservation_retained": true,
+  "provider_calls": 2,
+  "command": "uv run --locked python artifacts/evidence/accounted-local-live-019/reconcile-interruption.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "provider_accessed": false,
+  "credentials_read": false
+}

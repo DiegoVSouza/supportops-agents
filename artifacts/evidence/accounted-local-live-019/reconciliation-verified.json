@@ -1,0 +1,36 @@
+{
+  "status": "PASS_CONSERVATIVE_RECONCILIATION",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "command": "uv run --locked python artifacts/evidence/accounted-local-live-019/verify-reconciliation.py",
+  "exit_code": 0,
+  "events": [
+    {
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "event": "reserved",
+      "outcome": null,
+      "error_class": null,
+      "actual_input_tokens": null,
+      "actual_output_tokens": null,
+      "actual_cost_usd": null
+    },
+    {
+      "case_id": "fixture-local-01",
+      "trial": 1,
+      "event": "completed",
+      "outcome": "incomplete",
+      "error_class": "unknown",
+      "actual_input_tokens": null,
+      "actual_output_tokens": null,
+      "actual_cost_usd": null
+    }
+  ],
+  "totals": {
+    "requests": "4",
+    "input_tokens": "8192",
+    "output_tokens": "1024",
+    "estimated_cost_usd": "0.0009216"
+  },
+  "provider_accessed": false,
+  "credentials_read": false
+}
