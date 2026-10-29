@@ -1,0 +1,6 @@
+{
+  "command": "uv run --locked python artifacts/evidence/recovery-proposal-020/audit.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "{\"status\": \"PASS_READ_ONLY_AUDIT\", \"proposal_status\": \"REVIEW_REQUIRED\", \"original_reservation_retained\": true, \"provider_calls\": 2, \"recovery_dispatched\": false, \"protected_outputs_unchanged\": true}\r\n"
+}

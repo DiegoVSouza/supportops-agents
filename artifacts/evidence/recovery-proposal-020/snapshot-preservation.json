@@ -1,0 +1,13 @@
+{
+  "before": {
+    "artifacts/evidence/check-fast.txt": "4d8cd3bf30c7d3f5d6e2d331abecc88890623d5fab1ab0aa0318858cdccf4a8b",
+    "artifacts/evidence/check-full.txt": "88336758693f0ab5aece1170855c02d64bb91d8e4962c608f63984348784e8c5",
+    "artifacts/runs/latest/results.json": "3dd0a1ea2c98393004e5f4e2a50b42cff19b3308c72cde386ea118cf9566ce38"
+  },
+  "after": {
+    "artifacts/evidence/check-fast.txt": "4d8cd3bf30c7d3f5d6e2d331abecc88890623d5fab1ab0aa0318858cdccf4a8b",
+    "artifacts/evidence/check-full.txt": "88336758693f0ab5aece1170855c02d64bb91d8e4962c608f63984348784e8c5",
+    "artifacts/runs/latest/results.json": "3dd0a1ea2c98393004e5f4e2a50b42cff19b3308c72cde386ea118cf9566ce38"
+  },
+  "unchanged": true
+}

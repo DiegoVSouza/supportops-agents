@@ -1,1 +1,7 @@
-PENDING exact read-only audit, proposal and isolated validation. Original live workflow remains INCOMPLETE.
+# Verification
+
+PASS read-only original-history audit: exact original manifest candidate d17923e, two provider receipts (235/46 and 228/183), four-call logical reserve retained with incomplete/unknown outcome and null actual usage. No original response/category reconstructed. The disabled concrete proposal remains REVIEW_REQUIRED until the user's separate decision; no dispatch or budget release occurred.
+
+Initial snapshot validation failed because its fixture layout omitted the root transport path expected by the existing parity test. Stable failure p01-020-snapshot-layout resolved attempt 2/3 by using lab/projects/p01 layout and read-only transport copies. Locked full gate passed 88 unit tests and all six runner identities, exit 0; fast check included in full. Exact command/cwd/exit/output in snapshot-commands-attempt2.json. Original modified fast/full/results files preserved byte-for-byte (snapshot-preservation-attempt2.json). Initial failed output retained in snapshot-commands.json.
+
+Proposal scope and finite arithmetic are in RECOVERY-DECISION.md and artifacts/evidence/recovery-proposal-020/proposal.json. One proposed diagnostic workflow up to four calls plus the retained four-call reserve fits the existing eight-call envelope; no additional funding is needed. Actual billed amount unknown, paid USD 0. No provider, credentials, effects or Docker. Original workflow remains INCOMPLETE; proposed recovery disabled; human/quality/holdout/promotion pending. Implementer self-assessment only.
