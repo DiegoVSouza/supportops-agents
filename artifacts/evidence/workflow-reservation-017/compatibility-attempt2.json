@@ -1,0 +1,6 @@
+{
+  "command": "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe -m unittest discover -s tests -p test_accounted_core.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "......................\n----------------------------------------------------------------------\nRan 22 tests in 5.906s\n\nOK\n"
+}

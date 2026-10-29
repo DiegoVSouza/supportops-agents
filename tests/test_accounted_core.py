@@ -514,6 +514,7 @@ class AccountedCoreTests(unittest.TestCase):
             guard = SubprocessGuard(self.binding, project=project)
             self.assertIsNone(guard.process)
             guard.close()
+
             source = project / "src/supportops_agents/worker.py"
             source.write_text("changed public source\n", encoding="utf-8")
             manifest = json.loads(manifest_path.read_text())
@@ -528,6 +529,25 @@ class AccountedCoreTests(unittest.TestCase):
             )
             with self.assertRaisesRegex(BoundaryError, "guard_denied"):
                 SubprocessGuard(self.binding, project=project)
+
+    def test_real_workflow_ledger_reservation_is_accepted_by_guard(self):
+        from decimal import Decimal
+        from scripts.campaign_ledger import CampaignLedger
+
+        with tempfile.TemporaryDirectory() as directory:
+            _root, project, _manifest = self.authorized_fixture(directory)
+            ledger_path = project / "artifacts/evals/live/ledger.sqlite"
+            with closing(sqlite3.connect(ledger_path)) as db:
+                db.execute("DROP TABLE events")
+                db.commit()
+            ledger = CampaignLedger(ledger_path, campaign_id=self.binding.campaign_id)
+            ledger.reserve(case_id=self.binding.case_id, trial=1, calls=4, input_tokens=8192,
+                           output_tokens=1024, estimated_cost_usd=Decimal("0.0009216"),
+                           caps={"requests": 4, "input_tokens": 8192, "output_tokens": 1024,
+                                 "estimated_cost_usd": Decimal("0.0009216")})
+            guard = SubprocessGuard(self.binding, project=project)
+            self.assertIsNone(guard.process)
+            guard.close()
 
     def test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git(self):
         with tempfile.TemporaryDirectory() as directory:
