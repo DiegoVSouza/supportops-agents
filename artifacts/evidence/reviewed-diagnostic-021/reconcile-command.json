@@ -1,0 +1,6 @@
+{
+  "command": "uv run --locked python artifacts/evidence/reviewed-diagnostic-021/reconcile-stop.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "{\"status\": \"PASS_CONSERVATIVE_STOP_RECONCILIATION\", \"diagnostic_result\": \"INCOMPLETE\", \"diagnostic_provider_calls\": 0, \"original_provider_calls\": 2, \"original_logical_history_unchanged\": true, \"reserved_calls_retained\": 8, \"reserved_input_tokens_retained\": 16384, \"reserved_output_tokens_retained\": 2048, \"provider_accessed\": false, \"credentials_read\": false, \"replay_allowed\": false}\r\n"
+}

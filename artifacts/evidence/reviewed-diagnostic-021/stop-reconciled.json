@@ -1,0 +1,35 @@
+{
+  "status": "PASS_CONSERVATIVE_STOP_RECONCILIATION",
+  "diagnostic_result": "INCOMPLETE",
+  "diagnostic_provider_calls": 0,
+  "original_provider_calls": 2,
+  "original_logical_history_unchanged": true,
+  "reserved_calls_retained": 8,
+  "reserved_input_tokens_retained": 16384,
+  "reserved_output_tokens_retained": 2048,
+  "provider_accessed": false,
+  "credentials_read": false,
+  "replay_allowed": false,
+  "logical_events": [
+    {
+      "case_id": "fixture-diagnostic-01",
+      "trial": 1,
+      "event": "reserved",
+      "outcome": null,
+      "error_class": null,
+      "actual_input_tokens": null,
+      "actual_output_tokens": null,
+      "actual_cost_usd": null
+    },
+    {
+      "case_id": "fixture-diagnostic-01",
+      "trial": 1,
+      "event": "completed",
+      "outcome": "incomplete",
+      "error_class": "unknown",
+      "actual_input_tokens": null,
+      "actual_output_tokens": null,
+      "actual_cost_usd": null
+    }
+  ]
+}
