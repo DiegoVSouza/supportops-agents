@@ -1,0 +1,90 @@
+{
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "command": "python inspect-provider-shape.py",
+  "exit_code": 0,
+  "rows": [
+    [
+      "local-operation-v1",
+      "fixture-local-01",
+      1,
+      1,
+      "reserved",
+      null,
+      null,
+      null,
+      "integer",
+      "null",
+      "null"
+    ],
+    [
+      "local-operation-v1",
+      "fixture-local-01",
+      1,
+      1,
+      "completed",
+      "ok",
+      235,
+      46,
+      "integer",
+      "integer",
+      "integer"
+    ],
+    [
+      "local-operation-v1",
+      "fixture-local-01",
+      1,
+      2,
+      "reserved",
+      null,
+      null,
+      null,
+      "integer",
+      "null",
+      "null"
+    ],
+    [
+      "local-operation-v1",
+      "fixture-local-01",
+      1,
+      2,
+      "completed",
+      "ok",
+      228,
+      183,
+      "integer",
+      "integer",
+      "integer"
+    ]
+  ],
+  "filtered": [
+    [
+      1,
+      "completed",
+      "ok",
+      235,
+      46
+    ],
+    [
+      1,
+      "reserved",
+      null,
+      null,
+      null
+    ],
+    [
+      2,
+      "completed",
+      "ok",
+      228,
+      183
+    ],
+    [
+      2,
+      "reserved",
+      null,
+      null,
+      null
+    ]
+  ],
+  "provider_accessed": false
+}

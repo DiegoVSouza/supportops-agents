@@ -1,0 +1,9 @@
+{
+  "command": "uv run --locked python artifacts/evidence/accounted-local-live-019/reconcile-interruption.py",
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 1,
+  "reason": "unexpected_provider_history",
+  "diagnosis": "ORDER BY ordinal does not uniquely order events; filtered lookup returned completed before reserved on equal ordinals.",
+  "ledger_mutated": false,
+  "provider_accessed": false
+}

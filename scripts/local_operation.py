@@ -106,7 +106,7 @@ def reconcile_interrupted_fixture(*, ledger_path, provider_path, lease):
         with closing(sqlite3.connect(Path(provider_path).resolve().as_uri() + "?mode=ro", uri=True)) as db:
             if db.execute("SELECT COUNT(*) FROM usage_events WHERE campaign != ? OR case_id != ? OR trial != 1", (CAMPAIGN, "fixture-local-01")).fetchone()[0]:
                 raise CampaignBlocked("unexpected_provider_history")
-            rows = db.execute("SELECT call_index,event,status,actual_input,actual_output FROM usage_events WHERE campaign=? AND case_id=? AND trial=1 ORDER BY ordinal", (CAMPAIGN, "fixture-local-01")).fetchall()
+            rows = db.execute("SELECT call_index,event,status,actual_input,actual_output FROM usage_events WHERE campaign=? AND case_id=? AND trial=1 ORDER BY call_index, CASE event WHEN 'reserved' THEN 0 ELSE 1 END", (CAMPAIGN, "fixture-local-01")).fetchall()
         if rows != [(1, "reserved", None, None, None), (1, "completed", "ok", 235, 46),
                     (2, "reserved", None, None, None), (2, "completed", "ok", 228, 183)]:
             raise CampaignBlocked("unexpected_provider_history")

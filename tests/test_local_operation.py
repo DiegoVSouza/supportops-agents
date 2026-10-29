@@ -111,7 +111,7 @@ class LocalOperationTests(unittest.TestCase):
         with closing(sqlite3.connect(provider)) as db:
             db.execute("CREATE TABLE usage_events (ordinal INTEGER, campaign TEXT, case_id TEXT, trial INTEGER, call_index INTEGER, event TEXT, status TEXT, actual_input INTEGER, actual_output INTEGER)")
             for ordinal, row in enumerate(((1, "reserved", None, None, None), (1, "completed", "ok", 235, 46), (2, "reserved", None, None, None), (2, "completed", "ok", 228, 183)), 1):
-                db.execute("INSERT INTO usage_events VALUES (?, ?, ?, 1, ?, ?, ?, ?, ?)", (ordinal, CAMPAIGN, "fixture-local-01", *row))
+                db.execute("INSERT INTO usage_events VALUES (?, ?, ?, 1, ?, ?, ?, ?, ?)", ((ordinal + 1) // 2, CAMPAIGN, "fixture-local-01", *row))
             db.commit()
         report = reconcile_interrupted_fixture(ledger_path=self.path, provider_path=provider, lease=nullcontext())
         self.assertEqual(report["status"], "INCOMPLETE")
