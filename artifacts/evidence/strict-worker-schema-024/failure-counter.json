@@ -1,0 +1,13 @@
+{
+  "failure_id": "p01-second-worker-contract",
+  "live_invocations": 1,
+  "authorized_live_invocations": 1,
+  "historical_result": "INCOMPLETE",
+  "failed_worker": "kb_researcher",
+  "offline_correction_attempts": 1,
+  "offline_correction_status": "PASS",
+  "max_local_tries": 3,
+  "no_live_retry": true,
+  "missing_original_structure": "not_reconstructable_without_raw_response",
+  "remaining_dependency": "A further operation requires a new explicit finite scope, preserving all12 calls, and validated migration/new candidate; existing second approval consumed."
+}

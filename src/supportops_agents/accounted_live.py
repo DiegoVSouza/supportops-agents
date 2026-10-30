@@ -148,6 +148,36 @@ class WorkflowBinding:
             raise BoundaryError("guard_denied")
 
 
+def worker_response_format(agent: str) -> dict[str, Any]:
+    """Use the model's native strict schema; semantic validators still apply."""
+    if agent not in CONTRACTS:
+        raise BoundaryError("worker_contract")
+    properties = {name: {"type": "boolean" if name == "approved" else "string"}
+                  for name in CONTRACTS[agent]}
+    if agent == "classifier":
+        properties["category"]["enum"] = ["billing", "account_access", "technical", "shipping", "other"]
+    return {"type": "json_schema", "json_schema": {
+        "name": "supportops_" + agent, "strict": True,
+        "schema": {"type": "object", "properties": properties,
+                   "required": list(properties), "additionalProperties": False}}}
+
+
+def structural_diagnostic(agent: str, output: Any) -> dict[str, Any]:
+    """Expose only contract-owned names and bounded counts; never model values."""
+    fields = set(CONTRACTS[agent])
+    if type(output) is not dict:
+        return {"object": False}
+    return {"object": True,
+            "missing_fields": sorted(fields - output.keys()),
+            "unexpected_field_count": len(output.keys() - fields),
+            "wrong_type_fields": sorted(name for name in fields & output.keys()
+                                        if type(output[name]) is not (bool if name == "approved" else str)),
+            "blank_required_fields": sorted(name for name in fields & output.keys()
+                                            if name != "escalate" and type(output[name]) is str and not output[name].strip()),
+            "category_allowed": (output.get("category") in {"billing", "account_access", "technical", "shipping", "other"})
+                                if agent == "classifier" and type(output.get("category")) is str else None}
+
+
 def build_payload(
     agent: str, state: Mapping[str, Any], *, project: Path = PROJECT
 ) -> dict[str, Any]:
@@ -185,6 +215,7 @@ def build_payload(
         "temperature": 0,
         "reasoning_effort": "low",
         "include_reasoning": False,
+        "response_format": worker_response_format(agent),
     }
     input_bound(payload)
     return payload
@@ -201,7 +232,9 @@ def input_bound(payload: dict[str, Any]) -> int:
             "temperature",
             "reasoning_effort",
             "include_reasoning",
+            "response_format",
         }
+        or payload.get("response_format") not in [worker_response_format(worker) for worker in WORKERS]
         or payload.get("model") != MODEL
         or payload.get("include_reasoning") is not False
         or type(payload.get("temperature")) not in (int, float)
@@ -368,7 +401,13 @@ class AccountedCoreClient:
             if not isinstance(content, str) or len(content.encode("utf-8")) > 8192:
                 raise BoundaryError("output_schema", result)
             try:
-                output = validate_output(agent, json.loads(content), fixture_plan=self.transport.provenance == "fixture")
+                decoded = json.loads(content)
+                try:
+                    output = validate_output(agent, decoded, fixture_plan=self.transport.provenance == "fixture")
+                except BoundaryError:
+                    failure = BoundaryError("worker_contract", result)
+                    failure.diagnostic["structure"] = structural_diagnostic(agent, decoded)
+                    raise failure from None
             except (ValueError, TypeError):
                 raise BoundaryError("output_schema", result) from None
             if output.get("escalate") or agent == "responder":

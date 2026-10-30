@@ -1,0 +1,10 @@
+{
+  "url": "https://console.groq.com/docs/structured-outputs",
+  "verified_date": "2026-10-29",
+  "claims": [
+    "openai/gpt-oss-20b supports strict JSON Schema",
+    "all fields required and additionalProperties false",
+    "no streaming/tool use with structured outputs"
+  ],
+  "applied": "existing nonstreaming non-tool Core payloads only; local semantic validation retained"
+}

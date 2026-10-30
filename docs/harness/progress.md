@@ -77,3 +77,5 @@ One real Core workflow passed all domain assertions with four serial calls (1470
 ## 2026-10-28 - Phase 014 Core fixture dispatch
 
 - The Core runner can explicitly dispatch bounded synthetic reads with a fake client and caller-provided fixture context. Four focused tests and the full fake gate (71 tests) passed; real sources, identity and live evaluation remain pending. Evidence: artifacts/evidence/core-fixture-dispatch-014/.
+
+2026-10-29 phases023/024: second explicitly reviewed diagnostic INCOMPLETE after two calls509/134, worker_contract at kb_researcher; original and both diagnostic outcomes/reserves retained12calls. Native strict worker schemas and content-free structural diagnostics now pass full100 tests/six runners in isolated fake snapshot, preserving user output hashes. No additional live dispatch or release. Further live operation requires new explicit finite scope, preserving12 calls, validated migration and fresh candidate; quality/human/holdout/promotion pending.

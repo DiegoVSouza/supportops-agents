@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_strict_worker_schema.py",
+    "-v"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "test_all_worker_payloads_use_exact_required_native_schemas (test_strict_worker_schema.StrictSchemaTests.test_all_worker_payloads_use_exact_required_native_schemas) ... ok\ntest_failure_keeps_receipt_and_private_structural_metadata_without_values (test_strict_worker_schema.StrictSchemaTests.test_failure_keeps_receipt_and_private_structural_metadata_without_values) ... ok\ntest_local_semantic_and_schema_rejections_remain_strict (test_strict_worker_schema.StrictSchemaTests.test_local_semantic_and_schema_rejections_remain_strict) ... ok\ntest_schema_weakenings_are_rejected_before_dispatch (test_strict_worker_schema.StrictSchemaTests.test_schema_weakenings_are_rejected_before_dispatch) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.003s\n\nOK\n"
+}
