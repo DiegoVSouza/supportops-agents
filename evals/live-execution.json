@@ -7,7 +7,8 @@
   "provider_timeout_seconds": 20,
   "approved_campaigns": [
     "local-operation-v1",
-    "local-diagnostic-v1"
+    "local-diagnostic-v1",
+    "local-diagnostic-2-v1"
   ],
   "allocations": {
     "local-operation-v1": {
@@ -23,6 +24,14 @@
       "stage": "operation",
       "case_ids": [
         "fixture-diagnostic-01"
+      ],
+      "trials_per_case": 1,
+      "max_trials": 1
+    },
+    "local-diagnostic-2-v1": {
+      "stage": "operation",
+      "case_ids": [
+        "fixture-diagnostic-02"
       ],
       "trials_per_case": 1,
       "max_trials": 1

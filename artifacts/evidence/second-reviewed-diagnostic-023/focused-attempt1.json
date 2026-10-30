@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_second_diagnostic_operation.py",
+    "-v"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "test_authority_denial_precedes_new_reservation_and_factory (test_second_diagnostic_operation.DiagnosticTests.test_authority_denial_precedes_new_reservation_and_factory) ... ok\ntest_one_separate_workflow_retains_original_and_total_ceiling (test_second_diagnostic_operation.DiagnosticTests.test_one_separate_workflow_retains_original_and_total_ceiling) ... ok\ntest_startup_diagnostic_is_categorical_and_content_free (test_second_diagnostic_operation.DiagnosticTests.test_startup_diagnostic_is_categorical_and_content_free) ... ok\ntest_uncertain_failure_is_reported_and_never_replayed (test_second_diagnostic_operation.DiagnosticTests.test_uncertain_failure_is_reported_and_never_replayed) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.369s\n\nOK\n"
+}
