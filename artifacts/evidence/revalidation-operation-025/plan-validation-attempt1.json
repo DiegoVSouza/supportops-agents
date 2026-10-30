@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "-"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 1,
+  "output": "AssertionError: one live invocation. The check used a case-sensitive phrase although SPEC.md begins the sentence with capitalized One.",
+  "provider_accessed": false,
+  "credential_values_read": false,
+  "correction": "Normalize the validation text to lowercase before checking the documented phrase."
+}

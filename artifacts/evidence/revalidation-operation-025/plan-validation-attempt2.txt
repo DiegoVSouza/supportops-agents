@@ -1,0 +1,1 @@
+PASS: SPEC/PLAN/VERIFY present; 3 tasks; concrete paths; finite call/token/cost caps; prior 12-call history retained; fake default; one live invocation.
