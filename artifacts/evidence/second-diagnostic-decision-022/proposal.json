@@ -1,0 +1,95 @@
+{
+  "status": "DISABLED_REQUIRES_NEW_OPERATION_DECISION",
+  "old_original_and_diagnostic_unchanged": true,
+  "existing_reserved_calls_retained": 8,
+  "diagnostic_provider_calls": 0,
+  "proposed_distinct_campaign": "local-diagnostic-2-v1",
+  "proposed_case": "fixture-diagnostic-02",
+  "max_workflows": 1,
+  "new_reserved_calls": 4,
+  "new_reserved_input_tokens": 8192,
+  "new_reserved_output_tokens": 1024,
+  "economic_estimate_usd": "0.0009216",
+  "new_logical_ceiling": 12,
+  "proposed_p01_cap": 996,
+  "proposed_global_cap": 4141,
+  "paid_authorization_usd": 0,
+  "billing": "UNKNOWN",
+  "free_capacity_already_authorized": true,
+  "migration_applied": false,
+  "provider_accessed": false,
+  "original_provider_events": [
+    [
+      "reserved",
+      "local-operation-v1",
+      "9b174b5ca0fa40f6a0b177ec9f4f2523",
+      null,
+      null
+    ],
+    [
+      "completed",
+      "local-operation-v1",
+      "9b174b5ca0fa40f6a0b177ec9f4f2523",
+      235,
+      46
+    ],
+    [
+      "reserved",
+      "local-operation-v1",
+      "bed97cb14f7146f0845588762940e7d4",
+      null,
+      null
+    ],
+    [
+      "completed",
+      "local-operation-v1",
+      "bed97cb14f7146f0845588762940e7d4",
+      228,
+      183
+    ]
+  ],
+  "original_and_diagnostic_logical_events": [
+    [
+      "local-operation-v1",
+      "reserved",
+      4,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "local-operation-v1",
+      "completed",
+      4,
+      "incomplete",
+      "unknown",
+      null,
+      null
+    ],
+    [
+      "local-diagnostic-v1",
+      "reserved",
+      4,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "local-diagnostic-v1",
+      "completed",
+      4,
+      "incomplete",
+      "unknown",
+      null,
+      null
+    ]
+  ],
+  "prerequisites": [
+    "Explicit second-operation exception decision; prior authority max_workflows=1 is consumed",
+    "Implement/test narrow new scope and finite preserving migration before use",
+    "Freeze corrected candidate/new manifest; current fake/full gates",
+    "One invocation only, no retry/release/replacement; human/quality pending"
+  ]
+}

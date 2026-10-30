@@ -1,0 +1,7 @@
+# Remaining operation decision
+
+The original workflow remains INCOMPLETE after two provider calls; its response/category cannot be recovered. The separately approved diagnostic also remains INCOMPLETE after one controller invocation, zero provider calls, and four reserved calls. A reproduced direct-session envelope defect is corrected;92 tests/six runners passed. This does not authorize a repeat. The root terminal guard now rejects both original and diagnostic scopes, including renamed original cases.
+
+Proposed decision: authorize exactly one further, explicitly separate diagnostic workflow on a new frozen corrected candidate, retaining all eight prior calls/unknown outcomes and original manifests. Prior approval max_workflows=1 is consumed; this request changes only that finite operation scope, not the already granted free-capacity authorization. A validated preserving migration would add4 calls/8192input/1024output/USD0.0009216 economic estimate, making P01cap996/global4141 and logical operation ceiling12; paid USD0. New scope local-diagnostic-2-v1/fixture-diagnostic-02/1. No original replay or replacement, no reserve release, model/provider fallback, holdout/confirmation use or quality/promotion approval.
+
+This proposal is disabled. Before any dispatch, implement and validate the specific exception and migration, fresh source binding and full fake checks. Original and first diagnostic results remain INCOMPLETE regardless of the new outcome. Declining leaves P01 live blocked with the corrected implementation available offline.
