@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe",
+    "scripts/reviewed_operation_027.py",
+    "--freeze-manifest"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 1,
+  "output": "Traceback (most recent call last):\n  File \"C:\\estudo\\Golpe\\lab\\projects\\p01\\scripts\\reviewed_operation_027.py\", line 15, in <module>\n    from scripts.campaign_ledger import CampaignBlocked, CampaignLedger\nModuleNotFoundError: No module named 'scripts.campaign_ledger'\n",
+  "provider_accessed": false
+}
