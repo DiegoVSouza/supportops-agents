@@ -1,0 +1,3 @@
+# Specification
+
+Repair the P01 revalidation controller's fail-closed deadlock: its live path obtains the shared campaign lease and then calls `validate()`, whose root migration dry-run attempts to obtain that same lease. The single explicitly authorized P01 invocation stopped before its marker, logical reservation, provider access or generation. Preserve that consumed invocation attempt, all three historical INCOMPLETE workflows, all 12 logical calls, eight prior provider receipts and unknowns. This phase is offline-only; it must not execute another live workflow or create/release any reservation. Human review, quality, holdout and promotion remain PENDING.
