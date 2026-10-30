@@ -1,0 +1,82 @@
+{
+  "status": "PASS_CONSERVATIVE_RECONCILIATION",
+  "operation_result": "INCOMPLETE",
+  "failure_category": "worker_contract",
+  "failed_worker": "kb_researcher",
+  "new_provider_calls": 2,
+  "new_input_tokens": 509,
+  "new_output_tokens": 134,
+  "receipts": [
+    [
+      "0182eacdb9694423a846400b64f4d321",
+      258,
+      76
+    ],
+    [
+      "81182b5c41e04b46882e8cbca05c09fa",
+      251,
+      58
+    ]
+  ],
+  "logical_events": [
+    [
+      "local-operation-v1",
+      "reserved",
+      4,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "local-operation-v1",
+      "completed",
+      4,
+      "incomplete",
+      "unknown",
+      null,
+      null
+    ],
+    [
+      "local-diagnostic-v1",
+      "reserved",
+      4,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "local-diagnostic-v1",
+      "completed",
+      4,
+      "incomplete",
+      "unknown",
+      null,
+      null
+    ],
+    [
+      "local-diagnostic-2-v1",
+      "reserved",
+      4,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "local-diagnostic-2-v1",
+      "completed",
+      4,
+      "incomplete",
+      "unknown",
+      null,
+      null
+    ]
+  ],
+  "all_reserved_calls_retained": 12,
+  "response_content_not_preserved": true,
+  "no_replay": true,
+  "provider_accessed": false,
+  "billing": "UNKNOWN"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "INCOMPLETE",
+  "calls": 2,
+  "receipts": [
+    {
+      "reason": "OTHER",
+      "http_status": null,
+      "provider_error_code": null,
+      "attempt_id": "0182eacdb9694423a846400b64f4d321",
+      "call_index": 1,
+      "worker": "classifier",
+      "provenance": "live",
+      "usage": {
+        "input_tokens": 258,
+        "output_tokens": 76
+      },
+      "latency_ms": 548.604
+    },
+    {
+      "reason": "OTHER",
+      "http_status": null,
+      "provider_error_code": null,
+      "attempt_id": "81182b5c41e04b46882e8cbca05c09fa",
+      "call_index": 2,
+      "worker": "kb_researcher",
+      "provenance": "live",
+      "usage": {
+        "input_tokens": 251,
+        "output_tokens": 58
+      },
+      "latency_ms": 481.005
+    }
+  ],
+  "diagnostic": {
+    "reason": "worker_contract",
+    "http_status": null,
+    "provider_error_code": null,
+    "attempt_id": null
+  },
+  "original_reservation_retained": true,
+  "diagnostic_reservation_retained": true
+}
