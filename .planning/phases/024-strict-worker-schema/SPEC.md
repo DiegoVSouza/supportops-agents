@@ -1,0 +1,3 @@
+# Specification
+
+After second diagnostic failed worker_contract at kb_researcher, require native strict JSON Schema for all accounted Core worker payloads and preserve content-free structural diagnostics on rejected responses. Exact prior field mismatch is unknown because response content was not retained. Keep local validators/output caps/budgets/no-replay unchanged; no claim this reconstructs historical output or approves live quality. Groq official structured-outputs documentation verified2026-10-29 supports strict json_schema for openai/gpt-oss-20b, all fields required and additionalPropertiesfalse. No new live scope.
