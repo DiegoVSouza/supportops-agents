@@ -226,8 +226,14 @@ def freeze_manifest(project: Path = PROJECT, lab: Path = LAB) -> dict[str, Any]:
     return manifest
 
 
-def validate(project: Path = PROJECT, lab: Path = LAB) -> dict[str, Any]:
-    require_applied_root_migration(lab)
+def validate(
+    project: Path = PROJECT,
+    lab: Path = LAB,
+    *,
+    check_root_migration: bool = True,
+) -> dict[str, Any]:
+    if check_root_migration:
+        require_applied_root_migration(lab)
     owner = owner_allocation(project)
     require_clean_sources(project, lab)
     try:
@@ -423,7 +429,10 @@ def live_main() -> int:
         )
         account = SharedAccount(LAB, policy)
         with machine_lease(LAB / ".runtime/llm-live-readiness/campaign.lock"):
-            validate()
+            # The migration dry-run takes the same campaign lock. It already passed
+            # immediately before lease acquisition; the locked history and policy
+            # checks below revalidate the authority without recursively taking it.
+            validate(check_root_migration=False)
             account._reviewed_revalidation(
                 account._history(), "p01", CAMPAIGN, CASE, 1, 1, False
             )

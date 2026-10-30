@@ -1,14 +1,20 @@
 """Offline controls for the single explicitly authorized P01 revalidation."""
 
 import copy
+import contextlib
+import io
 import json
+import os
+import sys
 import tempfile
+import types
 import unittest
 from decimal import Decimal
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from scripts.campaign_ledger import CampaignBlocked, CampaignLedger
+from scripts import revalidation_operation
 from scripts.revalidation_operation import (
     CAPS,
     CAMPAIGN,
@@ -181,6 +187,76 @@ class RevalidationOperationTests(unittest.TestCase):
         self.assertEqual(WORKFLOW_RESERVE["output_tokens"], 1024)
         self.assertEqual(WORKFLOW_RESERVE["estimated_cost_usd"], Decimal("0.0009216"))
         self.assertEqual(MODEL, "openai/gpt-oss-20b")
+
+    def test_live_revalidation_does_not_reenter_root_migration_lock(self):
+        lock = {"active": False}
+        validations = []
+
+        def validate(*, check_root_migration=True):
+            validations.append((check_root_migration, lock["active"]))
+            if lock["active"] and check_root_migration:
+                raise AssertionError("root migration dry-run reentered the campaign lock")
+            return {}
+
+        @contextlib.contextmanager
+        def lease(_path):
+            lock["active"] = True
+            try:
+                yield
+            finally:
+                lock["active"] = False
+
+        class Account:
+            def __init__(self, *_args):
+                pass
+
+            def _history(self):
+                return []
+
+            def _reviewed_revalidation(self, *_args):
+                raise RuntimeError("stop before marker in test")
+
+        free_account = types.ModuleType("live_free_account")
+        free_account.SharedAccount = Account
+        free_account.bounded_catalog_preflight = Mock(
+            side_effect=AssertionError("preflight must not run in this test")
+        )
+        free_account.machine_lease = lease
+        transport = types.ModuleType("live_provider_transport")
+        transport.ProviderSession = Mock()
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            project = root / "projects/p01"
+            lab = root / "lab"
+            (lab / "shared/policies").mkdir(parents=True)
+            (lab / "shared/policies/groq-free-campaign.json").write_text(
+                json.dumps({"projects": {"p01": {"requests": 1000}}})
+            )
+            marker = project / "invocation.json"
+            with (
+                patch.dict(os.environ, {"LLM_MODE": "live"}, clear=True),
+                patch.dict(
+                    sys.modules,
+                    {
+                        "live_free_account": free_account,
+                        "live_provider_transport": transport,
+                    },
+                ),
+                patch.object(revalidation_operation, "validate", side_effect=validate),
+                patch.object(revalidation_operation, "PROJECT", project),
+                patch.object(revalidation_operation, "LAB", lab),
+                patch.object(revalidation_operation, "INVOCATION", "invocation.json"),
+                patch.object(revalidation_operation, "RESULT", "result.json"),
+                contextlib.redirect_stdout(io.StringIO()),
+            ):
+                code = revalidation_operation.live_main()
+
+            self.assertEqual(code, 2)
+            self.assertEqual(validations, [(True, False), (False, True)])
+            self.assertFalse((project / "invocation.json").exists())
+            self.assertFalse((project / "result.json").exists())
+            free_account.bounded_catalog_preflight.assert_not_called()
 
 
 if __name__ == "__main__":
