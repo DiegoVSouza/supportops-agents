@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "snapshot_only": true,
+  "provider_accessed": false,
+  "generation_calls": 0,
+  "protected_outputs_unchanged": true
+}

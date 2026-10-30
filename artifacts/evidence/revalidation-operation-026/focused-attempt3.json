@@ -1,0 +1,10 @@
+{
+  "credentials_read": false,
+  "output": "test_authority_denial_precedes_reservation_and_client_factory (test_revalidation_operation.RevalidationOperationTests.test_authority_denial_precedes_reservation_and_client_factory) ... ok\ntest_exact_reservation_succeeds_and_preserves_all_prior_workflows (test_revalidation_operation.RevalidationOperationTests.test_exact_reservation_succeeds_and_preserves_all_prior_workflows) ... ok\ntest_live_revalidation_does_not_reenter_root_migration_lock (test_revalidation_operation.RevalidationOperationTests.test_live_revalidation_does_not_reenter_root_migration_lock) ... ok\ntest_owner_scope_and_invocation_marker_are_single_use (test_revalidation_operation.RevalidationOperationTests.test_owner_scope_and_invocation_marker_are_single_use) ... ok\ntest_startup_error_mapping_is_categorical (test_revalidation_operation.RevalidationOperationTests.test_startup_error_mapping_is_categorical) ... ok\ntest_unknown_failure_retains_full_reserve_and_cannot_replay (test_revalidation_operation.RevalidationOperationTests.test_unknown_failure_retains_full_reserve_and_cannot_replay) ... ok\ntest_worker_contract_failure_is_terminal_and_keeps_unknown_reserve (test_revalidation_operation.RevalidationOperationTests.test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve) ... ok\ntest_workflow_caps_match_user_authorized_delta (test_revalidation_operation.RevalidationOperationTests.test_workflow_caps_match_user_authorized_delta) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.604s\n\nOK",
+  "provider_accessed": false,
+  "attempt": 3,
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "provider_calls": 0,
+  "command": ".venv/Scripts/python.exe -m unittest discover -s tests -p test_revalidation_operation.py -v"
+}

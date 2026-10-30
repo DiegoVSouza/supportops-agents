@@ -1,5 +1,14 @@
 # Verification
 
-Plan self-check: pending.
+Plan self-check: PASS (implementer self-assessment; scope stayed within the declared offline paths, zero live budget, and preserved historical records).
 
 Observed live invocation attempt (2026-10-30): controller returned sanitized `INCOMPLETE/revalidation_blocked_or_uncertain` before creating `invocation.json`, before the new campaign logical/provider reservation and with zero provider access. Read-only reproduction confirmed root migration, owner allocation, manifest, exact reviewed P01 history and lock-free validation all PASS; validation while the campaign lock is held returns `root_migration_unverified` because it re-enters the same lock. No retry is permitted. Pending: offline code repair/regression, isolated fake full gate, artifact evidence and docs. No new live workflow may be run by this phase.
+
+## Offline repair and verification (2026-10-30)
+
+- Fixed the reentrant lock path: root migration dry-run remains before lease acquisition; the under-lease validation skips only that lock-taking subprocess and proceeds to the frozen-source, owner, manifest and reviewed-history checks. Commit: `7dc0390` (`fix(revalidation): avoid recursive campaign lock`).
+- Focused command: `.venv/Scripts/python.exe -m unittest discover -s tests -p test_revalidation_operation.py -v`; working directory: project root; exit 0; 8 tests passed (including the no-reentry regression). Attempts using pytest were inapplicable because pytest is not installed in this locked project environment; stdlib unittest is the project convention. Evidence: `artifacts/evidence/revalidation-operation-026/focused-attempt3.json`.
+- Isolated full fake gate: `.venv/Scripts/python.exe scripts/check_full.py`; working directory: `artifacts/evidence/revalidation-operation-026/snapshot-attempt2/lab/projects/p01`; exit 0. Fast checks, compile, 109 unit tests, six comparison runners, demo and source/documentation checks passed. `provider_accessed=false`, `generation_calls=0`. Evidence: `snapshot-commands-attempt2.json`, `snapshot-result-attempt2.json`.
+- The protected existing standard outputs were byte-identical before and after the isolated gate: `check-fast.txt`, `check-full.txt`, and `artifacts/runs/latest/results.json`; evidence: `snapshot-preservation-attempt2.json`.
+- Failed test-tool attempts and the snapshot-runner setup error are retained in `focused-attempt1.json`, `focused-attempt2.json`, and `full-gate-attempt1.json`; they did not invoke a provider or alter the protected outputs.
+- Phase outcome: offline code repair PASS. The separately authorized live workflow remains consumed and `INCOMPLETE` from the earlier no-marker/no-reservation/no-provider result. This phase created no new reservation and authorizes no replay or follow-up live operation. Human evaluation, quality, holdout and promotion remain pending.
