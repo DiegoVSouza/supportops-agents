@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "snapshot_only": true,
+  "provider_accessed": false,
+  "protected_outputs_unchanged": true,
+  "root_policy_sha256": "f8428a8da06fd551e6a41d3d009db69d1d31c620eda68ef21a02ff1dbcc32cdf"
+}

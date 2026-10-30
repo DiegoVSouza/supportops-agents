@@ -440,6 +440,12 @@ class AccountedCoreTests(unittest.TestCase):
             "pyproject.toml",
             "uv.lock",
         ]
+        is_operation = self.binding.campaign_id in {
+            "local-operation-v1",
+            "local-revalidation-v1",
+        }
+        if self.binding.campaign_id == "local-revalidation-v1":
+            own_names.append("scripts/revalidation_operation.py")
         shared_names = [
             "scripts/harness/live_free_account.py",
             "scripts/harness/live_provider_transport.py",
@@ -461,10 +467,10 @@ class AccountedCoreTests(unittest.TestCase):
             "approved_campaigns": [self.binding.campaign_id],
             "allocations": {
                 self.binding.campaign_id: {
-                    "stage": "pilot",
+                    "stage": "operation" if is_operation else "pilot",
                     "case_ids": [self.binding.case_id],
                     "trials_per_case": 1,
-                    "max_trials": 6,
+                    "max_trials": 1 if is_operation else 6,
                 }
             },
         }
@@ -485,7 +491,7 @@ class AccountedCoreTests(unittest.TestCase):
         manifest = {
             "candidate_commit": candidate,
             "campaign_id": self.binding.campaign_id,
-            "stage": "pilot",
+            "stage": "operation" if is_operation else "pilot",
             "sampling_order": [self.binding.case_id],
             "trials_per_case": 1,
             "files_sha256": {
@@ -545,6 +551,16 @@ class AccountedCoreTests(unittest.TestCase):
                            output_tokens=1024, estimated_cost_usd=Decimal("0.0009216"),
                            caps={"requests": 4, "input_tokens": 8192, "output_tokens": 1024,
                                  "estimated_cost_usd": Decimal("0.0009216")})
+            guard = SubprocessGuard(self.binding, project=project)
+            self.assertIsNone(guard.process)
+            guard.close()
+
+    def test_revalidation_operation_requires_its_frozen_operation_script(self):
+        self.binding = WorkflowBinding(
+            "local-revalidation-v1", "fixture-revalidation-01", 1
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            _root, project, _manifest = self.authorized_fixture(directory)
             guard = SubprocessGuard(self.binding, project=project)
             self.assertIsNone(guard.process)
             guard.close()

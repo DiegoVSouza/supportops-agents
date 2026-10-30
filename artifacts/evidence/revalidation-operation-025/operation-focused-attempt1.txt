@@ -1,0 +1,41 @@
+test_authority_denial_precedes_reservation_and_client_factory (test_revalidation_operation.RevalidationOperationTests.test_authority_denial_precedes_reservation_and_client_factory) ... ok
+test_exact_reservation_succeeds_and_preserves_all_prior_workflows (test_revalidation_operation.RevalidationOperationTests.test_exact_reservation_succeeds_and_preserves_all_prior_workflows) ... ERROR
+test_owner_scope_and_invocation_marker_are_single_use (test_revalidation_operation.RevalidationOperationTests.test_owner_scope_and_invocation_marker_are_single_use) ... ok
+test_startup_error_mapping_is_categorical (test_revalidation_operation.RevalidationOperationTests.test_startup_error_mapping_is_categorical) ... ok
+test_unknown_failure_retains_full_reserve_and_cannot_replay (test_revalidation_operation.RevalidationOperationTests.test_unknown_failure_retains_full_reserve_and_cannot_replay) ... ok
+test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve (test_revalidation_operation.RevalidationOperationTests.test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve) ... FAIL
+test_workflow_caps_match_user_authorized_delta (test_revalidation_operation.RevalidationOperationTests.test_workflow_caps_match_user_authorized_delta) ... ok
+
+======================================================================
+ERROR: test_exact_reservation_succeeds_and_preserves_all_prior_workflows (test_revalidation_operation.RevalidationOperationTests.test_exact_reservation_succeeds_and_preserves_all_prior_workflows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_revalidation_operation.py", line 90, in test_exact_reservation_succeeds_and_preserves_all_prior_workflows
+    CampaignLedger(self.ledger_path, campaign_id=CAMPAIGN).reserved_trials()[0][
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        "reserved_calls"
+        ^^^^^^^^^^^^^^^^
+    ],
+    ^
+KeyError: 'reserved_calls'
+
+======================================================================
+FAIL: test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve (test_revalidation_operation.RevalidationOperationTests.test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_revalidation_operation.py", line 156, in test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        CampaignLedger(self.ledger_path, campaign_id=CAMPAIGN).reserved_trials()[0][
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        "incomplete",
+        ^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: None != 'incomplete'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.525s
+
+FAILED (failures=1, errors=1)

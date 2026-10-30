@@ -1,0 +1,33 @@
+{
+  "checked_date": "2026-10-30",
+  "sources": [
+    {
+      "url": "https://console.groq.com/docs/structured-outputs",
+      "claims_used": [
+        "openai/gpt-oss-20b supports strict JSON Schema",
+        "strict object schemas require all properties and additionalProperties false",
+        "Structured Outputs currently does not support streaming or tool use"
+      ],
+      "local_match": "P01 uses non-streaming strict schemas, passes no tool definitions, and retains local worker validation."
+    },
+    {
+      "url": "https://console.groq.com/docs/rate-limits",
+      "claims_used": [
+        "Free base limits for openai/gpt-oss-20b are 30 RPM, 1,000 RPD, 8,000 TPM, and 200,000 TPD",
+        "Published limits are a high-level summary; account-specific limits may differ and authenticated headers expose observed capacity"
+      ],
+      "local_match": "Root policy remains at the published ceiling and the live operation requires authenticated catalog/rate preflight before dispatch."
+    },
+    {
+      "url": "https://console.groq.com/docs/model/openai/gpt-oss-20b",
+      "claims_used": [
+        "Current model identifier is openai/gpt-oss-20b",
+        "Published input/output pricing is USD 0.075/USD 0.30 per million tokens"
+      ],
+      "local_match": "The operation uses the already authorized model with the existing token and economic caps; pricing is an estimate, not proof of billing tier."
+    }
+  ],
+  "account_tier_verified_by_provider": false,
+  "five_credentials_user_attested_free": true,
+  "paid_authorization_usd": "0.00"
+}

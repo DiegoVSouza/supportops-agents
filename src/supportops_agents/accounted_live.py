@@ -501,9 +501,14 @@ class SubprocessGuard:
                 )
             ]
             if allocation["stage"] == "operation":
-                if self.binding.campaign_id != "local-operation-v1":
+                operation_scripts = {
+                    "local-operation-v1": "scripts/local_operation.py",
+                    "local-revalidation-v1": "scripts/revalidation_operation.py",
+                }
+                script = operation_scripts.get(self.binding.campaign_id)
+                if script is None:
                     raise ValueError
-                own.append(self.project / "scripts/local_operation.py")
+                own.append(self.project / script)
             shared = [
                 root / name
                 for name in (

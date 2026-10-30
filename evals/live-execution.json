@@ -8,7 +8,8 @@
   "approved_campaigns": [
     "local-operation-v1",
     "local-diagnostic-v1",
-    "local-diagnostic-2-v1"
+    "local-diagnostic-2-v1",
+    "local-revalidation-v1"
   ],
   "allocations": {
     "local-operation-v1": {
@@ -32,6 +33,14 @@
       "stage": "operation",
       "case_ids": [
         "fixture-diagnostic-02"
+      ],
+      "trials_per_case": 1,
+      "max_trials": 1
+    },
+    "local-revalidation-v1": {
+      "stage": "operation",
+      "case_ids": [
+        "fixture-revalidation-01"
       ],
       "trials_per_case": 1,
       "max_trials": 1

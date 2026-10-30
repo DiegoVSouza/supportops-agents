@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_accounted_core"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "provider_accessed": false,
+  "credential_values_read": false,
+  "stdout": ".......................\n----------------------------------------------------------------------\nRan 23 tests in 5.972s\n\nOK\n"
+}
