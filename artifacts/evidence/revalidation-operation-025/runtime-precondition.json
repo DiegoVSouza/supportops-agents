@@ -1,0 +1,21 @@
+{
+  "calls_reserved_for_new_operation": false,
+  "command": [
+    "python",
+    "-c",
+    "check presence of required key names; never print values"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "invocation_marker_exists": false,
+  "provider_accessed": false,
+  "required_variables_present": {
+    "GROQ_API_KEY": false,
+    "GROQ_API_KEY_1": false,
+    "GROQ_API_KEY_2": false,
+    "GROQ_API_KEY_3": false,
+    "GROQ_API_KEY_4": false
+  },
+  "result": "BLOCKED_PRECONDITION",
+  "values_exposed": false
+}
