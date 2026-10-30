@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_reviewed_operation_027.py",
+    "-v"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "test_authority_denial_precedes_reservation_and_client_factory (test_reviewed_operation_027.RevalidationOperationTests.test_authority_denial_precedes_reservation_and_client_factory) ... ok\ntest_crash_after_reservation_blocks_any_restart (test_reviewed_operation_027.RevalidationOperationTests.test_crash_after_reservation_blocks_any_restart) ... ok\ntest_exact_reservation_succeeds_and_preserves_all_prior_workflows (test_reviewed_operation_027.RevalidationOperationTests.test_exact_reservation_succeeds_and_preserves_all_prior_workflows) ... ok\ntest_live_revalidation_does_not_reenter_root_migration_lock (test_reviewed_operation_027.RevalidationOperationTests.test_live_revalidation_does_not_reenter_root_migration_lock) ... ok\ntest_owner_scope_and_invocation_marker_are_single_use (test_reviewed_operation_027.RevalidationOperationTests.test_owner_scope_and_invocation_marker_are_single_use) ... ok\ntest_startup_error_mapping_is_categorical (test_reviewed_operation_027.RevalidationOperationTests.test_startup_error_mapping_is_categorical) ... ok\ntest_unknown_failure_retains_full_reserve_and_cannot_replay (test_reviewed_operation_027.RevalidationOperationTests.test_unknown_failure_retains_full_reserve_and_cannot_replay) ... ok\ntest_worker_contract_failure_is_terminal_and_keeps_unknown_reserve (test_reviewed_operation_027.RevalidationOperationTests.test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve) ... ok\ntest_workflow_caps_match_user_authorized_delta (test_reviewed_operation_027.RevalidationOperationTests.test_workflow_caps_match_user_authorized_delta) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 1.160s\n\nOK\n",
+  "provider_accessed": false
+}

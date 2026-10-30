@@ -504,6 +504,7 @@ class SubprocessGuard:
                 operation_scripts = {
                     "local-operation-v1": "scripts/local_operation.py",
                     "local-revalidation-v1": "scripts/revalidation_operation.py",
+                    "local-reviewed-operation-027-v1": "scripts/reviewed_operation_027.py",
                 }
                 script = operation_scripts.get(self.binding.campaign_id)
                 if script is None:
