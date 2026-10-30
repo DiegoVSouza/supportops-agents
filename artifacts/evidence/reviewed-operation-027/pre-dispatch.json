@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\estudo\\Golpe\\lab\\projects\\p01\\.venv\\Scripts\\python.exe",
+    "C:\\estudo\\Golpe\\lab\\projects\\p01\\artifacts\\evidence\\reviewed-operation-027\\pre-dispatch.py"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "output": "{\"credential_slots_present\": [0, 1, 2, 3, 4], \"marker_paths_absent\": true, \"new_reservation_created\": false, \"paid_authorized_usd\": \"0.00\", \"provider_accessed\": false, \"provider_attempts_before\": 86, \"status\": \"PASS\"}\n"
+}

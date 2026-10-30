@@ -1,0 +1,123 @@
+{
+  "command": [
+    "python",
+    "scripts/harness/live_free_account.py"
+  ],
+  "cwd": "C:\\estudo\\Golpe\\lab",
+  "exit_code": 0,
+  "report": {
+    "credentials_read": false,
+    "generation_authorized": false,
+    "policy": {
+      "account_tier_attestation": "user-designated-free-plan; API model catalog cannot verify billing tier",
+      "authorization_reference": ".planning/llm-live-readiness/AUTHORIZATION.md",
+      "authorized_paid_spend_usd": "0.00",
+      "campaign_caps": {
+        "estimated_cost_usd": "1.6305408",
+        "input_tokens": 14493696,
+        "output_tokens": 1811712,
+        "requests": 4148
+      },
+      "free_limits": {
+        "requests_per_day": 1000,
+        "requests_per_minute": 30,
+        "tokens_per_day": 200000,
+        "tokens_per_minute": 8000
+      },
+      "human_review_status": "PENDING",
+      "model": "openai/gpt-oss-20b",
+      "policy_id": "groq-free-live-readiness-v1",
+      "pricing_per_million": {
+        "input_usd": "0.075",
+        "output_usd": "0.30"
+      },
+      "projects": {
+        "p00": {
+          "calls_per_trial": 1,
+          "estimated_cost_usd": "0.0504576",
+          "input_tokens": 448512,
+          "input_tokens_per_call": 2048,
+          "output_tokens": 56064,
+          "output_tokens_per_call": 256,
+          "requests": 219
+        },
+        "p01": {
+          "calls_per_trial": 4,
+          "estimated_cost_usd": "0.2304000",
+          "input_tokens": 2048000,
+          "input_tokens_per_call": 2048,
+          "output_tokens": 256000,
+          "output_tokens_per_call": 256,
+          "requests": 1000
+        },
+        "p02": {
+          "calls_per_trial": 1,
+          "estimated_cost_usd": "0.1428480",
+          "input_tokens": 1269760,
+          "input_tokens_per_call": 4096,
+          "output_tokens": 158720,
+          "output_tokens_per_call": 512,
+          "requests": 310
+        },
+        "p03": {
+          "calls_per_trial": 1,
+          "estimated_cost_usd": "0.0737280",
+          "input_tokens": 655360,
+          "input_tokens_per_call": 4096,
+          "output_tokens": 81920,
+          "output_tokens_per_call": 512,
+          "requests": 160
+        },
+        "p04": {
+          "calls_per_trial": 3,
+          "estimated_cost_usd": "0.3442176",
+          "input_tokens": 3059712,
+          "input_tokens_per_call": 4096,
+          "output_tokens": 382464,
+          "output_tokens_per_call": 512,
+          "requests": 747
+        },
+        "p05": {
+          "calls_per_trial": 4,
+          "estimated_cost_usd": "0.7888896",
+          "input_tokens": 7012352,
+          "input_tokens_per_call": 4096,
+          "output_tokens": 876544,
+          "output_tokens_per_call": 512,
+          "requests": 1712
+        }
+      },
+      "promotion_enabled": false,
+      "provider": "groq",
+      "schema_version": 1,
+      "sources": {
+        "pricing": "https://console.groq.com/docs/models",
+        "rate_limits": "https://console.groq.com/docs/rate-limits"
+      },
+      "verified_on": "2026-10-26"
+    },
+    "provider_accessed": false,
+    "status": "INCOMPLETE",
+    "usage": {
+      "accounted_attempts": 90,
+      "cumulative_accounted_usage": {
+        "estimated_cost_usd": "0.004913325",
+        "input_tokens": "31991",
+        "output_tokens": "8380",
+        "requests": "90"
+      },
+      "historical_unmanaged_provider_usage": "PENDING",
+      "provider_billed_cost_usd": "PENDING",
+      "provider_remaining_daily_tokens": "PENDING",
+      "registered_projects": [
+        "p00",
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05"
+      ],
+      "uncertain_attempts": 0
+    }
+  }
+}

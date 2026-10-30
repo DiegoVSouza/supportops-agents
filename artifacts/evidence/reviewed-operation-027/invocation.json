@@ -1,0 +1,11 @@
+{
+  "campaign": "local-reviewed-operation-027-v1",
+  "candidate_commit": "bee5c87efd90621885afcd75052eddf02476c458",
+  "case": "fixture-reviewed-operation-027",
+  "generation_calls_max": 4,
+  "paid_authorized_usd": "0.00",
+  "root_policy_sha256": "f8428a8da06fd551e6a41d3d009db69d1d31c620eda68ef21a02ff1dbcc32cdf",
+  "single_invocation": true,
+  "source_fingerprint": "d33aed1d4e3e6f1b16eb27c261bc93d9331756089b56b609716661f1eecd7c4b",
+  "trial": 1
+}

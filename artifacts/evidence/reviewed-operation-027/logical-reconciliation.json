@@ -1,0 +1,28 @@
+{
+  "command": "SQLite read-only: select identity, event, reservation and usage for local-reviewed-operation-027-v1",
+  "cwd": "C:\\estudo\\Golpe\\lab",
+  "exit_code": 0,
+  "rows": [
+    [
+      "local-reviewed-operation-027-v1",
+      "reserved",
+      4,
+      8192,
+      1024,
+      null,
+      null,
+      null
+    ],
+    [
+      "local-reviewed-operation-027-v1",
+      "completed",
+      4,
+      8192,
+      1024,
+      "ok",
+      1274,
+      261
+    ]
+  ],
+  "provider_accessed": false
+}
