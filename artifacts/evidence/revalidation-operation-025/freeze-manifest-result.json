@@ -1,0 +1,16 @@
+{
+  "candidate_commit": "6a67704092de443a5398f679834e5e613488ee37",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "scripts.revalidation_operation",
+    "--freeze-manifest"
+  ],
+  "credential_values_read": false,
+  "cwd": "C:\\estudo\\Golpe\\lab\\projects\\p01",
+  "exit_code": 0,
+  "provider_accessed": false,
+  "root_policy_sha256": "f8428a8da06fd551e6a41d3d009db69d1d31c620eda68ef21a02ff1dbcc32cdf",
+  "source_fingerprint": "0748dc90607bacde67b0e68f9329d4ad3b6d5ce33e0e9319a8c6423f0156bbc7",
+  "status": "FROZEN"
+}
