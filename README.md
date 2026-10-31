@@ -11,6 +11,29 @@
 - **Docs.** [Architecture](docs/architecture.md), [decisions](docs/decisions).
 <!-- case:end -->
 
+<!-- flow:start -->
+## How it works
+
+Generated from the same data as the diagram on the portfolio site (`projects/agents/`), so the two cannot drift.
+
+```mermaid
+flowchart LR
+  contract["TriageRunner contract"]
+  supervisor["Supervisor"]
+  classifier["Classifier"]
+  researcher["Researcher"]
+  billing["Billing agent"]
+  responder["Responder"]
+  stop["Stop condition"]
+  contract --> supervisor
+  supervisor --> classifier
+  classifier --> researcher
+  researcher --> billing
+  billing --> responder
+  responder --> stop
+```
+<!-- flow:end -->
+
 This project implements SupportOps ticket triage with a deterministic supervisor-worker runner and a common `TriageRunner` contract. Runtime `Ticket` and `TriageDecision` remain P01-local compatibility doubles. P01 consumes the approved P00 1.0.1 wheel in an isolated environment to export its versioned golden set; version, source commit, SHA-256, and consumer command are in `docs/harness/sources.lock.json`. The P01 runtime uses `LLM_MODE=fake` and makes no model-provider calls.
 
 ## Problem
