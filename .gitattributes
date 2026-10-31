@@ -1,0 +1,4 @@
+# Frozen datasets and rubrics are hashed byte for byte.
+evals/datasets/** text eol=lf
+evals/rubrics/** text eol=lf
+evals/*.json text eol=lf

@@ -29,6 +29,8 @@ from supportops_agents.contracts import Ticket
 from supportops_agents.core import CoreTriageRunner, SharedState
 
 
+LAB_TRANSPORT = Path(__file__).resolve().parents[3] / "scripts/harness/live_provider_transport.py"
+
 class FixtureGuard:
     provenance = "fixture"
 
@@ -258,6 +260,12 @@ class AccountedCoreTests(unittest.TestCase):
             },
         )
 
+    @unittest.skipUnless(
+        LAB_TRANSPORT.is_file(),
+        "lab integration test: needs scripts/harness/live_provider_transport.py "
+        "from the ai-engineer-lab checkout (two levels above this project); "
+        "it checks that this project's input bound equals the lab encoder's bound",
+    )
     def test_root_transport_encoder_parity_is_offline_and_utf8(self):
         payload = build_payload("classifier", SharedState(self.ticket).as_payload())
         script = "import sys,json; sys.path.insert(0,sys.argv[1]); from live_provider_transport import encode_payload; payload=json.load(sys.stdin); body,bound,out=encode_payload(payload,{'input_tokens_per_call':2048,'output_tokens_per_call':256}); print(json.dumps({'bound':bound,'output':out}))"
