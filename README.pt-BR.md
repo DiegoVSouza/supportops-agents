@@ -1,5 +1,16 @@
 # P01 — Orquestração multiagente
 
+<!-- case:start -->
+## O case
+
+- **Problema.** Triagem multiagente precisa de um laço limitado, e demos de framework raramente comparam em um mesmo contrato.
+- **Decisão.** Um supervisor delega a workers especialistas com estado compartilhado e limite rígido de passos. Cada adaptador de framework fica atrás de um contrato `TriageRunner`, então a escolha é medida.
+- **Medido.** 119 testes offline passam em clone limpo (`LLM_MODE=fake`, um teste pulado com motivo declarado fora do lab). Um workflow sintético live: quatro tentativas ao provedor, 1274 tokens de entrada e 261 de saída (`docs/harness/progress.md`, fase 027). Nenhuma afirmação de qualidade de modelo.
+- **Como rodar.** `uv sync --locked --all-groups && uv run --locked python scripts/check_fast.py`
+- **Limites.** A evidência live cobre transporte e contabilidade. Qualidade, revisão humana e promoção estão pendentes.
+- **Docs.** [Arquitetura](docs/architecture.md), [decisões](docs/decisions).
+<!-- case:end -->
+
 Este projeto trata tickets de SupportOps com um supervisor determinístico e o contrato comum `TriageRunner`. `Ticket` e `TriageDecision` continuam doubles locais do P01. O wheel P00 1.0.1 é instalado isoladamente para exportar o conjunto dourado; versão, commit de origem, SHA-256 e comando consumidor ficam em `docs/harness/sources.lock.json`. O runtime roda em `LLM_MODE=fake` e não chama provedores.
 
 ## Arquitetura

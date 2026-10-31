@@ -1,5 +1,16 @@
 # P01 — Multi-agent orchestration
 
+<!-- case:start -->
+## The case
+
+- **Problem.** Multi-agent triage needs a bounded loop, and framework demos rarely compare on one contract.
+- **Decision.** A supervisor delegates to specialist workers with shared state and hard step limits. Every framework adapter sits behind one `TriageRunner` contract, so the choice is measured.
+- **Measured.** 119 offline tests pass in a clean clone (`LLM_MODE=fake`, one test skipped with a stated reason outside the lab). One live synthetic workflow: four provider attempts, 1274 input and 261 output tokens (`docs/harness/progress.md`, phase 027). No model-quality claim.
+- **Run it.** `uv sync --locked --all-groups && uv run --locked python scripts/check_fast.py`
+- **Limits.** Live operation evidence is transport and accounting only. Quality, human review and promotion are pending.
+- **Docs.** [Architecture](docs/architecture.md), [decisions](docs/decisions).
+<!-- case:end -->
+
 This project implements SupportOps ticket triage with a deterministic supervisor-worker runner and a common `TriageRunner` contract. Runtime `Ticket` and `TriageDecision` remain P01-local compatibility doubles. P01 consumes the approved P00 1.0.1 wheel in an isolated environment to export its versioned golden set; version, source commit, SHA-256, and consumer command are in `docs/harness/sources.lock.json`. The P01 runtime uses `LLM_MODE=fake` and makes no model-provider calls.
 
 ## Problem
