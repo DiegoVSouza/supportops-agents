@@ -1,11 +1,59 @@
 {
   "features": [
-    {"id": "core-supervisor", "description": "Bounded supervisor-worker runner with shared state", "passes": true},
-    {"id": "core-stop-conditions", "description": "Approval, escalation, max steps, and malformed worker outputs", "passes": true},
-    {"id": "runner-registry", "description": "Stable names and explicit unavailable adapters", "passes": true},
-    {"id": "framework-adapters", "description": "Five real framework adapters conforming to TriageRunner", "passes": true},
-    {"id": "langgraph-recovery-hitl", "description": "SQLite checkpoint recovery and HITL pause/resume", "passes": true},
-    {"id": "run-checkpoint-identity", "description": "Fresh checkpoint identity per execution; explicit resume key supports cross-process recovery", "passes": true},
-    {"id": "comparison-and-docs", "description": "Comparison documentation and P00 60-case adapter coverage", "passes": true, "status": "PASS", "evidence": "artifacts/evidence/check-full.txt; all six adapters exercised 60 versioned P00 cases; unsupported P00 semantics are listed per case."}
+    {
+      "id": "core-supervisor",
+      "description": "Bounded supervisor-worker runner with shared state",
+      "passes": true,
+      "status": "PASS_LOCAL_FAKE",
+      "evidence": "artifacts/evidence/status-reconcile/unittest-fake.txt (119 tests, exit 0); test_core.CoreRunnerTests"
+    },
+    {
+      "id": "core-stop-conditions",
+      "description": "Approval, escalation, max steps, and malformed worker outputs",
+      "passes": true,
+      "status": "PASS_LOCAL_FAKE",
+      "evidence": "artifacts/evidence/status-reconcile/unittest-fake.txt (119 tests, exit 0); test_runner_contract.test_all_runners_stop_at_the_shared_step_boundary; test_all_runners_propagate_worker_escalations; test_langgraph budget and escalation tests"
+    },
+    {
+      "id": "runner-registry",
+      "description": "Stable names and explicit unavailable adapters",
+      "passes": true,
+      "status": "PASS_LOCAL_FAKE",
+      "evidence": "artifacts/evidence/status-reconcile/unittest-fake.txt (119 tests, exit 0); test_core.test_registry_does_not_impersonate_missing_framework"
+    },
+    {
+      "id": "framework-adapters",
+      "description": "Five real framework adapters conforming to TriageRunner",
+      "passes": true,
+      "status": "PASS_LOCAL_FAKE",
+      "evidence": "artifacts/evidence/status-reconcile/unittest-fake.txt (119 tests, exit 0); test_runner_contract.SharedRunnerContractTests across all runners"
+    },
+    {
+      "id": "langgraph-recovery-hitl",
+      "description": "SQLite checkpoint recovery and HITL pause/resume",
+      "passes": true,
+      "status": "PASS_LOCAL_FAKE",
+      "evidence": "artifacts/evidence/status-reconcile/unittest-fake.txt (119 tests, exit 0); test_langgraph checkpoint-survives-process-exit and interrupt-resume tests"
+    },
+    {
+      "id": "run-checkpoint-identity",
+      "description": "Fresh checkpoint identity per execution; explicit resume key supports cross-process recovery",
+      "passes": true,
+      "status": "PASS_LOCAL_FAKE",
+      "evidence": "artifacts/evidence/status-reconcile/unittest-fake.txt (119 tests, exit 0); test_langgraph.test_repeated_ticket_gets_fresh_checkpoint_without_resume_key"
+    },
+    {
+      "id": "comparison-and-docs",
+      "description": "Comparison documentation and P00 60-case adapter coverage",
+      "passes": true,
+      "status": "PASS",
+      "evidence": "artifacts/evidence/check-full.txt; all six adapters exercised 60 versioned P00 cases; unsupported P00 semantics are listed per case."
+    },
+    {
+      "id": "framework-quality-metrics",
+      "description": "Comparable quality, cost and latency metrics across the runners",
+      "status": "PENDING",
+      "evidence": "artifacts/evidence/check-full.txt: 6 runner identities found; metrics remain PENDING"
+    }
   ]
 }
