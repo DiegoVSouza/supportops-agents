@@ -1,0 +1,122 @@
+{
+  "behaviour": {
+    "completed_runs": 3,
+    "contract_failures": {},
+    "duplicate_worker_runs": 0,
+    "early_escalations": 1,
+    "effect_claims": 0,
+    "secret_requests": 0
+  },
+  "campaign": "p01-dev-v1",
+  "dataset": "p01-live-v1",
+  "human_review": "PENDING",
+  "independent_review": "WAIVED_BY_OWNER",
+  "limits": [
+    "Core runner only; the other five runners (langgraph, crewai, autogen, semantic_kernel, llamaindex) were not run live, so this is not a cross-framework quality comparison",
+    "development split only; the 42 holdout cases were not opened",
+    "expected outcomes, required-fact term groups and the grader are assistant-authored; human review is PENDING",
+    "independent review is WAIVED_BY_OWNER, which is owner approval and not independent verification",
+    "route (billing, knowledge, none) is not graded: the Core boundary supplies no billing or knowledge tools, so the expected route cannot be observed",
+    "one trial per case and two to three cases per family; the interval is wide and the result is not a generalisation claim",
+    "cost is an estimate at the policy price on free-plan keys; the provider-billed amount stays UNKNOWN",
+    "latency is the client-side time of each chat request from the transport receipts; it is not a service-level measurement"
+  ],
+  "live_model": {
+    "by_family": {
+      "classification": {
+        "passed": 0,
+        "trials": 1,
+        "wilson95": [
+          0.0,
+          0.7935
+        ]
+      },
+      "escalation": {
+        "passed": 0,
+        "trials": 1,
+        "wilson95": [
+          0.0,
+          0.7935
+        ]
+      },
+      "routing_order": {
+        "passed": 0,
+        "trials": 1,
+        "wilson95": [
+          0.0,
+          0.7935
+        ]
+      }
+    },
+    "by_language": {
+      "en": {
+        "passed": 0,
+        "trials": 3,
+        "wilson95": [
+          0.0,
+          0.5615
+        ]
+      }
+    },
+    "calls_per_trial_mean": 3.0,
+    "cases_planned": 18,
+    "estimated_cost_per_trial_usd": "0.0001374",
+    "estimated_cost_usd": "0.000412275",
+    "failed_checks": {
+      "contract_failure": 0,
+      "facts_missing": 2,
+      "forbidden_outcome": 0,
+      "wrong_action": 2,
+      "wrong_agent_order": 0,
+      "wrong_category": 0,
+      "wrong_escalate": 2,
+      "wrong_stop_reason": 2
+    },
+    "input_tokens": 2725,
+    "latency_ms": {
+      "per_call": {
+        "max": 2973.598,
+        "mean": 1399.9,
+        "n": 9,
+        "p50": 1385.715,
+        "p95": 2973.598
+      },
+      "per_trial": {
+        "max": 7118.66,
+        "mean": 4199.8,
+        "n": 3,
+        "p50": 4721.016,
+        "p95": 7118.66
+      }
+    },
+    "output_tokens": 693,
+    "pass_rate": 0.0,
+    "passed": 0,
+    "provider_calls": 9,
+    "tokens_per_trial": {
+      "input_max": 1215,
+      "input_mean": 908.3,
+      "output_max": 306,
+      "output_mean": 231.0
+    },
+    "trials": 3,
+    "wilson95": [
+      0.0,
+      0.5615
+    ]
+  },
+  "model": "openai/gpt-oss-20b",
+  "other_runners": {
+    "autogen": "fake_replay_only",
+    "crewai": "fake_replay_only",
+    "langgraph": "fake_replay_only",
+    "llamaindex": "fake_replay_only",
+    "semantic_kernel": "fake_replay_only"
+  },
+  "other_runners_live": "NOT_RUN",
+  "provenance": "live",
+  "raw_provider_content_persisted": false,
+  "scope": "core_only",
+  "split": "development",
+  "status": "INCOMPLETE"
+}

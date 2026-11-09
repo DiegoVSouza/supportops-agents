@@ -53,7 +53,7 @@
       "id": "framework-quality-metrics",
       "description": "Comparable quality, cost and latency metrics across the runners",
       "status": "PENDING",
-      "evidence": "artifacts/evidence/check-full.txt: 6 runner identities found; metrics remain PENDING"
+      "evidence": "artifacts/evidence/check-full.txt: 6 runner identities found; metrics remain PENDING. Core-only live pilot p01-dev-v1 of 2026-11-09 stopped after 3 graded trials (0 passed) when call 2 of trial 4 returned a provider error; no development run and no quality number (artifacts/evidence/live-campaign-runner/pilot-report.json and pilot-stop.json). The other five runners were not run live."
     }
   ]
 }

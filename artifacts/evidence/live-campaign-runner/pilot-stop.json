@@ -1,0 +1,8 @@
+{
+  "campaign": "p01-dev-v1",
+  "case_id": "p01-live-045",
+  "reason": "uncertain_or_failed_provider_attempt",
+  "provider_calls": null,
+  "replay_allowed": false,
+  "stopped_at": "2026-11-09T16:12:54.583019+00:00"
+}
