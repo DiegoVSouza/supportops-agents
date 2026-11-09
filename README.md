@@ -7,7 +7,7 @@
 - **Decision.** A supervisor delegates to specialist workers with shared state and hard step limits. Every framework adapter sits behind one `TriageRunner` contract, so the choice is measured.
 - **Measured.** 119 offline tests pass in a clean clone (`LLM_MODE=fake`, one test skipped with a stated reason outside the lab). One live synthetic workflow: four provider attempts, 1274 input and 261 output tokens (`docs/harness/progress.md`, phase 027). No model-quality claim.
 - **Run it.** `uv sync --locked --all-groups && uv run --locked python scripts/check_fast.py`
-- **Limits.** Live operation evidence is transport and accounting only. Quality, human review and promotion are pending.
+- **Limits.** Live operation evidence is transport and accounting only. Quality is pending; human review was done by the owner on 2026-11-09.
 - **Docs.** [Architecture](docs/architecture.md), [decisions](docs/decisions).
 <!-- case:end -->
 
