@@ -10,7 +10,8 @@
     "local-diagnostic-v1",
     "local-diagnostic-2-v1",
     "local-revalidation-v1",
-    "local-reviewed-operation-027-v1"
+    "local-reviewed-operation-027-v1",
+    "p01-dev-v1"
   ],
   "allocations": {
     "local-operation-v1": {
@@ -40,7 +41,9 @@
     },
     "local-reviewed-operation-027-v1": {
       "stage": "operation",
-      "case_ids": ["fixture-reviewed-operation-027"],
+      "case_ids": [
+        "fixture-reviewed-operation-027"
+      ],
       "trials_per_case": 1,
       "max_trials": 1
     },
@@ -51,9 +54,34 @@
       ],
       "trials_per_case": 1,
       "max_trials": 1
+    },
+    "p01-dev-v1": {
+      "stage": "development",
+      "case_ids": [
+        "p01-live-001",
+        "p01-live-011",
+        "p01-live-037",
+        "p01-live-045",
+        "p01-live-002",
+        "p01-live-003",
+        "p01-live-010",
+        "p01-live-012",
+        "p01-live-019",
+        "p01-live-020",
+        "p01-live-021",
+        "p01-live-028",
+        "p01-live-029",
+        "p01-live-030",
+        "p01-live-038",
+        "p01-live-046",
+        "p01-live-053",
+        "p01-live-054"
+      ],
+      "trials_per_case": 1,
+      "max_trials": 18
     }
   },
-  "campaign_allocation_status": "OPERATION_ONLY",
+  "campaign_allocation_status": "OPERATION_AND_DEVELOPMENT_ONLY",
   "candidate_freeze_status": "OPERATION_MANIFEST_REQUIRED",
   "human_review_status": "PENDING",
   "authorized_paid_spend_usd": "0.00"

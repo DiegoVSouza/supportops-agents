@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate and dry-run the P01 Core campaign without provider access."""
+"""P01 Core campaign: offline validation and dry-run, and the sealed `p01-dev-v1` development executor."""
 
 from __future__ import annotations
 
@@ -375,6 +375,63 @@ def summarize(
     }
 
 
+def execute_development(args: argparse.Namespace) -> int:
+    """Sealed `p01-dev-v1` path: freeze, fixture execution, or live execution through the accounted boundary."""
+    import os
+    import time
+
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from scripts import campaign_execution as ex
+
+    lab = ROOT.parents[1]
+    try:
+        if args.stage != "development":
+            raise ex.ExecutionBlocked("development_stage_only")
+        config = read_object(ROOT / "evals/live-campaign.json")
+        cases_path = ROOT / config["cases_path"]
+        cases = read_cases(cases_path, read_object(ROOT / config["dataset_manifest"]))
+        live_dir = ROOT / "artifacts/evals/live/p01-dev-v1"
+        if args.freeze:
+            manifest = ex.freeze(ROOT, lab, live_dir, cases_path, cases)
+            print(json.dumps({"status": "FROZEN", "candidate": manifest["candidate_commit"], "fingerprint": manifest["source_fingerprint"]}))
+            return 0
+        if args.max_trials < 1:
+            raise ex.ExecutionBlocked("max_trials_required")
+        if args.execute_fixture:
+            if args.output_dir is None or ROOT in args.output_dir.resolve().parents:
+                raise ex.ExecutionBlocked("fixture_output_outside_repository_required")
+            transport = ex.OracleTransport({c["case_id"]: c for c in cases})
+            runner, reader, lock = ex.FixtureTrialRunner(transport), transport.usage_for, None
+            out_dir, ledger_path, provenance = args.output_dir, args.output_dir / "ledger.sqlite", "fixture"
+        else:
+            if os.getenv("LLM_MODE", "fake") != "live":
+                raise ex.ExecutionBlocked("explicit_live_mode_required")
+            ex.validate_manifest(ROOT, lab, live_dir, cases_path, cases)
+            sys.path.insert(0, str(lab / "scripts/harness"))
+            from live_free_account import machine_lease
+
+            runner, reader = ex.LiveTrialRunner(ROOT), ex.root_usage_reader(ROOT, ex.CAMPAIGN)
+            lock = machine_lease(lab / ".runtime/llm-live-readiness/campaign.lock")
+            out_dir, ledger_path, provenance = live_dir, ROOT / "artifacts/evals/live/ledger.sqlite", "live"
+        try:
+            progress = ex.execute_campaign(
+                cases=cases, runner=runner, out_dir=out_dir, ledger_path=ledger_path, usage_reader=reader,
+                max_trials=args.max_trials, lock=lock,
+                min_gap_seconds=0 if provenance == "fixture" else 75.0,
+                sleep=(lambda _seconds: None) if provenance == "fixture" else time.sleep,
+            )
+        finally:
+            report = ex.build_report(cases, out_dir, provenance=provenance)
+            ex.write_report(report, out_dir)
+        print(json.dumps({"status": report["status"], **progress, "provenance": provenance,
+                          "passed": report["live_model"]["passed"], "trials": report["live_model"]["trials"]}))
+        return 0
+    except (ex.ExecutionBlocked, CampaignError, OSError, KeyError) as exc:
+        print(json.dumps({"status": "INCOMPLETE", "reason": str(exc) if isinstance(exc, (ex.ExecutionBlocked, CampaignError)) else "execution_unavailable"}, sort_keys=True))
+        return 2
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -388,7 +445,17 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="calculate reservations without provider access",
     )
+    parser.add_argument("--freeze", action="store_true", help="write the manifest that binds the committed sources")
+    parser.add_argument("--execute-free", action="store_true", help="live Groq trials through the root account")
+    parser.add_argument("--execute-fixture", action="store_true", help="plumbing run with a no-network oracle transport")
+    parser.add_argument("--max-trials", type=int, default=0)
+    parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args(argv)
+    if args.freeze or args.execute_free or args.execute_fixture:
+        if args.dry_run or args.resume is not None or (args.execute_free and args.execute_fixture):
+            print(json.dumps({"status": "INCOMPLETE", "reason": "conflicting_options"}))
+            return 2
+        return execute_development(args)
     try:
         if args.resume is not None:
             if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,79}", args.resume):
