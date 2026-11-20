@@ -116,6 +116,21 @@ class ExecutionTests(unittest.TestCase):
         self.assertEqual(transport.calls, 1)
         self.assertEqual(self.trials(), [])
 
+    def test_a_failed_ledger_proof_still_records_the_content_free_provider_cause(self) -> None:
+        def failed_proof(_id: str) -> dict[str, int]:
+            raise ex.ExecutionBlocked("uncertain_or_failed_provider_attempt")
+
+        transport = BrokenTransport({"status": "INCOMPLETE", "reason": "output_schema", "http_status": 400,
+                                     "provider_error_code": "json_validate_failed", "attempt_id": "1" * 32,
+                                     "detail": "PRIVATE-PROVIDER-DETAIL"})
+        with self.assertRaisesRegex(ex.ExecutionBlocked, "uncertain_or_failed_provider_attempt"):
+            self.run_campaign(transport, 1, reader=failed_proof)
+        stop = json.loads((self.out / "stop.json").read_text(encoding="utf-8"))
+        self.assertEqual(stop["provider_diagnostic"]["last_call"],
+                         {"call_index": 1, "reason": "output_schema", "http_status": 400,
+                          "provider_error_code": "json_validate_failed"})
+        self.assertNotIn("PRIVATE", json.dumps(stop))
+
     def test_unknown_errors_become_uncertain_and_never_leak_text(self) -> None:
         transport = BrokenTransport(error=RuntimeError("secret prompt text"))
         with self.assertRaisesRegex(ex.ExecutionBlocked, "provider_timeout_uncertain"):

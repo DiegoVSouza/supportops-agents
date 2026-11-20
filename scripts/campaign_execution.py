@@ -358,6 +358,8 @@ def execute_campaign(
                 ledger.reserve(case_id=case["case_id"], trial=1, estimated_cost_usd=TRIAL_COST, caps=LEDGER_CAPS, **TRIAL_RESERVE)
             except CampaignBlocked:
                 raise ExecutionBlocked("campaign_reservation_refused") from None
+            receipts: list[dict[str, Any]] = []
+            outcome = None
             try:
                 outcome, receipts = runner.run(case)
                 usage = usage_reader(case["case_id"])
@@ -366,10 +368,10 @@ def execute_campaign(
                 if usage != {"calls": len(receipts), "input_tokens": used_in, "output_tokens": used_out}:
                     raise ExecutionBlocked("usage_mismatch")
             except ExecutionBlocked as stop:
-                _stop(ledger, out_dir, case, str(stop), usage_reader)
+                _stop(ledger, out_dir, case, str(stop), usage_reader, provider_cause(outcome, receipts))
                 raise
             except Exception:  # noqa: BLE001 - any other failure is a fixed, content-free stop
-                _stop(ledger, out_dir, case, "uncertain_attempt", usage_reader)
+                _stop(ledger, out_dir, case, "uncertain_attempt", usage_reader, provider_cause(outcome, receipts))
                 raise ExecutionBlocked("uncertain_attempt") from None
             observation = observe(case, outcome)
             errors = grade(case, observation)
@@ -390,7 +392,30 @@ def execute_campaign(
     return {"ran": ran, "remaining": max(0, len(queue) - ran)}
 
 
-def _stop(ledger: CampaignLedger, out_dir: Path, case: dict[str, Any], reason: str, usage_reader: Callable[[str], dict[str, int]]) -> None:
+def provider_cause(outcome: Any, receipts: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Fixed words, a status and a code about the last refused call, never a message. The ledger proof alone hides this."""
+    cause: dict[str, Any] = {}
+    failure = getattr(outcome, "failure", None)
+    if isinstance(failure, str) and SAFE_REASON.fullmatch(failure):
+        cause["graded_failure"] = failure
+    for receipt in reversed(receipts):
+        reason, status, code = receipt.get("reason"), receipt.get("http_status"), receipt.get("provider_error_code")
+        if reason in (None, "ok"):
+            continue
+        last: dict[str, Any] = {"call_index": receipt.get("call_index")}
+        if isinstance(reason, str) and SAFE_REASON.fullmatch(reason):
+            last["reason"] = reason
+        if type(status) is int and 100 <= status <= 599:
+            last["http_status"] = status
+        if isinstance(code, str) and re.fullmatch(r"[a-z0-9_]{1,64}", code):
+            last["provider_error_code"] = code
+        cause["last_call"] = last
+        break
+    return cause or None
+
+
+def _stop(ledger: CampaignLedger, out_dir: Path, case: dict[str, Any], reason: str, usage_reader: Callable[[str], dict[str, int]],
+          diagnostic: dict[str, Any] | None = None) -> None:
     reason = reason if SAFE_REASON.fullmatch(reason) else "uncertain_attempt"
     try:
         calls = usage_reader(case["case_id"])["calls"]
@@ -398,6 +423,7 @@ def _stop(ledger: CampaignLedger, out_dir: Path, case: dict[str, Any], reason: s
         calls = None
     (out_dir / "stop.json").write_text(
         json.dumps({"campaign": CAMPAIGN, "case_id": case["case_id"], "reason": reason, "provider_calls": calls,
+                    **({"provider_diagnostic": diagnostic} if diagnostic else {}),
                     "replay_allowed": False, "stopped_at": utc_now()}, indent=2) + "\n",
         encoding="utf-8", newline="\n",
     )

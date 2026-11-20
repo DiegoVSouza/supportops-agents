@@ -1,0 +1,14 @@
+E..............
+======================================================================
+ERROR: test_a_failed_ledger_proof_still_records_the_content_free_provider_cause (tests.test_campaign_execution.ExecutionTests.test_a_failed_ledger_proof_still_records_the_content_free_provider_cause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\estudo\Golpe\lab\projects\p01\tests\test_campaign_execution.py", line 129, in test_a_failed_ledger_proof_still_records_the_content_free_provider_cause
+    self.assertEqual(stop["provider_diagnostic"]["last_call"],
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'provider_diagnostic'
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.237s
+
+FAILED (errors=1)
