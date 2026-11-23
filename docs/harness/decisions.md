@@ -31,3 +31,7 @@ ADR-002 requires the actual Core worker loop to use the accounted adapter and di
 ## 2026-11-09 — Core development campaign p01-dev-v1
 
 The owner replied "pode usar os modelos da groq tem as env ai documentada" and "faz a 1 mesmo". Phase 028 builds a sealed executor for the Core runner only (18 development cases, one trial each, four provider calls per trial at most); the five framework runners stay fake/replay and their quality stays unmeasured live. Route is not graded because the Core boundary has no billing or knowledge tools. Independent review stays `WAIVED_BY_OWNER` and human review `PENDING`. After a provider error the campaign is closed by the root guard; reopening it needs a new candidate, a new campaign ID and a new committed authorization, not a replay.
+
+## 2026-11-23 — Framework adapter scope
+
+The owner selected "Construir também os adaptadores dos outros runners". Phase 029 starts with fixture-only accounted compatibility for all five existing framework integrations. Live access and campaign allocations remain disabled until separately planned, bounded and verified; the closed Core campaign is not replayed.
