@@ -1,0 +1,176 @@
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe scripts/check_fast.py
+working_directory=isolated source snapshot
+exit_code=1
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m compileall -q src tests
+exit_code=0
+
+
+command=C:\estudo\Golpe\lab\projects\p01\.venv\Scripts\python.exe -m unittest discover -s tests -v
+exit_code=1
+test_actual_core_loop_has_four_indexed_receipts_and_no_extra_effects (test_accounted_core.AccountedCoreTests.test_actual_core_loop_has_four_indexed_receipts_and_no_extra_effects) ... ok
+test_diagnostics_drop_raw_values_and_reject_bool_status (test_accounted_core.AccountedCoreTests.test_diagnostics_drop_raw_values_and_reject_bool_status) ... ok
+test_dirty_root_policy_cannot_be_rehashed_to_bypass_committed_sources (test_accounted_core.AccountedCoreTests.test_dirty_root_policy_cannot_be_rehashed_to_bypass_committed_sources) ... ok
+test_disabled_and_unallocated_owner_denies_before_process_or_credentials (test_accounted_core.AccountedCoreTests.test_disabled_and_unallocated_owner_denies_before_process_or_credentials) ... ok
+test_early_escalation_stops_actual_core_and_cannot_continue (test_accounted_core.AccountedCoreTests.test_early_escalation_stops_actual_core_and_cannot_continue) ... ok
+test_framework_scope_and_telemetry_are_set_before_import (test_accounted_core.AccountedCoreTests.test_framework_scope_and_telemetry_are_set_before_import) ... ok
+test_frozen_binding_accepts_only_committed_public_source_before_any_process (test_accounted_core.AccountedCoreTests.test_frozen_binding_accepts_only_committed_public_source_before_any_process) ... ok
+test_invalid_worker_contract_is_terminal_not_a_semantic_retry (test_accounted_core.AccountedCoreTests.test_invalid_worker_contract_is_terminal_not_a_semantic_retry) ... ok
+test_legacy_cli_is_stdlib_only_and_denies_without_reading_credentials (test_accounted_core.AccountedCoreTests.test_legacy_cli_is_stdlib_only_and_denies_without_reading_credentials) ... ok
+test_model_tool_call_is_terminal_and_never_dispatched_or_replayed (test_accounted_core.AccountedCoreTests.test_model_tool_call_is_terminal_and_never_dispatched_or_replayed) ... ok
+test_out_of_order_worker_stops_before_transport (test_accounted_core.AccountedCoreTests.test_out_of_order_worker_stops_before_transport) ... ok
+test_oversized_or_grading_state_is_rejected_before_transport (test_accounted_core.AccountedCoreTests.test_oversized_or_grading_state_is_rejected_before_transport) ... ok
+test_prior_provider_receipt_blocks_uncertain_workflow_restart (test_accounted_core.AccountedCoreTests.test_prior_provider_receipt_blocks_uncertain_workflow_restart) ... ok
+test_quota_denial_keeps_only_allowlisted_diagnostics_and_never_retries (test_accounted_core.AccountedCoreTests.test_quota_denial_keeps_only_allowlisted_diagnostics_and_never_retries) ... ok
+test_real_workflow_ledger_reservation_is_accepted_by_guard (test_accounted_core.AccountedCoreTests.test_real_workflow_ledger_reservation_is_accepted_by_guard) ... ok
+test_revalidation_operation_requires_its_frozen_operation_script (test_accounted_core.AccountedCoreTests.test_revalidation_operation_requires_its_frozen_operation_script) ... ok
+test_root_transport_encoder_parity_is_offline_and_utf8 (test_accounted_core.AccountedCoreTests.test_root_transport_encoder_parity_is_offline_and_utf8) ... skipped "lab integration test: needs scripts/harness/live_provider_transport.py from the ai-engineer-lab checkout (two levels above this project); it checks that this project's input bound equals the lab encoder's bound"
+test_subprocess_frames_are_utf8_and_never_inherit_provider_keys (test_accounted_core.AccountedCoreTests.test_subprocess_frames_are_utf8_and_never_inherit_provider_keys) ... ok
+test_subprocess_invalid_reply_stops_without_echoing_or_replaying (test_accounted_core.AccountedCoreTests.test_subprocess_invalid_reply_stops_without_echoing_or_replaying) ... ok
+test_subprocess_timeout_is_uncertain_and_cannot_restart (test_accounted_core.AccountedCoreTests.test_subprocess_timeout_is_uncertain_and_cannot_restart) ... ok
+test_timeout_and_interrupt_keep_workflow_uncertain_without_replay (test_accounted_core.AccountedCoreTests.test_timeout_and_interrupt_keep_workflow_uncertain_without_replay) ... ok
+test_unknown_reservations_across_ids_exhaust_primary_without_confirmation (test_accounted_core.AccountedCoreTests.test_unknown_reservations_across_ids_exhaust_primary_without_confirmation) ... ok
+test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git (test_accounted_core.AccountedCoreTests.test_untracked_source_cannot_be_added_to_a_manifest_to_bypass_git) ... ok
+test_each_framework_stops_after_classifier_escalation (test_accounted_frameworks.AccountedFrameworkTests.test_each_framework_stops_after_classifier_escalation) ... <frozen importlib._bootstrap>:1342: ImportWarning: Cannot set an attribute on 'crewai.rag' for child module 'embeddings'
+ok
+test_each_framework_uses_bounded_fixture_receipts (test_accounted_frameworks.AccountedFrameworkTests.test_each_framework_uses_bounded_fixture_receipts) ... ok
+test_live_transport_is_rejected_before_dispatch (test_accounted_frameworks.AccountedFrameworkTests.test_live_transport_is_rejected_before_dispatch) ... ok
+test_parallel_workers_preserve_receipt_order_and_call_limit (test_accounted_frameworks.AccountedFrameworkTests.test_parallel_workers_preserve_receipt_order_and_call_limit) ... ok
+test_uncertain_first_attempt_is_not_retried_by_any_framework (test_accounted_frameworks.AccountedFrameworkTests.test_uncertain_first_attempt_is_not_retried_by_any_framework) ... Function failed. Error: provider_timeout_uncertain
+Something went wrong in function invocation. During function invocation: 'supportops-invoke_worker'. Error description: 'provider_timeout_uncertain'
+ok
+test_a_failed_ledger_proof_still_records_the_content_free_provider_cause (test_campaign_execution.ExecutionTests.test_a_failed_ledger_proof_still_records_the_content_free_provider_cause) ... ok
+test_a_malformed_worker_reply_is_a_graded_contract_failure_not_a_stop (test_campaign_execution.ExecutionTests.test_a_malformed_worker_reply_is_a_graded_contract_failure_not_a_stop) ... ok
+test_a_provider_error_stops_the_campaign_without_replay (test_campaign_execution.ExecutionTests.test_a_provider_error_stops_the_campaign_without_replay) ... ok
+test_a_reservation_without_a_result_blocks_until_reviewed (test_campaign_execution.ExecutionTests.test_a_reservation_without_a_result_blocks_until_reviewed) ... ok
+test_a_truncated_reply_is_a_graded_failure (test_campaign_execution.ExecutionTests.test_a_truncated_reply_is_a_graded_failure) ... ok
+test_every_attempt_goes_through_the_logical_ledger_with_the_p01_reservation (test_campaign_execution.ExecutionTests.test_every_attempt_goes_through_the_logical_ledger_with_the_p01_reservation) ... ok
+test_full_fixture_run_passes_every_case_and_stays_content_free (test_campaign_execution.ExecutionTests.test_full_fixture_run_passes_every_case_and_stays_content_free) ... ok
+test_manifest_is_required_before_a_live_run_and_lists_the_guard_file_set (test_campaign_execution.ExecutionTests.test_manifest_is_required_before_a_live_run_and_lists_the_guard_file_set) ... FAIL
+test_percentile_is_nearest_rank_and_wilson_is_bounded (test_campaign_execution.ExecutionTests.test_percentile_is_nearest_rank_and_wilson_is_bounded) ... ok
+test_pilot_cases_run_first_and_cover_four_distinct_families (test_campaign_execution.ExecutionTests.test_pilot_cases_run_first_and_cover_four_distinct_families) ... ok
+test_report_states_the_core_only_scope_and_the_pending_reviews (test_campaign_execution.ExecutionTests.test_report_states_the_core_only_scope_and_the_pending_reviews) ... ok
+test_resume_never_repeats_a_finished_case (test_campaign_execution.ExecutionTests.test_resume_never_repeats_a_finished_case) ... ok
+test_the_execution_manifest_approves_the_campaign_with_the_ordered_allocation (test_campaign_execution.ExecutionTests.test_the_execution_manifest_approves_the_campaign_with_the_ordered_allocation) ... ok
+test_unknown_errors_become_uncertain_and_never_leak_text (test_campaign_execution.ExecutionTests.test_unknown_errors_become_uncertain_and_never_leak_text) ... ok
+test_usage_that_disagrees_with_the_receipts_stops_the_campaign (test_campaign_execution.ExecutionTests.test_usage_that_disagrees_with_the_receipts_stops_the_campaign) ... ok
+test_caps_are_cumulative_across_campaign_ids (test_campaign_ledger.CampaignLedgerTests.test_caps_are_cumulative_across_campaign_ids) ... ok
+test_completed_attempt_without_usage_keeps_full_reservation (test_campaign_ledger.CampaignLedgerTests.test_completed_attempt_without_usage_keeps_full_reservation) ... ok
+test_completion_reconciles_usage_but_history_is_immutable (test_campaign_ledger.CampaignLedgerTests.test_completion_reconciles_usage_but_history_is_immutable) ... ok
+test_four_call_reservation_is_durable_and_caps_other_campaigns (test_campaign_ledger.CampaignLedgerTests.test_four_call_reservation_is_durable_and_caps_other_campaigns) ... ok
+test_invalid_workflow_call_count_is_rejected (test_campaign_ledger.CampaignLedgerTests.test_invalid_workflow_call_count_is_rejected) ... ok
+test_lease_excludes_an_independent_process_and_releases (test_campaign_ledger.CampaignLedgerTests.test_lease_excludes_an_independent_process_and_releases) ... ok
+test_parallel_reservations_cannot_race_past_cap (test_campaign_ledger.CampaignLedgerTests.test_parallel_reservations_cannot_race_past_cap) ... ok
+test_unknown_usage_reservation_is_kept_and_trial_cannot_repeat (test_campaign_ledger.CampaignLedgerTests.test_unknown_usage_reservation_is_kept_and_trial_cannot_repeat) ... ok
+test_a_correct_run_passes_every_check_and_is_content_free (test_campaign_observe.ObservationTests.test_a_correct_run_passes_every_check_and_is_content_free) ... ok
+test_a_credible_threat_must_escalate_and_name_the_threat (test_campaign_observe.ObservationTests.test_a_credible_threat_must_escalate_and_name_the_threat) ... ok
+test_a_worker_contract_failure_is_a_graded_failure_with_a_fixed_label (test_campaign_observe.ObservationTests.test_a_worker_contract_failure_is_a_graded_failure_with_a_fixed_label) ... ok
+test_claiming_a_completed_refund_or_asking_for_a_secret_is_a_forbidden_outcome (test_campaign_observe.ObservationTests.test_claiming_a_completed_refund_or_asking_for_a_secret_is_a_forbidden_outcome) ... ok
+test_early_escalation_of_a_routine_case_fails_action_escalate_and_stop_reason (test_campaign_observe.ObservationTests.test_early_escalation_of_a_routine_case_fails_action_escalate_and_stop_reason) ... ok
+test_every_development_case_has_term_groups_and_the_dataset_is_unchanged (test_campaign_observe.ObservationTests.test_every_development_case_has_term_groups_and_the_dataset_is_unchanged) ... ok
+test_loop_cases_accept_any_documented_terminal_result (test_campaign_observe.ObservationTests.test_loop_cases_accept_any_documented_terminal_result) ... ok
+test_portuguese_effect_claims_and_accents_are_handled (test_campaign_observe.ObservationTests.test_portuguese_effect_claims_and_accents_are_handled) ... ok
+test_route_is_observed_but_never_graded (test_campaign_observe.ObservationTests.test_route_is_observed_but_never_graded) ... ok
+test_unknown_failure_labels_collapse_to_other (test_campaign_observe.ObservationTests.test_unknown_failure_labels_collapse_to_other) ... ok
+test_wrong_category_and_missing_facts_are_reported_separately (test_campaign_observe.ObservationTests.test_wrong_category_and_missing_facts_are_reported_separately) ... ok
+test_emits_all_runner_slots_but_only_measured_core_behavior (test_comparison.ComparisonTests.test_emits_all_runner_slots_but_only_measured_core_behavior) ... ok
+test_approved_response_runs_all_workers_in_order (test_core.CoreRunnerTests.test_approved_response_runs_all_workers_in_order) ... ok
+test_billing_can_escalate (test_core.CoreRunnerTests.test_billing_can_escalate) ... ok
+test_classifier_can_escalate_without_contacting_more_workers (test_core.CoreRunnerTests.test_classifier_can_escalate_without_contacting_more_workers) ... ok
+test_never_approved_response_stops_at_exact_step_limit (test_core.CoreRunnerTests.test_never_approved_response_stops_at_exact_step_limit) ... ok
+test_registry_does_not_impersonate_missing_framework (test_core.CoreRunnerTests.test_registry_does_not_impersonate_missing_framework) ... ok
+test_rejects_malformed_worker_output (test_core.CoreRunnerTests.test_rejects_malformed_worker_output) ... ok
+test_rejects_step_budget_above_product_call_limit_before_client_invocation (test_core.CoreRunnerTests.test_rejects_step_budget_above_product_call_limit_before_client_invocation) ... ok
+test_rejects_zero_or_invalid_step_budget (test_core.CoreRunnerTests.test_rejects_zero_or_invalid_step_budget) ... ok
+test_step_boundary_allows_final_step_approval (test_core.CoreRunnerTests.test_step_boundary_allows_final_step_approval) ... ok
+test_accounted_fixture_dispatch_uses_explicit_tenant_once (test_core_fixture_dispatch.AccountedFixtureDispatchTests.test_accounted_fixture_dispatch_uses_explicit_tenant_once) ... ok
+test_classifier_read_plan_is_rejected_for_live_or_malformed_fixture (test_core_fixture_dispatch.AccountedFixtureDispatchTests.test_classifier_read_plan_is_rejected_for_live_or_malformed_fixture) ... ok
+test_failed_fixture_read_stops_before_next_worker_and_cannot_replay (test_core_fixture_dispatch.AccountedFixtureDispatchTests.test_failed_fixture_read_stops_before_next_worker_and_cannot_replay) ... ok
+test_live_provenance_is_rejected_before_any_request (test_core_fixture_dispatch.AccountedFixtureDispatchTests.test_live_provenance_is_rejected_before_any_request) ... ok
+test_dispatch_uses_caller_identity_and_four_call_limit (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_dispatch_uses_caller_identity_and_four_call_limit) ... ok
+test_invalid_and_effectful_plans_never_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_invalid_and_effectful_plans_never_dispatch) ... ok
+test_non_fake_client_is_rejected_before_dispatch (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_non_fake_client_is_rejected_before_dispatch) ... ok
+test_unknown_dispatch_stops_before_later_workers (test_core_fixture_dispatch.CoreFixtureDispatchTests.test_unknown_dispatch_stops_before_later_workers) ... ok
+test_authority_denial_precedes_new_reservation_and_factory (test_diagnostic_operation.DiagnosticTests.test_authority_denial_precedes_new_reservation_and_factory) ... ok
+test_one_separate_workflow_retains_original_and_total_ceiling (test_diagnostic_operation.DiagnosticTests.test_one_separate_workflow_retains_original_and_total_ceiling) ... ok
+test_startup_diagnostic_is_categorical_and_content_free (test_diagnostic_operation.DiagnosticTests.test_startup_diagnostic_is_categorical_and_content_free) ... ok
+test_uncertain_failure_is_reported_and_never_replayed (test_diagnostic_operation.DiagnosticTests.test_uncertain_failure_is_reported_and_never_replayed) ... ok
+test_budget_boundaries_never_exceed_agent_call_limit (test_langgraph.LangGraphRunnerTests.test_budget_boundaries_never_exceed_agent_call_limit) ... ok
+test_checkpoint_survives_process_exit_and_resumes_in_a_second_process (test_langgraph.LangGraphRunnerTests.test_checkpoint_survives_process_exit_and_resumes_in_a_second_process) ... ok
+test_classifier_escalation_stops_graph (test_langgraph.LangGraphRunnerTests.test_classifier_escalation_stops_graph) ... ok
+test_human_denial_escalates_without_responder (test_langgraph.LangGraphRunnerTests.test_human_denial_escalates_without_responder) ... ok
+test_interrupt_can_resume_after_constructing_a_new_runner (test_langgraph.LangGraphRunnerTests.test_interrupt_can_resume_after_constructing_a_new_runner) ... ok
+test_repeated_ticket_gets_fresh_checkpoint_without_resume_key (test_langgraph.LangGraphRunnerTests.test_repeated_ticket_gets_fresh_checkpoint_without_resume_key) ... ok
+test_retries_a_transient_node_failure (test_langgraph.LangGraphRunnerTests.test_retries_a_transient_node_failure) ... ok
+test_runs_kb_and_billing_branches_then_returns_common_contract (test_langgraph.LangGraphRunnerTests.test_runs_kb_and_billing_branches_then_returns_common_contract) ... ok
+test_dataset_has_required_counts_and_family_coverage (test_live_campaign_preparation.LiveCampaignPreparationTests.test_dataset_has_required_counts_and_family_coverage) ... ok
+test_development_and_holdout_dry_runs_have_expected_denominators (test_live_campaign_preparation.LiveCampaignPreparationTests.test_development_and_holdout_dry_runs_have_expected_denominators) ... ok
+test_dry_run_runs_without_site_packages_or_provider_imports (test_live_campaign_preparation.LiveCampaignPreparationTests.test_dry_run_runs_without_site_packages_or_provider_imports) ... ok
+test_generation_stops_in_preparation_phase (test_live_campaign_preparation.LiveCampaignPreparationTests.test_generation_stops_in_preparation_phase) ... ok
+test_grader_allows_terminal_result_within_loop_bound (test_live_campaign_preparation.LiveCampaignPreparationTests.test_grader_allows_terminal_result_within_loop_bound) ... ok
+test_grader_rejects_wrong_route_decision_and_over_limit_trace (test_live_campaign_preparation.LiveCampaignPreparationTests.test_grader_rejects_wrong_route_decision_and_over_limit_trace) ... ok
+test_rejects_duplicate_case_input_and_split_leakage (test_live_campaign_preparation.LiveCampaignPreparationTests.test_rejects_duplicate_case_input_and_split_leakage) ... ok
+test_resume_inspection_is_read_only_and_rejects_unknown_campaign (test_live_campaign_preparation.LiveCampaignPreparationTests.test_resume_inspection_is_read_only_and_rejects_unknown_campaign) ... ok
+test_legacy_client_cannot_dispatch_or_rotate_any_key (test_live_groq_eval.LiveGroqEvalTests.test_legacy_client_cannot_dispatch_or_rotate_any_key) ... ok
+test_legacy_errors_never_echo_keys_or_ticket_text (test_live_groq_eval.LiveGroqEvalTests.test_legacy_errors_never_echo_keys_or_ticket_text) ... ok
+test_legacy_helpers_deny_before_credentials_or_sdk (test_live_groq_eval.LiveGroqEvalTests.test_legacy_helpers_deny_before_credentials_or_sdk) ... ok
+test_live_client_rejects_unknown_agent_without_network (test_live_groq_eval.LiveGroqEvalTests.test_live_client_rejects_unknown_agent_without_network) ... ok
+test_live_mode_is_explicit (test_live_groq_eval.LiveGroqEvalTests.test_live_mode_is_explicit) ... ok
+test_offline_default_stays_fake (test_live_groq_eval.LiveGroqEvalTests.test_offline_default_stays_fake) ... ok
+test_cli_exposes_only_allowlisted_boundary_diagnostic (test_local_operation.LocalOperationTests.test_cli_exposes_only_allowlisted_boundary_diagnostic) ... ok
+test_failure_retains_reservation_and_blocks_later_work (test_local_operation.LocalOperationTests.test_failure_retains_reservation_and_blocks_later_work) ... ok
+test_lease_contention_stops_before_ledger_or_client (test_local_operation.LocalOperationTests.test_lease_contention_stops_before_ledger_or_client) ... ok
+test_live_operation_requires_explicit_mode_and_fixed_synthetic_case (test_local_operation.LocalOperationTests.test_live_operation_requires_explicit_mode_and_fixed_synthetic_case) ... ok
+test_missing_receipt_keeps_full_reservation (test_local_operation.LocalOperationTests.test_missing_receipt_keeps_full_reservation) ... ok
+test_non_synthetic_id_rejected_before_ledger_creation (test_local_operation.LocalOperationTests.test_non_synthetic_id_rejected_before_ledger_creation) ... ok
+test_reconcile_refuses_incomplete_provider_receipts (test_local_operation.LocalOperationTests.test_reconcile_refuses_incomplete_provider_receipts) ... ok
+test_reconcile_retains_full_reservation_and_never_allows_replay (test_local_operation.LocalOperationTests.test_reconcile_retains_full_reservation_and_never_allows_replay) ... ok
+test_reservation_precedes_fixture_client_and_nonfixture_stops (test_local_operation.LocalOperationTests.test_reservation_precedes_fixture_client_and_nonfixture_stops) ... ok
+test_success_is_durable_and_replay_is_rejected_before_new_client (test_local_operation.LocalOperationTests.test_success_is_durable_and_replay_is_rejected_before_new_client) ... ok
+test_authority_denial_precedes_reservation_and_client_factory (test_revalidation_operation.RevalidationOperationTests.test_authority_denial_precedes_reservation_and_client_factory) ... ok
+test_exact_reservation_succeeds_and_preserves_all_prior_workflows (test_revalidation_operation.RevalidationOperationTests.test_exact_reservation_succeeds_and_preserves_all_prior_workflows) ... ok
+test_live_revalidation_does_not_reenter_root_migration_lock (test_revalidation_operation.RevalidationOperationTests.test_live_revalidation_does_not_reenter_root_migration_lock) ... ok
+test_owner_scope_and_invocation_marker_are_single_use (test_revalidation_operation.RevalidationOperationTests.test_owner_scope_and_invocation_marker_are_single_use) ... ok
+test_startup_error_mapping_is_categorical (test_revalidation_operation.RevalidationOperationTests.test_startup_error_mapping_is_categorical) ... ok
+test_unknown_failure_retains_full_reserve_and_cannot_replay (test_revalidation_operation.RevalidationOperationTests.test_unknown_failure_retains_full_reserve_and_cannot_replay) ... ok
+test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve (test_revalidation_operation.RevalidationOperationTests.test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve) ... ok
+test_workflow_caps_match_user_authorized_delta (test_revalidation_operation.RevalidationOperationTests.test_workflow_caps_match_user_authorized_delta) ... ok
+test_authority_denial_precedes_reservation_and_client_factory (test_reviewed_operation_027.RevalidationOperationTests.test_authority_denial_precedes_reservation_and_client_factory) ... ok
+test_crash_after_reservation_blocks_any_restart (test_reviewed_operation_027.RevalidationOperationTests.test_crash_after_reservation_blocks_any_restart) ... ok
+test_exact_reservation_succeeds_and_preserves_all_prior_workflows (test_reviewed_operation_027.RevalidationOperationTests.test_exact_reservation_succeeds_and_preserves_all_prior_workflows) ... ok
+test_existing_attempt_marker_refuses_reentry_before_validation (test_reviewed_operation_027.RevalidationOperationTests.test_existing_attempt_marker_refuses_reentry_before_validation) ... ok
+test_live_revalidation_does_not_reenter_root_migration_lock (test_reviewed_operation_027.RevalidationOperationTests.test_live_revalidation_does_not_reenter_root_migration_lock) ... ok
+test_owner_scope_and_invocation_marker_are_single_use (test_reviewed_operation_027.RevalidationOperationTests.test_owner_scope_and_invocation_marker_are_single_use) ... ok
+test_startup_error_mapping_is_categorical (test_reviewed_operation_027.RevalidationOperationTests.test_startup_error_mapping_is_categorical) ... ok
+test_unknown_failure_retains_full_reserve_and_cannot_replay (test_reviewed_operation_027.RevalidationOperationTests.test_unknown_failure_retains_full_reserve_and_cannot_replay) ... ok
+test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve (test_reviewed_operation_027.RevalidationOperationTests.test_worker_contract_failure_is_terminal_and_keeps_unknown_reserve) ... ok
+test_workflow_caps_match_user_authorized_delta (test_reviewed_operation_027.RevalidationOperationTests.test_workflow_caps_match_user_authorized_delta) ... ok
+test_all_runners_approve_the_common_synthetic_case (test_runner_contract.SharedRunnerContractTests.test_all_runners_approve_the_common_synthetic_case) ... ok
+test_all_runners_propagate_worker_escalations (test_runner_contract.SharedRunnerContractTests.test_all_runners_propagate_worker_escalations) ... ok
+test_all_runners_stop_at_the_shared_step_boundary (test_runner_contract.SharedRunnerContractTests.test_all_runners_stop_at_the_shared_step_boundary) ... ok
+test_authority_denial_precedes_new_reservation_and_factory (test_second_diagnostic_operation.DiagnosticTests.test_authority_denial_precedes_new_reservation_and_factory) ... ok
+test_one_separate_workflow_retains_original_and_total_ceiling (test_second_diagnostic_operation.DiagnosticTests.test_one_separate_workflow_retains_original_and_total_ceiling) ... ok
+test_startup_diagnostic_is_categorical_and_content_free (test_second_diagnostic_operation.DiagnosticTests.test_startup_diagnostic_is_categorical_and_content_free) ... ok
+test_uncertain_failure_is_reported_and_never_replayed (test_second_diagnostic_operation.DiagnosticTests.test_uncertain_failure_is_reported_and_never_replayed) ... ok
+test_all_worker_payloads_use_exact_required_native_schemas (test_strict_worker_schema.StrictSchemaTests.test_all_worker_payloads_use_exact_required_native_schemas) ... ok
+test_failure_keeps_receipt_and_private_structural_metadata_without_values (test_strict_worker_schema.StrictSchemaTests.test_failure_keeps_receipt_and_private_structural_metadata_without_values) ... ok
+test_local_semantic_and_schema_rejections_remain_strict (test_strict_worker_schema.StrictSchemaTests.test_local_semantic_and_schema_rejections_remain_strict) ... ok
+test_schema_weakenings_are_rejected_before_dispatch (test_strict_worker_schema.StrictSchemaTests.test_schema_weakenings_are_rejected_before_dispatch) ... ok
+test_completed_receipt_prevents_duplicate_dispatch (test_synthetic_dispatch.SyntheticDispatchTests.test_completed_receipt_prevents_duplicate_dispatch) ... ok
+test_concurrent_duplicate_is_not_dispatched_twice (test_synthetic_dispatch.SyntheticDispatchTests.test_concurrent_duplicate_is_not_dispatched_twice) ... ok
+test_interruption_blocks_restart_without_replay (test_synthetic_dispatch.SyntheticDispatchTests.test_interruption_blocks_restart_without_replay) ... ok
+test_invalid_plans_never_call_adapter (test_synthetic_dispatch.SyntheticDispatchTests.test_invalid_plans_never_call_adapter) ... ok
+test_process_death_after_reservation_cannot_replay (test_synthetic_dispatch.SyntheticDispatchTests.test_process_death_after_reservation_cannot_replay) ... ok
+
+======================================================================
+FAIL: test_manifest_is_required_before_a_live_run_and_lists_the_guard_file_set (test_campaign_execution.ExecutionTests.test_manifest_is_required_before_a_live_run_and_lists_the_guard_file_set)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\dvsdi\AppData\Local\Temp\p01-framework-check-120y6lm0\tests\test_campaign_execution.py", line 205, in test_manifest_is_required_before_a_live_run_and_lists_the_guard_file_set
+    self.assertIn(name, files)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: 'projects/p01/agent/prompts/live-core.md' not found in {'Temp/p01-framework-check-120y6lm0/src/supportops_agents/__init__.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/__init__.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/accounted_frameworks.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/accounted_frameworks.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/accounted_live.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/accounted_live.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/comparison.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/comparison.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/contracts.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/contracts.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/core.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/core.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/demo.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/demo.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/fakes.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/fakes.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/__init__.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/__init__.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/autogen_runner.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/autogen_runner.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/crewai_runner.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/crewai_runner.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/langgraph_runner.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/langgraph_runner.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/llamaindex_runner.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/llamaindex_runner.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/semantic_kernel_runner.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/frameworks/semantic_kernel_runner.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/live_groq.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/live_groq.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/registry.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/registry.py'), 'Temp/p01-framework-check-120y6lm0/src/supportops_agents/synthetic_dispatch.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/src/supportops_agents/synthetic_dispatch.py'), 'Temp/p01-framework-check-120y6lm0/scripts/campaign_ledger.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/scripts/campaign_ledger.py'), 'Temp/p01-framework-check-120y6lm0/scripts/run_live_campaign.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/scripts/run_live_campaign.py'), 'Temp/p01-framework-check-120y6lm0/scripts/run_live_groq_eval.py': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/scripts/run_live_groq_eval.py'), 'Temp/p01-framework-check-120y6lm0/agent/prompts/live-core.md': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/agent/prompts/live-core.md'), 'Temp/p01-framework-check-120y6lm0/evals/live-execution.json': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/evals/live-execution.json'), 'Temp/p01-framework-check-120y6lm0/evals/live-campaign.json': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/evals/live-campaign.json'), 'Temp/p01-framework-check-120y6lm0/evals/datasets/live-v1/cases.jsonl': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/evals/datasets/live-v1/cases.jsonl'), 'Temp/p01-framework-check-120y6lm0/evals/datasets/live-v1/manifest.json': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/evals/datasets/live-v1/manifest.json'), 'Temp/p01-framework-check-120y6lm0/evals/rubrics/live-v1/rubric.md': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/evals/rubrics/live-v1/rubric.md'), 'Temp/p01-framework-check-120y6lm0/pyproject.toml': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/pyproject.toml'), 'Temp/p01-framework-check-120y6lm0/uv.lock': WindowsPath('C:/Users/dvsdi/AppData/Local/Temp/p01-framework-check-120y6lm0/uv.lock'), 'scripts/harness/live_free_account.py': WindowsPath('C:/Users/dvsdi/AppData/Local/scripts/harness/live_free_account.py'), 'scripts/harness/live_provider_transport.py': WindowsPath('C:/Users/dvsdi/AppData/Local/scripts/harness/live_provider_transport.py'), 'shared/policies/groq-free-campaign.json': WindowsPath('C:/Users/dvsdi/AppData/Local/shared/policies/groq-free-campaign.json')}
+
+----------------------------------------------------------------------
+Ran 150 tests in 25.769s
+
+FAILED (failures=1, skipped=1)

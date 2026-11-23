@@ -1,0 +1,4 @@
+Working directory: projects/p01
+Command: .venv/Scripts/python.exe -m unittest discover -s tests -p test_accounted_frameworks.py -v
+Exit code: 0
+Output: six tests passed in 8.568s, covering five fixture runners, classifier escalation, refusal of a live transport, ordered parallel workers and call limit, uncertain attempts without replay, and a failed LangGraph parallel worker stopping subsequent calls. Framework diagnostics reported the synthetic provider_timeout_uncertain as expected.
