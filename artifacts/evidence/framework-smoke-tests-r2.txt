@@ -1,0 +1,1 @@
+command=uv run --group frameworks --with pytest pytest tests -q; exit_code=0; result=152 passed, 65 subtests passed in 32.21s

@@ -75,8 +75,11 @@ def freeze() -> dict:
     account = SharedAccount(LAB, policy)
     if account._p01_campaigns().get(CAMPAIGN) != 20:
         raise SmokeBlocked("campaign_authorization_missing")
-    if any(row["event"] == "reserved" for row in account._history()):
+    history = account._history()
+    if any(row["event"] == "reserved" for row in history):
         raise SmokeBlocked("uncertain_attempt_requires_reconciliation")
+    if any(row["project"] == "p01" and row["campaign"] == CAMPAIGN for row in history):
+        raise SmokeBlocked("campaign_already_started_no_replay")
 
     for repository, paths in ((PROJECT, OWN), (LAB, SHARED)):
         relative = [path.relative_to(repository).as_posix() for path in paths]
@@ -96,6 +99,28 @@ def freeze() -> dict:
     directory = PROJECT / "artifacts/evals/live" / CAMPAIGN
     directory.mkdir(parents=True, exist_ok=True)
     target = directory / "manifest.json"
+    if target.exists():
+        previous = json.loads(target.read_text(encoding="utf-8"))
+        comparable = {key: value for key, value in manifest.items() if key != "frozen_at"}
+        prior_comparable = {key: value for key, value in previous.items() if key != "frozen_at"}
+        if comparable == prior_comparable:
+            return previous
+        project_ledger = PROJECT / "artifacts/evals/live/ledger.sqlite"
+        if project_ledger.exists():
+            import sqlite3
+            with sqlite3.connect(project_ledger.resolve().as_uri() + "?mode=ro", uri=True) as db:
+                if db.execute("SELECT 1 FROM events WHERE campaign_id=? LIMIT 1", (CAMPAIGN,)).fetchone():
+                    raise SmokeBlocked("campaign_already_started_no_replay")
+        usage_ledger = PROJECT / "artifacts/evals/live/provider-usage.sqlite"
+        if usage_ledger.exists():
+            import sqlite3
+            with sqlite3.connect(usage_ledger.resolve().as_uri() + "?mode=ro", uri=True) as db:
+                if db.execute("SELECT 1 FROM usage_events WHERE campaign=? LIMIT 1", (CAMPAIGN,)).fetchone():
+                    raise SmokeBlocked("campaign_already_started_no_replay")
+        backup = directory / f"manifest-pre-dispatch-{previous.get('candidate_commit', 'unknown')[:12]}.json"
+        if backup.exists():
+            raise SmokeBlocked("prior_manifest_backup_exists")
+        target.rename(backup)
     with target.open("x", encoding="utf-8", newline="\n") as stream:
         json.dump(manifest, stream, indent=2, sort_keys=True)
         stream.write("\n")
@@ -142,7 +167,9 @@ def run(max_workflows: int = 5) -> int:
     cases = candidate_cases()
     ledger = CampaignLedger(PROJECT / "artifacts/evals/live/ledger.sqlite", campaign_id=CAMPAIGN)
     out = PROJECT / "artifacts/evals/live" / CAMPAIGN
-    cap = {"requests": 20, "input_tokens": 40960, "output_tokens": 5120, "estimated_cost_usd": Decimal("0.0046080")}
+    # CampaignLedger is shared by all P01 operations; retain its original product-wide ceiling.
+    cap = {"requests": 744, "input_tokens": 1523712, "output_tokens": 190464,
+           "estimated_cost_usd": Decimal("0.1714176")}
     report = {"campaign_id": CAMPAIGN, "status": "INCOMPLETE", "max_provider_calls": 20, "trials": []}
     if ledger.reserved_trials():
         raise SmokeBlocked("campaign_already_started_no_replay")
@@ -150,8 +177,11 @@ def run(max_workflows: int = 5) -> int:
         with CampaignLease(PROJECT / "artifacts/evals/live/campaign.lock", campaign_id=CAMPAIGN):
             for item in cases:
                 case_id = item["case_id"]
-                ledger.reserve(case_id=case_id, trial=1, input_tokens=8192, output_tokens=1024,
-                               estimated_cost_usd=Decimal("0.0009216"), caps=cap, calls=4)
+                try:
+                    ledger.reserve(case_id=case_id, trial=1, input_tokens=8192, output_tokens=1024,
+                                   estimated_cost_usd=Decimal("0.0009216"), caps=cap, calls=4)
+                except CampaignBlocked:
+                    raise SmokeBlocked("project_campaign_capacity_exhausted") from None
                 receipts = []
                 try:
                     binding = WorkflowBinding(CAMPAIGN, case_id, 1)
