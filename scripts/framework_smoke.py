@@ -72,7 +72,7 @@ def freeze() -> dict:
 
     policy = json.loads((LAB / "shared/policies/groq-free-campaign.json").read_text(encoding="utf-8"))
     account = SharedAccount(LAB, policy)
-    if account._p01_campaigns().get(CAMPAIGN) != 20:
+    if account._p01_campaigns().get(CAMPAIGN) != 16:
         raise SmokeBlocked("campaign_authorization_missing")
     history = account._history()
     if any(row["event"] == "reserved" for row in history):
@@ -155,7 +155,7 @@ def run(max_workflows: int = 4) -> int:
     policy = json.loads((LAB / "shared/policies/groq-free-campaign.json").read_text(encoding="utf-8"))
     account = SharedAccount(LAB, policy)
     with machine_lease(account.lock):
-        if account._p01_campaigns().get(CAMPAIGN) != 20:
+        if account._p01_campaigns().get(CAMPAIGN) != 16:
             raise SmokeBlocked("campaign_authorization_missing")
     owner = json.loads((PROJECT / "evals/live-execution.json").read_text(encoding="utf-8"))
     allocation = owner.get("allocations", {}).get(CAMPAIGN, {})
