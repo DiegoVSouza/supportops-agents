@@ -1,0 +1,40 @@
+{
+  "campaign_id": "p01-framework-smoke-v3",
+  "max_provider_calls": 16,
+  "provider_calls": 16,
+  "status": "COMPLETE",
+  "trials": [
+    {
+      "case_id": "p01-framework-crewai",
+      "input_tokens": 1097,
+      "output_tokens": 331,
+      "provider_calls": 4,
+      "runner": "crewai",
+      "status": "ok"
+    },
+    {
+      "case_id": "p01-framework-autogen",
+      "input_tokens": 1197,
+      "output_tokens": 339,
+      "provider_calls": 4,
+      "runner": "autogen",
+      "status": "ok"
+    },
+    {
+      "case_id": "p01-framework-semantic-kernel",
+      "input_tokens": 1168,
+      "output_tokens": 347,
+      "provider_calls": 4,
+      "runner": "semantic_kernel",
+      "status": "ok"
+    },
+    {
+      "case_id": "p01-framework-llamaindex",
+      "input_tokens": 1168,
+      "output_tokens": 368,
+      "provider_calls": 4,
+      "runner": "llamaindex",
+      "status": "ok"
+    }
+  ]
+}
