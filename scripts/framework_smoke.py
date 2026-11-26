@@ -11,8 +11,8 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 LAB = PROJECT.parents[1]
-CAMPAIGN = "p01-framework-smoke-v1"
-AUTH = ".planning/llm-live-readiness/phases/067-p01-framework-smoke/AUTHORIZATION.json"
+CAMPAIGN = "p01-framework-smoke-v2"
+AUTH = ".planning/llm-live-readiness/phases/068-p01-framework-smoke-recovery/AUTHORIZATION.json"
 CASE_IDS = [
     "p01-framework-langgraph",
     "p01-framework-crewai",
@@ -60,7 +60,7 @@ def candidate_cases() -> list[dict[str, str]]:
 
 
 def source_paths() -> dict[str, Path]:
-    paths = {"p01/" + path.relative_to(PROJECT).as_posix(): path for path in OWN}
+    paths = {"projects/p01/" + path.relative_to(PROJECT).as_posix(): path for path in OWN}
     paths.update({path.relative_to(LAB).as_posix(): path for path in SHARED})
     return paths
 
@@ -170,6 +170,11 @@ def run(max_workflows: int = 5) -> int:
     # CampaignLedger is shared by all P01 operations; retain its original product-wide ceiling.
     cap = {"requests": 744, "input_tokens": 1523712, "output_tokens": 190464,
            "estimated_cost_usd": Decimal("0.1714176")}
+    totals = ledger.totals()
+    planned = {"requests": 20, "input_tokens": 40960, "output_tokens": 5120,
+               "estimated_cost_usd": Decimal("0.0046080")}
+    if any(totals[field] + planned[field] > cap[field] for field in cap):
+        raise SmokeBlocked("project_campaign_capacity_insufficient")
     report = {"campaign_id": CAMPAIGN, "status": "INCOMPLETE", "max_provider_calls": 20, "trials": []}
     if ledger.reserved_trials():
         raise SmokeBlocked("campaign_already_started_no_replay")

@@ -518,9 +518,9 @@ class SubprocessGuard:
                     "shared/policies/groq-free-campaign.json",
                 )
             ]
-            if self.binding.campaign_id == "p01-framework-smoke-v1":
+            if self.binding.campaign_id == "p01-framework-smoke-v2":
                 own.append(self.project / "scripts/framework_smoke.py")
-                shared.append(root / ".planning/llm-live-readiness/phases/067-p01-framework-smoke/AUTHORIZATION.json")
+                shared.append(root / ".planning/llm-live-readiness/phases/068-p01-framework-smoke-recovery/AUTHORIZATION.json")
             expected = {path.relative_to(root).as_posix(): path for path in own + shared}
             if set(manifest["files_sha256"]) != set(expected):
                 raise ValueError

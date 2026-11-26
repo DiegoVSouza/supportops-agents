@@ -67,7 +67,7 @@ def run_fixture(name: str, case: dict[str, Any], transport: Any, workdir: Path):
 
 def run_live(name: str, case: dict[str, Any], project: Path, binding: WorkflowBinding):
     """Execute one framework workflow only through the sealed P01 subprocess guard."""
-    if name not in RUNNER_NAMES[1:] or binding.campaign_id != "p01-framework-smoke-v1":
+    if name not in RUNNER_NAMES[1:] or binding.campaign_id != "p01-framework-smoke-v2":
         raise ValueError("framework smoke binding required")
     guard = SubprocessGuard(binding, project=project)
     client = AccountedCoreClient(guard, binding, project=project)
