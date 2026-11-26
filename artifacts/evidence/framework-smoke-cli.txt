@@ -1,0 +1,1 @@
+command=uv run --group frameworks python scripts/framework_smoke.py --help; exit_code=0

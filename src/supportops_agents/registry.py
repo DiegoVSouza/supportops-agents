@@ -12,12 +12,12 @@ class RunnerUnavailable(RuntimeError):
     pass
 
 
-def get_runner(name: str):
+def get_runner(name: str, *, allow_live: bool = False):
     if name not in RUNNER_NAMES:
         raise ValueError(f"unknown runner {name!r}; choose from {', '.join(RUNNER_NAMES)}")
     if name == "core":
         return CoreTriageRunner()
-    if os.getenv("LLM_MODE", "fake").strip().lower() not in {"fake", "replay"}:
+    if os.getenv("LLM_MODE", "fake").strip().lower() not in {"fake", "replay"} and not allow_live:
         raise RunnerUnavailable(f"{name} is offline-only; no live framework allocation exists")
     # Confirmed against the installed CrewAI/CoreTelemetry implementation.
     # Set before imports so offline comparisons never initialize its exporters.
