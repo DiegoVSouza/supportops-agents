@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 
 from scripts.campaign_execution import OracleTransport
-from supportops_agents.accounted_frameworks import _OrderedFixtureClient, run_fixture, run_live
+from supportops_agents.accounted_frameworks import _OrderedFixtureClient, run_fixture, run_live, valid_live_receipts
 from supportops_agents.accounted_live import AccountedCoreClient, BoundaryError, WorkflowBinding
 from supportops_agents.registry import RUNNER_NAMES
 
@@ -18,6 +18,11 @@ ESCALATION = next(case for case in CASES if case["case_id"] == "p01-live-037")
 
 
 class AccountedFrameworkTests(unittest.TestCase):
+    def test_safe_live_receipt_validator_accepts_diagnostic_shape_without_status(self):
+        receipt = {"attempt_id": "a" * 32, "reason": "OTHER", "usage": {"input_tokens": 10, "output_tokens": 4}}
+        self.assertTrue(valid_live_receipts([receipt]))
+        self.assertFalse(valid_live_receipts([{**receipt, "reason": "rate_limit"}]))
+
     def test_live_adapter_rejects_campaign_ids_outside_the_frozen_smoke(self):
         with self.assertRaisesRegex(ValueError, "framework smoke binding required"):
             run_live("crewai", CASE, Path("."), WorkflowBinding("p01-dev-v1", CASE["case_id"], 1))

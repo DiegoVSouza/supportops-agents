@@ -67,7 +67,7 @@ def run_fixture(name: str, case: dict[str, Any], transport: Any, workdir: Path):
 
 def run_live(name: str, case: dict[str, Any], project: Path, binding: WorkflowBinding):
     """Execute one framework workflow only through the sealed P01 subprocess guard."""
-    if name not in RUNNER_NAMES[1:] or binding.campaign_id != "p01-framework-smoke-v2":
+    if name not in RUNNER_NAMES[1:] or binding.campaign_id != "p01-framework-smoke-v3":
         raise ValueError("framework smoke binding required")
     guard = SubprocessGuard(binding, project=project)
     client = AccountedCoreClient(guard, binding, project=project)
@@ -82,3 +82,15 @@ def run_live(name: str, case: dict[str, Any], project: Path, binding: WorkflowBi
         return result, list(client.receipts)
     finally:
         client.close()
+
+
+def valid_live_receipts(receipts: list[dict[str, Any]]) -> bool:
+    """Success in the safe receipt shape is a valid attempt ID with no diagnostic reason."""
+    return bool(receipts) and all(
+        isinstance(receipt, dict)
+        and isinstance(receipt.get("attempt_id"), str)
+        and len(receipt["attempt_id"]) == 32
+        and receipt.get("reason") == "OTHER"
+        and isinstance(receipt.get("usage"), dict)
+        for receipt in receipts
+    )

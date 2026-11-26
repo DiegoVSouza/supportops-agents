@@ -11,16 +11,15 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 LAB = PROJECT.parents[1]
-CAMPAIGN = "p01-framework-smoke-v2"
-AUTH = ".planning/llm-live-readiness/phases/068-p01-framework-smoke-recovery/AUTHORIZATION.json"
+CAMPAIGN = "p01-framework-smoke-v3"
+AUTH = ".planning/llm-live-readiness/phases/069-p01-framework-smoke-completion/AUTHORIZATION.json"
 CASE_IDS = [
-    "p01-framework-langgraph",
     "p01-framework-crewai",
     "p01-framework-autogen",
     "p01-framework-semantic-kernel",
     "p01-framework-llamaindex",
 ]
-RUNNERS = ["langgraph", "crewai", "autogen", "semantic_kernel", "llamaindex"]
+RUNNERS = ["crewai", "autogen", "semantic_kernel", "llamaindex"]
 OWN = [p for p in (PROJECT / "src/supportops_agents").rglob("*.py")]
 OWN += [PROJECT / name for name in (
     "scripts/campaign_ledger.py", "scripts/run_live_campaign.py", "scripts/run_live_groq_eval.py",
@@ -141,7 +140,7 @@ def validate_manifest() -> None:
         raise SmokeBlocked("manifest_mismatch")
 
 
-def run(max_workflows: int = 5) -> int:
+def run(max_workflows: int = 4) -> int:
     import os
     for path in (PROJECT, PROJECT / "src", LAB / "scripts/harness"):
         if str(path) not in sys.path:
@@ -151,7 +150,7 @@ def run(max_workflows: int = 5) -> int:
     from supportops_agents.accounted_frameworks import run_live
     from live_free_account import AccountBlocked, SharedAccount, machine_lease
 
-    if max_workflows != 5 or os.getenv("LLM_MODE") != "live":
+    if max_workflows != len(RUNNERS) or os.getenv("LLM_MODE") != "live":
         raise SmokeBlocked("explicit_live_mode_or_fixed_scope_required")
     policy = json.loads((LAB / "shared/policies/groq-free-campaign.json").read_text(encoding="utf-8"))
     account = SharedAccount(LAB, policy)
@@ -161,7 +160,7 @@ def run(max_workflows: int = 5) -> int:
     owner = json.loads((PROJECT / "evals/live-execution.json").read_text(encoding="utf-8"))
     allocation = owner.get("allocations", {}).get(CAMPAIGN, {})
     if (CAMPAIGN not in owner.get("approved_campaigns", []) or allocation.get("stage") != "development"
-            or allocation.get("case_ids") != CASE_IDS or allocation.get("max_trials") != 5):
+            or allocation.get("case_ids") != CASE_IDS or allocation.get("max_trials") != len(RUNNERS)):
         raise SmokeBlocked("owner_allocation_mismatch")
     validate_manifest()
     cases = candidate_cases()
@@ -171,11 +170,13 @@ def run(max_workflows: int = 5) -> int:
     cap = {"requests": 744, "input_tokens": 1523712, "output_tokens": 190464,
            "estimated_cost_usd": Decimal("0.1714176")}
     totals = ledger.totals()
-    planned = {"requests": 20, "input_tokens": 40960, "output_tokens": 5120,
-               "estimated_cost_usd": Decimal("0.0046080")}
+    planned_calls = len(RUNNERS) * 4
+    planned = {"requests": planned_calls, "input_tokens": planned_calls * 2048,
+               "output_tokens": planned_calls * 256,
+               "estimated_cost_usd": planned_calls * Decimal("0.0002304")}
     if any(totals[field] + planned[field] > cap[field] for field in cap):
         raise SmokeBlocked("project_campaign_capacity_insufficient")
-    report = {"campaign_id": CAMPAIGN, "status": "INCOMPLETE", "max_provider_calls": 20, "trials": []}
+    report = {"campaign_id": CAMPAIGN, "status": "INCOMPLETE", "max_provider_calls": planned_calls, "trials": []}
     if ledger.reserved_trials():
         raise SmokeBlocked("campaign_already_started_no_replay")
     try:
@@ -191,7 +192,8 @@ def run(max_workflows: int = 5) -> int:
                 try:
                     binding = WorkflowBinding(CAMPAIGN, case_id, 1)
                     _result, receipts = run_live(item["runner"], item, PROJECT, binding)
-                    if not receipts or any(receipt.get("status") != "ok" for receipt in receipts):
+                    from supportops_agents.accounted_frameworks import valid_live_receipts
+                    if not valid_live_receipts(receipts):
                         raise SmokeBlocked("workflow_receipt_incomplete")
                     usage = [receipt["usage"] for receipt in receipts if isinstance(receipt.get("usage"), dict)]
                     input_tokens = sum(row["input_tokens"] for row in usage)
@@ -217,7 +219,7 @@ def run(max_workflows: int = 5) -> int:
                     break
     finally:
         report["provider_calls"] = sum(row.get("provider_calls", 0) for row in report["trials"])
-        report["status"] = "COMPLETE" if len(report["trials"]) == 5 and all(row["status"] == "ok" for row in report["trials"]) else "INCOMPLETE"
+        report["status"] = "COMPLETE" if len(report["trials"]) == len(RUNNERS) and all(row["status"] == "ok" for row in report["trials"]) else "INCOMPLETE"
         (out / "framework-smoke-report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(report, sort_keys=True))
     return 0 if report["status"] == "COMPLETE" else 2

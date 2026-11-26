@@ -13,7 +13,8 @@
     "local-reviewed-operation-027-v1",
     "p01-dev-v1",
     "p01-framework-smoke-v1",
-    "p01-framework-smoke-v2"
+    "p01-framework-smoke-v2",
+    "p01-framework-smoke-v3"
   ],
   "allocations": {
     "local-operation-v1": {
@@ -105,6 +106,17 @@
       ],
       "trials_per_case": 1,
       "max_trials": 5
+    },
+    "p01-framework-smoke-v3": {
+      "stage": "development",
+      "case_ids": [
+        "p01-framework-crewai",
+        "p01-framework-autogen",
+        "p01-framework-semantic-kernel",
+        "p01-framework-llamaindex"
+      ],
+      "trials_per_case": 1,
+      "max_trials": 4
     }
   },
   "campaign_allocation_status": "OPERATION_AND_DEVELOPMENT_ONLY",
